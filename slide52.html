@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <title>Porto Bank - Sumário</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        /* Top section layout */
+        .top-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* Left side - Porto Seguro */
+        .porto-seguro-section {
+            background: white;
+            border: 4px solid #0066cc;
+            border-radius: 8px;
+            padding: 0;
+            position: relative;
+        }
+
+        .section-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 2px solid #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .section-content {
+            padding: 0;
+        }
+
+        .content-block {
+            background: #f8f9fa;
+            border: 3px solid #333;
+            margin: 15px;
+            padding: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .content-block.transformacao {
+            background: #333;
+            color: white;
+        }
+
+        .transformacao-text {
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        .content-block.crescimento {
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .crescimento-text {
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        .content-block.base-solida {
+            background: #f8f9fa;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .base-text {
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        /* Right side - Porto Bank */
+        .porto-bank-section {
+            background: white;
+            border: 4px solid #333;
+            border-radius: 8px;
+            padding: 0;
+        }
+
+        .bank-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 15px;
+            height: 280px;
+        }
+
+        .bank-item {
+            border: 3px solid #333;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .bank-item.clientes {
+            background: #333;
+            color: white;
+        }
+
+        .clientes-text {
+            font-size: 11px;
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
+        .bank-item.receita {
+            background: white;
+            color: #333;
+            border-radius: 20px;
+            border-width: 4px;
+        }
+
+        .receita-text {
+            font-size: 11px;
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
+        .bank-item.ativos {
+            background: #333;
+            color: white;
+        }
+
+        .ativos-text {
+            font-size: 11px;
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
+        .bank-item.top15 {
+            background: white;
+            color: #333;
+        }
+
+        .top15-text {
+            font-size: 11px;
+            margin-top: 5px;
+            line-height: 1.2;
+        }
+
+        .bank-item.meta2025 {
+            background: #0066cc;
+            color: white;
+            grid-column: 1 / -1;
+        }
+
+        /* Characteristics section */
+        .characteristics-section {
+            background: white;
+            border: 4px solid #333;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .characteristics-content {
+            padding: 25px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Timeline section */
+        .timeline-section {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .timeline {
+            position: relative;
+            height: 100px;
+            margin: 40px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background: #333;
+            transform: translateY(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .timeline-points {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 50px;
+            height: 100%;
+        }
+
+        .timeline-point {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid #333;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-point:hover .timeline-dot {
+            transform: scale(1.4);
+            background: #0066cc;
+            border-color: #0066cc;
+        }
+
+        .timeline-tooltip {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 280px;
+            max-width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .timeline-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 8px solid transparent;
+            border-top-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .timeline-point:hover .timeline-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 50px;
+        }
+
+        .tooltip-year {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 8px;
+        }
+
+        .tooltip-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .tooltip-description {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .tooltip-list {
+            list-style: none;
+            font-size: 11px;
+        }
+
+        .tooltip-list li {
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 12px;
+        }
+
+        .tooltip-list li::before {
+            content: "•";
+            color: #0066cc;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline-arrow {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .top-section {
+                grid-template-columns: 1fr;
+            }
+
+            .bank-grid {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .timeline-points {
+                flex-direction: column;
+                gap: 30px;
+                padding: 20px;
+            }
+
+            .timeline-line {
+                left: 50%;
+                right: auto;
+                width: 3px;
+                height: 100%;
+                top: 0;
+                transform: translateX(-50%);
+            }
+
+            .timeline-tooltip {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 15px;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .timeline-tooltip::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Porto Bank sumário</h1>
+
+        <!-- Top Section -->
+        <div class="top-section">
+            <!-- Left - Porto Seguro -->
+            <div class="porto-seguro-section">
+                <div class="section-header">Porto seguro</div>
+                <div class="section-content">
+                    <div class="content-block transformacao">
+                        <strong>TRANSFORMAÇÃO BEM SUCEDIDA</strong>
+                        <div class="transformacao-text">Evolução da seguradora tradicional para ecossistema financeiro diversificado em 20 anos de história.</div>
+                    </div>
+                    <div class="content-block crescimento">
+                        <strong>CRESCIMENTO ACELERADO</strong>
+                        <div class="crescimento-text">Serviços financeiros cresceram de 1,63% (2021) para >20% da receita total (2024).</div>
+                    </div>
+                    <div class="content-block base-solida">
+                        <strong>BASE SÓLIDA</strong>
+                        <div class="base-text">15,8 milhões de clientes e marca consolidada em 70+ anos no mercado brasileiro.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right - Porto Bank -->
+            <div class="porto-bank-section">
+                <div class="section-header">Porto Bank</div>
+                <div class="bank-grid">
+                    <div class="bank-item clientes">
+                        <div>
+                            <strong>3,5M</strong>
+                            <div class="clientes-text">De Clientes na Estreia</div>
+                        </div>
+                    </div>
+                    <div class="bank-item receita">
+                        <div>
+                            <strong>5,6B</strong>
+                            <div class="receita-text">Receita Anual 2024</div>
+                        </div>
+                    </div>
+                    <div class="bank-item ativos">
+                        <div>
+                            <strong>13B</strong>
+                            <div class="ativos-text">Ativos de Crédito</div>
+                        </div>
+                    </div>
+                    <div class="bank-item top15">
+                        <div>
+                            <strong>Top 15</strong>
+                            <div class="top15-text">Bancos Digitais</div>
+                        </div>
+                    </div>
+                    <div class="bank-item meta2025">Meta 2025 Superada: Serviços financeiros >10% da receita</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Characteristics Section -->
+        <div class="characteristics-section">
+            <div class="section-header">características chave</div>
+            <div class="characteristics-content">
+                Abordagem gradual • Aproveitamento de ativos • Inovação contínua • Diversificação cautelosa
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="timeline-section">
+            <div class="timeline-title">linha do tempo</div>
+            
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-arrow">→</div>
+                
+                <div class="timeline-points">
+                    <div class="timeline-point">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-tooltip">
+                            <div class="tooltip-year">2000-2014</div>
+                            <div class="tooltip-title">Início dos serviços financeiros</div>
+                            <div class="tooltip-description">Primeiros movimentos de diversificação para serviços financeiros</div>
+                            <ul class="tooltip-list">
+                                <li>Previdência privada</li>
+                                <li>Parcerias bancárias</li>
+                                <li>Porto Seguro Investimentos (interna)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-point">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-tooltip">
+                            <div class="tooltip-year">2014</div>
+                            <div class="tooltip-title">Expansão</div>
+                            <div class="tooltip-description">Gestora aberta ao público</div>
+                            <ul class="tooltip-list">
+                                <li>Especialização em renda fixa</li>
+                                <li>Base para expansão futura</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-point">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-tooltip">
+                            <div class="tooltip-year">2020-2022</div>
+                            <div class="tooltip-title">Aceleração</div>
+                            <div class="tooltip-description">Aquisições estratégicas e inovação</div>
+                            <ul class="tooltip-list">
+                                <li>ConectCar, Atar, Tech4Humans</li>
+                                <li>Produtos inovadores</li>
+                                <li>Preparação tecnológica</li>
+                                <li><strong>2022: Lançamento Oficial Porto Bank</strong></li>
+                                <li>Rebranding e estruturação Holding</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-point">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-tooltip">
+                            <div class="tooltip-year">2024-2025</div>
+                            <div class="tooltip-title">Consolidação</div>
+                            <div class="tooltip-description">Crescimento acelerado e liderança</div>
+                            <ul class="tooltip-list">
+                                <li>+23,5% crescimento</li>
+                                <li>>20% participação</li>
+                                <li>R$ 5,6B receita</li>
+                                <li>Meta 2025 superada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="navigation">
+        <a href="slide13.html" class="nav-btn">← Anterior</a>
+        <div class="slide-counter">14 / 63</div>
+        <a href="slide15.html" class="nav-btn">Próximo →</a>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+</body>
+</html>

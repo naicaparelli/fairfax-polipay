@@ -44,15 +44,14 @@
         }
 
         .case-card {
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 16px;
-            padding: 0;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 212, 170, 0.2);
-            min-height: 200px;
+        background: rgba(0, 0, 0, 0.4);
+        border-radius: 16px;
+        padding: 0;
+        position: relative;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 212, 170, 0.2);
+        min-height: 200px;
         }
 
         .case-card:hover {
@@ -62,10 +61,9 @@
         }
 
         .case-header {
-            background: linear-gradient(90deg, #00d4aa, #00b894);
-            height: 6px;
-            width: 100%;
-            position: relative;
+        background: linear-gradient(90deg, #00d4aa, #00b894);
+        height: 6px;   
+        position: relative;
         }
 
         .case-icon {

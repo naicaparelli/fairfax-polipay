@@ -1,6 +1,6 @@
 /* Slide 1 - Capa */
 body {
-    background-image: url('/assets/images/cover.jpg');
+    background-image: url('../images/cover.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,6 +10,17 @@ body {
     align-items: center;
     padding: 40px;
     position: relative;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* ajuste a opacidade */
+  z-index: 1;
 }
 
 body::before {
@@ -46,6 +57,7 @@ body::before {
 
 .hero-title {
     font-size: 2rem;
+    color: aliceblue;
     font-weight: 300;
     margin-bottom: 2rem;
     line-height: 1.2;
@@ -217,9 +229,10 @@ body::before {
 
 /* Navegação específica do slide 1 */
 .navigation {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* Animações específicas */

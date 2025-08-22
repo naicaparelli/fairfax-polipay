@@ -17,22 +17,33 @@ body {
 }
 
 .content-left {
-    padding-right: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: start;
-
+  display: flex;
+  flex-direction: column;
+  height: 100vh;          /* ocupa a coluna inteira */
+  padding: 60px;
 }
 
 .fairfax-title {
-    font-size: 3.5rem;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    color: white;
-    line-height: 1.2;
-    text-align: start;
+  font-size: 3.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  color: white;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.fairfax-list {
+  flex: 1;                         /* ocupa o espaço restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;          /* centraliza vertical */
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.6;
+  list-style-position: inside;
+  margin: 0;
+  padding-left: 0;
 }
 
 .fairfax-subtitle {
@@ -52,7 +63,7 @@ body {
 .image-placeholder {
   width: 100%;
   height: 100%;
-  background-image: url('../images/slide2.jpg');
+  background-image: url('../images/slide3.jpg');
   background-size: cover;      /* cobre todo o espaço */
   background-position: center; /* centraliza a imagem */
 }

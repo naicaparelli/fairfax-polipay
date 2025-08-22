@@ -52,7 +52,7 @@ body::before {
 }
 
 .images {
-    background-image: url('./images/slide5.jpg');
+    background-image: url('../images/slide5.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
