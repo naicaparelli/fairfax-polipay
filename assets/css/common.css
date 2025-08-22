@@ -1,0 +1,129 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+}
+
+/* Logo PoliPay */
+.polipay-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #e74c3c; }
+.dot.yellow { background: #f39c12; }
+.dot.blue { background: #3498db; }
+.dot.green { background: #4ecdc4; }
+
+.logo-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Navegação */
+.navigation {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.nav-btn {
+    background: rgba(44, 62, 80, 0.9);
+    border: 2px solid #4ecdc4;
+    color: #4ecdc4;
+    padding: 15px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: #4ecdc4;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.slide-counter {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    background: rgba(44, 62, 80, 0.9);
+    padding: 15px 20px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+}
+
+/* Logo Position - Padrão */
+.logo-position {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 10;
+}
+
+/* Animações Globais */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive Global */
+@media (max-width: 768px) {
+    .logo-position { 
+        position: relative; 
+        top: auto; 
+        right: auto; 
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .navigation { 
+        flex-direction: column; 
+        gap: 10px;
+        bottom: 20px;
+    }
+    
+    .nav-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}

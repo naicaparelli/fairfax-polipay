@@ -1,0 +1,265 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #00d4aa;
+            letter-spacing: 2px;
+        }
+
+        .title::before {
+            content: "//";
+            margin-right: 15px;
+            color: #00d4aa;
+        }
+
+        .diagram-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            margin-bottom: 40px;
+        }
+
+        .service-box {
+            position: absolute;
+            background: rgba(0, 212, 170, 0.1);
+            border: 2px solid #00d4aa;
+            border-radius: 12px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .service-box:hover {
+            background: rgba(0, 212, 170, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .service-title {
+            color: #00d4aa;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-subtitle {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .service-list {
+            list-style: none;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .service-list li {
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .service-list li::before {
+            content: "•";
+            color: #00d4aa;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Positioning for each service box */
+        .parceria {
+            top: 350px;
+            left: 50px;
+            width: 280px;
+        }
+
+        .raas-caas-aaas {
+            top: 150px;
+            left: 350px;
+            width: 300px;
+        }
+
+        .ip-adquirente {
+            top: 200px;
+            left: 700px;
+            width: 280px;
+        }
+
+        .scd {
+            top: 100px;
+            left: 1000px;
+            width: 250px;
+        }
+
+        .banco-multiservicos {
+            top: 200px;
+            right: 50px;
+            width: 300px;
+        }
+
+        /* Connection lines */
+        .connection-line {
+            position: absolute;
+            background: #00d4aa;
+            opacity: 0.6;
+        }
+
+        .line-horizontal {
+            height: 2px;
+            top: 180px;
+            left: 300px;
+            width: 800px;
+        }
+
+        .line-vertical {
+            width: 2px;
+            top: 50px;
+            left: 700px;
+            height: 200px;
+        }
+
+        /* Icons */
+        .icon {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #00d4aa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #1a1a1a;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 212, 170, 0.4);
+        }
+
+        .icon-parceria {
+            top: 400px;
+            left: 20px;
+        }
+
+        .icon-raas {
+            top: 200px;
+            left: 320px;
+        }
+
+        .icon-ip {
+            top: 250px;
+            left: 670px;
+        }
+
+        .icon-scd {
+            top: 150px;
+            left: 970px;
+        }
+
+        .icon-banco {
+            top: 120px;
+            right: 20px;
+        }
+
+        /* Bottom sections */
+        .bottom-sections {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 100px;
+            gap: 30px;
+        }
+
+        .section {
+            flex: 1;
+            background: rgba(0, 212, 170, 0.05);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .section-title {
+            color: #00d4aa;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .section-content {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .diagram-container {
+                height: 800px;
+            }
+            
+            .service-box {
+                position: relative;
+                margin-bottom: 30px;
+                width: 100% !important;
+            }
+            
+            .icon {
+                display: none;
+            }
+            
+            .connection-line {
+                display: none;
+            }
+            
+            .bottom-sections {
+                flex-direction: column;
+            }
+        }
+
+        /* Decorative elements */
+        .plus-decoration {
+            position: absolute;
+            color: #00d4aa;
+            font-size: 24px;
+            opacity: 0.6;
+        }
+
+        .plus-1 {
+            top: 100px;
+            left: 100px;
+        }
+
+        .plus-2 {
+            top: 300px;
+            right: 200px;
+        }
+
+        .plus-3 {
+            bottom: 200px;
+            left: 200px;
+        }

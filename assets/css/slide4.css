@@ -1,0 +1,110 @@
+/* Slide 4 - O Projeto */
+body {
+    background-image: url('./images/slide4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 60px;
+}
+
+/* Overlay escuro sobre a imagem */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.8) 0%, rgba(52, 73, 94, 0.7) 50%, rgba(44, 62, 80, 0.9) 100%);
+    z-index: 1;
+}
+
+/* Seta decorativa */
+.arrow-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.arrow-icon {
+    font-size: 4rem;
+    color: #4ecdc4;
+    opacity: 0.8;
+}
+
+/* Conteúdo de texto */
+.project-content {
+    position: relative;
+    z-index: 3;
+    max-width: 600px;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.95) 0%, rgba(52, 73, 94, 0.9) 100%);
+    padding: 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(78, 205, 196, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: white;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.project-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.project-text:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: #4ecdc4;
+    font-weight: 600;
+}
+
+/* Animações específicas */
+.project-content {
+    animation: slideInRight 0.8s ease 0.3s both;
+}
+
+.arrow-container {
+    animation: fadeInUp 0.6s ease 0.5s both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        justify-content: center;
+        padding: 30px;
+    }
+    
+    .project-content {
+        max-width: 100%;
+        padding: 30px;
+    }
+    
+    .project-title {
+        font-size: 2.5rem;
+    }
+    
+    .project-text {
+        font-size: 1.1rem;
+    }
+    
+    .arrow-container {
+        display: none;
+    }
+}

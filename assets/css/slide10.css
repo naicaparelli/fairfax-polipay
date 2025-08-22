@@ -1,0 +1,246 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #00d4aa;
+            letter-spacing: 2px;
+        }
+
+        .title::before {
+            content: "//";
+            margin-right: 15px;
+            color: #00d4aa;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .case-card {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 16px;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 170, 0.2);
+            min-height: 200px;
+        }
+
+        .case-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
+            border-color: rgba(0, 212, 170, 0.4);
+        }
+
+        .case-header {
+            background: linear-gradient(90deg, #00d4aa, #00b894);
+            height: 6px;
+            width: 100%;
+            position: relative;
+        }
+
+        .case-icon {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: #00d4aa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #1a1a1a;
+            border: 4px solid #1a1a1a;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4);
+        }
+
+        .case-content {
+            padding: 40px 30px 30px;
+        }
+
+        .case-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .case-description {
+            font-size: 16px;
+            color: #cccccc;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .case-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-placeholder {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Individual logo styles */
+        .magalu-logo {
+            background: #0066cc;
+            color: white;
+        }
+
+        .mercado-pago-logo {
+            background: #ffdf00;
+            color: #000;
+        }
+
+        .porto-logo {
+            background: #003366;
+            color: white;
+            border: 2px solid #00ccff;
+        }
+
+        .stone-logo {
+            background: #00c851;
+            color: white;
+        }
+
+        /* Icon styles */
+        .icon-shopping::before {
+            content: "🛒";
+        }
+
+        .icon-payment::before {
+            content: "💳";
+        }
+
+        .icon-bank::before {
+            content: "🏛️";
+        }
+
+        .icon-pos::before {
+            content: "📱";
+        }
+
+        /* Animations */
+        .case-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .case-card:nth-child(1) { animation-delay: 0.2s; }
+        .case-card:nth-child(2) { animation-delay: 0.4s; }
+        .case-card:nth-child(3) { animation-delay: 0.6s; }
+        .case-card:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .cases-grid {
+                grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 36px;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .case-card {
+                min-height: 180px;
+            }
+
+            .case-content {
+                padding: 35px 25px 25px;
+            }
+
+            .case-title {
+                font-size: 24px;
+            }
+
+            .case-description {
+                font-size: 14px;
+            }
+
+            .case-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                top: -12px;
+            }
+        }
+
+        /* Highlight effect */
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .case-card:hover::before {
+            left: 100%;
+        }
+ 

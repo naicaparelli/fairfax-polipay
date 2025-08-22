@@ -1,0 +1,241 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #2a2a2a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(135deg, rgba(42, 42, 42, 0.8), rgba(0, 0, 0, 0.6)), 
+                        url('/assets/images/slide9.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(42, 42, 42, 0.9), rgba(0, 0, 0, 0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            max-width: 1200px;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        .main-title {
+            font-size: 56px;
+            font-weight: 300;
+            color: #00d4aa;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .main-title::before {
+            content: "//";
+            margin-right: 15px;
+            color: #00d4aa;
+        }
+
+        .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            color: #ffffff;
+            max-width: 800px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .content-section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            border-radius: 0;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+            transform: skew(-10deg);
+            transition: all 0.4s ease;
+            height: 180px;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .feature-card:hover {
+            transform: skew(-10deg) translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.4);
+        }
+
+        .feature-content {
+            transform: skew(10deg);
+            padding: 40px 35px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .feature-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 24px;
+            opacity: 0.8;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-description {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-card {
+            opacity: 0;
+            animation: slideInUp 0.8s ease forwards;
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+        .feature-card:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: skew(-10deg) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: skew(-10deg) translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-card {
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+                min-height: 350px;
+            }
+
+            .hero-content {
+                padding: 0 20px;
+                text-align: center;
+            }
+
+            .main-title {
+                font-size: 40px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .content-section {
+                padding: 60px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .feature-card {
+                transform: skew(-5deg);
+                height: 160px;
+            }
+
+            .feature-card:hover {
+                transform: skew(-5deg) translateY(-5px);
+            }
+
+            .feature-content {
+                transform: skew(5deg);
+                padding: 30px 25px;
+            }
+
+            .feature-title {
+                font-size: 18px;
+            }
+
+            .feature-description {
+                font-size: 14px;
+            }
+        }
+
+        /* Image placeholder styling */
+        .image-placeholder {
+            background-image: ('/assets/images/slide9.jpg');
+        }
+
+        @media (max-width: 768px) {
+            .image-placeholder {
+                display: none;
+            }
+        }
