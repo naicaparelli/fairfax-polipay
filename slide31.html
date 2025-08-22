@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PoliPay – Ecossistema</title>
+<link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/slide31.css" />
+</head>
+<body>
+  <main class="page">
+    <!-- Painel esquerdo -->
+    <section class="left">
+      <div class="arrow" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M8 32h40M36 16l16 16-16 16" fill="none" stroke="#35b79c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="lede">
+        Os segurados, corretores e operadoras são <strong>as peças‑chave desse ecossistema</strong> e serão o foco da estratégia da <span class="brand">PoliPay</span>.
+      </p>
+    </section>
+
+    <!-- Painel direito -->
+    <section class="right">
+      <!-- Donut -->
+      <figure class="donut-wrap">
+        <svg class="donut" viewBox="0 0 400 400" role="img" aria-label="Ecossistema PoliPay">
+          <!-- base (anel cinza claro) -->
+          <circle cx="200" cy="200" r="170" fill="#eef0f1"/>
+          <!-- slices -->
+          <g class="slice slice--segurado" data-key="segurado">
+            <path d="M200,200 L200,30 A170,170 0 0,1 370,200 Z" fill="#f2b705"/>
+            <text x="245" y="155" class="slice-label">Segurado</text>
+          </g>
+          <g class="slice slice--corretor" data-key="corretor">
+            <path d="M200,200 L370,200 A170,170 0 0,1 200,370 Z" fill="#ef867e"/>
+            <text x="290" y="245" class="slice-label">Corretor</text>
+          </g>
+          <g class="slice slice--seguradora" data-key="seguradora">
+            <path d="M200,200 L200,370 A170,170 0 0,1 30,200 Z" fill="#3fb49e"/>
+            <text x="125" y="300" class="slice-label">Seguradora</text>
+          </g>
+          <!-- círculo central -->
+          <circle cx="200" cy="200" r="115" fill="#fff" stroke="#d9dee2" stroke-width="6"/>
+          <g class="center-logo" aria-hidden="true">
+            <circle cx="165" cy="190" r="7" fill="#ff6b6b"/>
+            <circle cx="180" cy="190" r="7" fill="#4ecdc4"/>
+            <circle cx="165" cy="205" r="7" fill="#45b7d1"/>
+            <circle cx="180" cy="205" r="7" fill="#f9ca24"/>
+            <text x="198" y="202" class="brandword">PoliPay</text>
+          </g>
+        </svg>
+
+        <!-- Badges ao redor -->
+        <ul class="badges">
+          <li class="badge b--top-left"     data-key="segurado">💱 <span>Cashback</span></li>
+          <li class="badge b--top"          data-key="segurado">🏦 <span>Consórcio</span></li>
+          <li class="badge b--left"         data-key="segurado">✅ <span>Fidelização</span></li>
+
+          <li class="badge b--top-right"    data-key="corretor">🧠 <span>Gestão</span></li>
+          <li class="badge b--right-top"    data-key="corretor">💸 <span>Antecipação</span></li>
+          <li class="badge b--right"        data-key="corretor">🎁 <span>Benefícios</span></li>
+          <li class="badge b--right-bottom" data-key="corretor">⚙️ <span>Automação</span></li>
+
+          <li class="badge b--bottom"       data-key="seguradora">📄 <span>Relatórios</span></li>
+          <li class="badge b--bottom-left"  data-key="seguradora">📊 <span>Gestão</span></li>
+          <li class="badge b--left-bottom"  data-key="seguradora">📈 <span>Rentabilização</span></li>
+        </ul>
+      </figure>
+    </section>
+  </main>
+    <div class="navigation">
+        <a href="slide30.html" class="nav-btn">← Anterior</a>
+        <div class="slide-counter">31 / 63</div>
+        <a href="slide32.html" class="nav-btn">Próximo →</a>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/polipay-ecosystem.js"></script>
+</body>
+</html>
