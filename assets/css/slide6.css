@@ -239,47 +239,6 @@
             text-align: center;
         }
 
-        /* Cloud icons */
-        .cloud-icon {
-            position: absolute;
-            width: 30px;
-            height: 20px;
-            background: transparent;
-            border: 2px solid #666;
-            border-radius: 20px;
-            z-index: 10;
-        }
-
-        .cloud-icon::before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: transparent;
-            border: 2px solid #666;
-            border-radius: 50%;
-            top: -8px;
-            left: 5px;
-        }
-
-        .cloud-icon::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: transparent;
-            border: 2px solid #666;
-            border-radius: 50%;
-            top: -6px;
-            right: 3px;
-        }
-
-        .cloud-1 { top: -15px; left: 80px; }
-        .cloud-2 { top: -15px; left: 300px; }
-        .cloud-3 { top: -15px; left: 520px; }
-        .cloud-4 { top: -15px; left: 720px; }
-        .cloud-5 { top: -15px; left: 950px; }
-
         /* Responsive design */
         @media (max-width: 1200px) {
             .diagram-wrapper {
