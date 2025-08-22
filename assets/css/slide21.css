@@ -1,4 +1,4 @@
- * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -36,29 +36,39 @@
             color: #00d4aa;
         }
 
-        .subtitle {
-            font-size: 20px;
-            color: #cccccc;
-            font-weight: 400;
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 30px;
         }
 
         /* Table styling */
         .table-container {
             background: rgba(0, 0, 0, 0.3);
             border-radius: 15px;
-            overflow: hidden;
+            overflow-x: auto;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 212, 170, 0.2);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             font-size: 14px;
+            min-width: 800px;
         }
 
         /* Header row */
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
         thead tr {
             background: linear-gradient(135deg, #00d4aa, #00b894);
         }
@@ -77,6 +87,11 @@
             background: rgba(0, 0, 0, 0.4);
             color: #00d4aa;
             font-size: 16px;
+            min-width: 250px;
+            max-width: 250px;
+            position: sticky;
+            left: 0;
+            z-index: 11;
         }
 
         th:last-child {
@@ -84,13 +99,6 @@
         }
 
         /* Company logos in header */
-        .company-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
         .company-logo {
             width: 120px;
             height: 40px;
@@ -102,6 +110,7 @@
             font-weight: bold;
             font-size: 12px;
             color: #333;
+            margin: 0 auto;
         }
 
         .logo-pagseguro {
@@ -135,18 +144,43 @@
         }
 
         td {
-            padding: 20px 15px;
+            padding: 15px;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
-            vertical-align: top;
-            line-height: 1.5;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        td:first-child {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            color: #e0e0e0;
+            font-weight: 500;
+            position: sticky;
+            left: 0;
+            z-index: 5;
+            border-right: 2px solid rgba(0, 212, 170, 0.3);
         }
 
         td:last-child {
             border-right: none;
         }
 
-        /* Category cells */
-        .category-cell {
+        /* Status icons */
+        .status-icon {
+            font-size: 20px;
+            display: inline-block;
+        }
+
+        .status-yes {
+            color: #00d4aa;
+        }
+
+        .status-no {
+            color: #ff6b6b;
+        }
+
+        /* Feature categories */
+        .feature-category {
             background: rgba(0, 212, 170, 0.1);
             font-weight: bold;
             color: #00d4aa;
@@ -155,41 +189,27 @@
             border-left: 4px solid #00d4aa;
         }
 
-        /* Content cells */
-        .content-cell {
-            color: #e0e0e0;
-            font-size: 13px;
-            line-height: 1.4;
+        /* Scrollbar styling */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
 
-        /* Highlighting important text */
-        .highlight {
-            color: #00d4aa;
-            font-weight: bold;
+        .table-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
         }
 
-        .price {
-            color: #ffc107;
-            font-weight: bold;
+        .table-container::-webkit-scrollbar-thumb {
+            background: #00d4aa;
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #00b894;
         }
 
         /* Responsive design */
-        @media (max-width: 1200px) {
-            .table-container {
-                overflow-x: auto;
-            }
-
-            table {
-                min-width: 1000px;
-            }
-
-            .company-logo {
-                width: 100px;
-                height: 35px;
-                font-size: 11px;
-            }
-        }
-
         @media (max-width: 768px) {
             body {
                 padding: 20px;
@@ -199,8 +219,12 @@
                 font-size: 36px;
             }
 
+            .section-title {
+                font-size: 28px;
+            }
+
             th, td {
-                padding: 15px 10px;
+                padding: 12px 8px;
                 font-size: 12px;
             }
 
@@ -209,16 +233,9 @@
                 height: 30px;
                 font-size: 10px;
             }
-        }
 
-        /* Special styling for descriptions */
-        .description-text {
-            margin-bottom: 8px;
-            color: #ccc;
-        }
-
-        .sub-description {
-            font-size: 12px;
-            color: #999;
-            font-style: italic;
+            th:first-child {
+                min-width: 200px;
+                max-width: 200px;
+            }
         }
