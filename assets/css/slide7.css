@@ -146,7 +146,6 @@
 
         .value-imediato {
             color: #00d4aa;
-            background: rgba(0, 212, 170, 0.1);
             padding: 4px 8px;
             border-radius: 4px;
             font-weight: bold;
@@ -154,7 +153,6 @@
 
         .value-meses {
             color: #ff9500;
-            background: rgba(255, 149, 0, 0.1);
             padding: 4px 8px;
             border-radius: 4px;
         }
@@ -208,24 +206,3 @@
             }
         }
 
-        /* Icons for categories */
-        .icon-check::before {
-            content: "✓";
-            margin-right: 8px;
-            color: #00d4aa;
-        }
-
-        .icon-money::before {
-            content: "💰";
-            margin-right: 8px;
-        }
-
-        .icon-time::before {
-            content: "⏱";
-            margin-right: 8px;
-        }
-
-        .icon-warning::before {
-            content: "⚠";
-            margin-right: 8px;
-        }
