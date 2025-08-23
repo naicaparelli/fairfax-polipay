@@ -54,7 +54,7 @@ body {
   gap: 12px;                                   /* menos espaço */
   align-items: center;
   justify-items: center;
-  padding: 24px;                               /* reduzido */
+  padding-bottom: 80px;                               /* reduzido */
 }
 
 /* anel colorido central */
@@ -101,6 +101,7 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   max-width: 300px;                              /* menor */
   transition: transform .2s ease, box-shadow .2s ease;
+  padding-bottom: 24px;
 }
 .content-box:hover { transform: translateY(-4px); }
 

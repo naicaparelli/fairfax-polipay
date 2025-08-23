@@ -1,4 +1,4 @@
- * {
+  * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -6,199 +6,240 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #333;
             padding: 40px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .page-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
-            font-weight: normal;
+        /* Header */
+        .header {
+            margin-bottom: 40px;
         }
 
-        /* Top section layout */
+        .main-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #00d4aa;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .main-title::before {
+            content: "//";
+            margin-right: 15px;
+            color: #00d4aa;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+
+        /* Top section */
         .top-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        /* Left side - Porto Seguro */
+        /* Porto Seguro Section */
         .porto-seguro-section {
             background: white;
-            border: 4px solid #0066cc;
-            border-radius: 8px;
-            padding: 0;
-            position: relative;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         .section-header {
-            background: #f8f9fa;
-            padding: 15px 20px;
-            border-bottom: 2px solid #333;
-            font-weight: bold;
-            font-size: 16px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 25px 30px;
+            font-size: 20px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .section-content {
-            padding: 0;
+            padding: 30px;
         }
 
         .content-block {
-            background: #f8f9fa;
-            border: 3px solid #333;
-            margin: 15px;
-            padding: 20px;
-            font-size: 14px;
-            font-weight: 500;
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .content-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-block:last-child {
+            margin-bottom: 0;
         }
 
         .content-block.transformacao {
-            background: #333;
+            background: linear-gradient(135deg, #00d4aa, #00b894);
             color: white;
         }
 
-        .transformacao-text {
-            font-size: 12px;
-            margin-top: 8px;
-            line-height: 1.3;
-        }
-
         .content-block.crescimento {
-            background: #f8f9fa;
-            color: #333;
-        }
-
-        .crescimento-text {
-            font-size: 12px;
-            margin-top: 8px;
-            line-height: 1.3;
+            background: linear-gradient(135deg, #3f51b5, #2196f3);
+            color: white;
         }
 
         .content-block.base-solida {
-            background: #f8f9fa;
-            color: #333;
-            margin-bottom: 15px;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
         }
 
-        .base-text {
-            font-size: 12px;
-            margin-top: 8px;
-            line-height: 1.3;
+        .content-block strong {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 10px;
         }
 
-        /* Right side - Porto Bank */
+        .content-text {
+            font-size: 14px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        /* Porto Bank Section */
         .porto-bank-section {
             background: white;
-            border: 4px solid #333;
-            border-radius: 8px;
-            padding: 0;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         .bank-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            gap: 15px;
-            padding: 15px;
-            height: 280px;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+            min-height: 400px;
         }
 
         .bank-item {
-            border: 3px solid #333;
-            padding: 15px;
+            padding: 25px;
+            border-radius: 15px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            font-weight: 500;
             text-align: center;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .bank-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
         }
 
         .bank-item.clientes {
-            background: #333;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             color: white;
-        }
-
-        .clientes-text {
-            font-size: 11px;
-            margin-top: 5px;
-            line-height: 1.2;
         }
 
         .bank-item.receita {
-            background: white;
-            color: #333;
-            border-radius: 20px;
-            border-width: 4px;
-        }
-
-        .receita-text {
-            font-size: 11px;
-            margin-top: 5px;
-            line-height: 1.2;
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            color: white;
         }
 
         .bank-item.ativos {
-            background: #333;
+            background: linear-gradient(135deg, #3f51b5, #2196f3);
             color: white;
-        }
-
-        .ativos-text {
-            font-size: 11px;
-            margin-top: 5px;
-            line-height: 1.2;
         }
 
         .bank-item.top15 {
-            background: white;
-            color: #333;
-        }
-
-        .top15-text {
-            font-size: 11px;
-            margin-top: 5px;
-            line-height: 1.2;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
         }
 
         .bank-item.meta2025 {
-            background: #0066cc;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
             color: white;
             grid-column: 1 / -1;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bank-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .bank-text {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.3;
         }
 
         /* Characteristics section */
         .characteristics-section {
-            background: white;
-            border: 4px solid #333;
-            border-radius: 8px;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
+        }
+
+        .characteristics-header {
+            font-size: 20px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
         }
 
         .characteristics-content {
-            padding: 25px;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         /* Timeline section */
         .timeline-section {
-            margin-top: 30px;
-            position: relative;
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #ecf0f1;
         }
 
         .timeline {
             position: relative;
-            height: 100px;
-            margin: 40px 0;
+            padding: 40px 0;
         }
 
         .timeline-line {
@@ -207,15 +248,9 @@
             left: 50px;
             right: 50px;
             height: 3px;
-            background: #333;
+            background: #00d4aa;
             transform: translateY(-50%);
             border-radius: 2px;
-        }
-
-        .timeline-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 30px;
         }
 
         .timeline-points {
@@ -225,7 +260,6 @@
             position: relative;
             z-index: 2;
             padding: 0 50px;
-            height: 100%;
         }
 
         .timeline-point {
@@ -237,32 +271,33 @@
             width: 20px;
             height: 20px;
             background: white;
-            border: 4px solid #333;
+            border: 4px solid #00d4aa;
             border-radius: 50%;
             transition: all 0.3s ease;
         }
 
         .timeline-point:hover .timeline-dot {
             transform: scale(1.4);
-            background: #0066cc;
-            border-color: #0066cc;
+            background: #00d4aa;
+            border-color: white;
+            box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
         }
 
         .timeline-tooltip {
             position: absolute;
-            bottom: 40px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.95);
             color: white;
-            padding: 20px;
-            border-radius: 8px;
-            min-width: 280px;
-            max-width: 320px;
+            padding: 25px;
+            border-radius: 15px;
+            min-width: 300px;
+            max-width: 350px;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
             z-index: 10;
         }
 
@@ -272,52 +307,55 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            border: 8px solid transparent;
+            border: 10px solid transparent;
             border-top-color: rgba(0, 0, 0, 0.95);
         }
 
         .timeline-point:hover .timeline-tooltip {
             opacity: 1;
             visibility: visible;
-            bottom: 50px;
+            bottom: 60px;
         }
 
         .tooltip-year {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            color: #0066cc;
-            margin-bottom: 8px;
+            color: #00d4aa;
+            margin-bottom: 10px;
         }
 
         .tooltip-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .tooltip-description {
-            font-size: 12px;
-            line-height: 1.4;
-            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: #bdc3c7;
         }
 
         .tooltip-list {
             list-style: none;
-            font-size: 11px;
+            font-size: 12px;
         }
 
         .tooltip-list li {
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             position: relative;
-            padding-left: 12px;
+            padding-left: 15px;
+            line-height: 1.4;
         }
 
         .tooltip-list li::before {
             content: "•";
-            color: #0066cc;
+            color: #00d4aa;
             font-weight: bold;
             position: absolute;
             left: 0;
+            font-size: 14px;
         }
 
         .timeline-arrow {
@@ -325,24 +363,37 @@
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 24px;
-            color: #333;
+            font-size: 28px;
+            color: #00d4aa;
+            font-weight: bold;
         }
 
+
         /* Responsive design */
-        @media (max-width: 768px) {
+        @media (max-width: 1200px) {
             .top-section {
                 grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .main-title {
+                font-size: 36px;
             }
 
             .bank-grid {
                 grid-template-columns: 1fr;
-                height: auto;
+                gap: 15px;
             }
 
             .timeline-points {
                 flex-direction: column;
-                gap: 30px;
+                gap: 40px;
                 padding: 20px;
             }
 
@@ -360,7 +411,7 @@
                 bottom: auto;
                 left: auto;
                 transform: none;
-                margin-top: 15px;
+                margin-top: 20px;
                 opacity: 1;
                 visibility: visible;
             }
@@ -368,4 +419,5 @@
             .timeline-tooltip::after {
                 display: none;
             }
+
         }

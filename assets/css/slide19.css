@@ -53,8 +53,9 @@ body {
   width: 100%;
   height: 100%;
   background-image: url('../images/slide19.png');
-  background-size: cover;      /* cobre todo o espaço */
+  background-size: contain;      /* cobre todo o espaço */
   background-position: center; /* centraliza a imagem */
+  background-repeat:no-repeat; /* evita tiles */
 }
 
 /* Animações específicas */

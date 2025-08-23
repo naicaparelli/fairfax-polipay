@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/slide22-1.css">
+    <title>Takeaways - Posicionamento no Mercado</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="main-title">Takeaways</h1>
+            <div class="brand-logo">
+                <div class="logo-bf">BF</div>
+                <div class="logo-dots">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                    <div class="dot blue"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="chart-section">
+            <div class="chart-container">
+                <!-- Axis Labels -->
+                <div class="axis-label x-axis-label">Seguros</div>
+                <div class="axis-label y-axis-label">Produtos financeiros</div>
+
+                <!-- SVG Chart -->
+                <svg class="chart-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Grid lines -->
+                    <defs>
+                        <pattern id="grid" width="80" height="60" patternUnits="userSpaceOnUse">
+                            <path d="M 80 0 L 0 0 0 60" fill="none" class="grid-line"/>
+                        </pattern>
+                    </defs>
+                    <rect width="400" height="300" fill="url(#grid)"/>
+                    
+                    <!-- Main axes -->
+                    <line x1="0" y1="300" x2="400" y2="300" class="axis-line"/>
+                    <line x1="0" y1="0" x2="0" y2="300" class="axis-line"/>
+                    
+                    <!-- Center reference lines -->
+                    <line x1="200" y1="0" x2="200" y2="300" class="grid-line"/>
+                    <line x1="0" y1="150" x2="400" y2="150" class="grid-line"/>
+                </svg>
+
+                <!-- Company Logos -->
+                <div class="company-logo mercado-pago">
+                    mercado<br>pago
+                </div>
+
+                <div class="company-logo porto-seguro">
+                    PORTO<br>SEGURO
+                </div>
+
+                <div class="company-logo pag-seguro">
+                    PagSeguro
+                </div>
+
+                <div class="company-logo youiso">
+                    YOUISO
+                </div>
+
+                <div class="company-logo fp-seguros">
+                    FP<br>Seguros
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="navigation">
+        <a href="slide21.html" class="nav-btn">← Anterior</a>
+        <div class="slide-counter">22-1 / 63</div>
+        <a href="slide22.html" class="nav-btn">Próximo →</a>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+</body>
+</html>
