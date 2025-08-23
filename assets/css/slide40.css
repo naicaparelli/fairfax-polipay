@@ -1,4 +1,4 @@
-/* slide40.css */
+/* assets/css/slide40.css */
 *{margin:0;padding:0;box-sizing:border-box}
 body{
   font-family:'Arial',sans-serif;
@@ -26,7 +26,7 @@ body{
 
 /* Info Boxes */
 .info-section{display:flex;flex-direction:column;gap:20px}
-.info-box{background:#fff;border-radius:15px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,.1);border-left:5px solid #00d4aa}
+.info-box{background:#fff;border-radius:15px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,.1);border-left:5px solid #00d4aa;height: 100%;}
 .box-title{font-size:18px;font-weight:bold;color:#333;margin-bottom:15px}
 .bullet-list{list-style:none}
 .bullet-item{margin-bottom:12px;position:relative;padding-left:15px;font-size:14px;color:#555;line-height:1.4}
@@ -40,8 +40,8 @@ body{
 .chart{flex:1;text-align:center}
 .chart-title{font-size:20px;font-weight:bold;color:#333;margin-bottom:8px}
 .chart-subtitle{font-size:12px;color:#666;margin-bottom:25px}
-.bars-container{display:flex;align-items:flex-end;justify-content:center;gap:15px;height:280px;position:relative}
-.bar-group{display:flex;flex-direction:column;align-items:center;position:relative}
+.bars-container{display:flex;align-items:flex-end;justify-content:center;gap:15px;height:280px;position:relative;overflow:visible}
+.bar-group{display:flex;flex-direction:column;align-items:center;position:relative;z-index:3}
 .total-value{position:absolute;top:-30px;left:50%;transform:translateX(-50%);font-size:12px;font-weight:bold;color:#333;white-space:nowrap}
 .bar{width:60px;border-radius:4px 4px 0 0;position:relative;margin-bottom:10px;transition:.3s}
 .bar:hover{opacity:.8;transform:scaleY(1.05)}
@@ -54,28 +54,17 @@ body{
 .tpv-bar-3{height:200px;background:linear-gradient(180deg,#2196f3,#1976d2)}
 
 /* Receita empilhada */
-.stacked-bar{width:60px;border-radius:4px 4px 0 0;display:flex;flex-direction:column;margin-bottom:10px}
-.stack-segment{width:100%;position:relative; z-index:0;}
+.stacked-bar{width:60px;border-radius:4px 4px 0 0;display:flex;flex-direction:column;margin-bottom:10px;overflow:hidden}
+.stack-segment{width:100%;position:relative}
 .stack-diretas{background:linear-gradient(180deg,#4fc3f7,#29b6f6);border-radius:4px 4px 0 0}
 .stack-indiretas{background:linear-gradient(180deg,#ffb74d,#ffa726)}
 
-.stack-value {
-  position: absolute;
-  right: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 9px;
-  font-weight: bold;
-  color: #333;
-  white-space: nowrap;
-  z-index: 5; /* 🔥 garante que fica acima da barra */
-  pointer-events: none; /* opcional, evita clicar no valor */
-}
-
 /* Custos empilhado */
-.custos-bar{display:flex;flex-direction:column;width:60px;border-radius:4px 4px 0 0;margin-bottom:10px}
+.custos-bar{display:flex;flex-direction:column;width:60px;border-radius:4px 4px 0 0;margin-bottom:10px;overflow:hidden}
 .custo-diretos{background:linear-gradient(180deg,#66bb6a,#4caf50)}
 .custo-indiretos{background:linear-gradient(180deg,#ef5350,#f44336);border-radius:4px 4px 0 0}
+
+.smalltext { font-size: 0.75rem; color: #fff; font-family: sans-serif; padding: 4px;}
 
 /* Alturas por ano */
 .receita-stack-1{height:100px}

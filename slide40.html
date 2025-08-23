@@ -1,50 +1,12 @@
+<!-- slide40.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/common.css">
-  <link rel="stylesheet" href="assets/css/slide40.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="assets/css/common.css"/>
+  <link rel="stylesheet" href="assets/css/slide40.css"/>
   <title>Economics - 36 meses</title>
-
- <style>
-  
-    /* --- Garantir que os valores das barras fiquem acima --- */
-.bars-container{
-  position: relative;
-  overflow: visible; /* não corta nada que sai da coluna */
-}
-
-/* Cada grupo vira um stacking context com ordem decrescente
-   (o 1º fica acima do 2º, que fica acima do 3º) */
-.bar-group{ position: relative; z-index: 3; }
-.bar-group:nth-child(2){ z-index: 2; }
-.bar-group:nth-child(3){ z-index: 1; }
-
-/* As barras não competem com os rótulos */
-.bar, .stacked-bar, .custos-bar{
-  position: relative;
-  z-index: 0;
-}
-
-/* Segmento com contexto para o valor absoluto */
-.stack-segment{ position: relative; }
-
-/* O valor vai por cima de tudo */
-.stack-value{
-  position: absolute;
-  right: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 9px;
-  font-weight: bold;
-  color: #333;
-  white-space: nowrap;
-  z-index: 20;           /* <- acima das barras */
-  pointer-events: none;  /* opcional */
-}
-</style>
-
 </head>
 <body>
   <div class="container">
@@ -145,36 +107,24 @@
           <div class="bars-container">
             <div class="bar-group">
               <div class="stacked-bar receita-stack-1">
-                <div class="stack-segment stack-diretas" style="height: 60px;">
-                  <div class="stack-value">R$ 5</div>
-                </div>
-                <div class="stack-segment stack-indiretas" style="height: 40px;">
-                  <div class="stack-value">R$ 6</div>
-                </div>
+                <div class="stack-segment stack-diretas" style="height: 60px;"><p class="smalltext">Diretas R$5</p></div>
+                <div class="stack-segment stack-indiretas" style="height: 40px;"><p class="smalltext">Indiretas R$6</p></div>
               </div>
               <div class="total-value">R$ 11</div>
               <div class="bar-label">Ano 1</div>
             </div>
             <div class="bar-group">
               <div class="stacked-bar receita-stack-2">
-                <div class="stack-segment stack-diretas" style="height: 70px;">
-                  <div class="stack-value">R$ 7</div>
-                </div>
-                <div class="stack-segment stack-indiretas" style="height: 50px;">
-                  <div class="stack-value">R$ 9</div>
-                </div>
+                <div class="stack-segment stack-diretas" style="height: 70px;"><p class="smalltext">Diretas R$8</p></div>
+                <div class="stack-segment stack-indiretas" style="height: 50px;"><p class="smalltext">Indiretas R$9</p></div>
               </div>
               <div class="total-value">R$ 16,59</div>
               <div class="bar-label">Ano 2</div>
             </div>
             <div class="bar-group">
               <div class="stacked-bar receita-stack-3">
-                <div class="stack-segment stack-diretas" style="height: 80px;">
-                  <div class="stack-value">R$ 9</div>
-                </div>
-                <div class="stack-segment stack-indiretas" style="height: 60px;">
-                  <div class="stack-value">R$ 9</div>
-                </div>
+                <div class="stack-segment stack-diretas" style="height: 80px;"><p class="smalltext">Diretas R$9</p></div>
+                <div class="stack-segment stack-indiretas" style="height: 60px;"><p class="smalltext">Indiretas R$9</p></div>
               </div>
               <div class="total-value">R$ 18,26</div>
               <div class="bar-label">Ano 3</div>
@@ -189,36 +139,24 @@
           <div class="bars-container">
             <div class="bar-group">
               <div class="custos-bar custos-stack-1">
-                <div class="custo-indiretos" style="height: 35px;">
-                  <div class="stack-value">R$ 4,28</div>
-                </div>
-                <div class="custo-diretos" style="height: 45px;">
-                  <div class="stack-value">R$ 1,66</div>
-                </div>
+                <div class="custo-indiretos" style="height: 35px;"><p class="smalltext">Diretos R$ 1,66</p></div>
+                <div class="custo-diretos" style="height: 45px;"><p class="smalltext">Indiretos R$ 4,28</p></div>
               </div>
               <div class="total-value">R$ 5,94</div>
               <div class="bar-label">Ano 1</div>
             </div>
             <div class="bar-group">
               <div class="custos-bar custos-stack-2">
-                <div class="custo-indiretos" style="height: 45px;">
-                  <div class="stack-value">R$ 4,08</div>
-                </div>
-                <div class="custo-diretos" style="height: 55px;">
-                  <div class="stack-value">R$ 3,19</div>
-                </div>
+                <div class="custo-indiretos" style="height: 45px;"><p class="smalltext">Diretos R$ 3,19</p></div>
+                <div class="custo-diretos" style="height: 55px;"><p class="smalltext">Indiretos R$ 4,08</p></div>
               </div>
               <div class="total-value">R$ 7,27</div>
               <div class="bar-label">Ano 2</div>
             </div>
             <div class="bar-group">
               <div class="custos-bar custos-stack-3">
-                <div class="custo-indiretos" style="height: 55px;">
-                  <div class="stack-value">R$ 4,08</div>
-                </div>
-                <div class="custo-diretos" style="height: 65px;">
-                  <div class="stack-value">R$ 4,39</div>
-                </div>
+                <div class="custo-indiretos" style="height: 55px;"><p class="smalltext">Diretos R$ 4,39</p></div>
+                <div class="custo-diretos" style="height: 65px;"><p class="smalltext">Indiretos R$ 4,08</p></div>
               </div>
               <div class="total-value">R$ 8,47</div>
               <div class="bar-label">Ano 3</div>
