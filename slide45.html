@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo Operacional</title>
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide45.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"></div>
+            <div>
+                <h1 class="title">Modelo operacional</h1>
+                <div class="subtitle">Cenários que permitem definição de <span class="highlight">estratégia</span> pela Fairfax</div>
+            </div>
+        </div>
+
+        <div class="scenarios-container">
+            <!-- Cenário 1 -->
+            <div class="scenario-card">
+                <div class="diagram-area">
+                    <div class="scenario-1">
+                        <div class="top-level">
+                            <div class="node fairfax">FairFax</div>
+                        </div>
+                        
+                        <div class="middle-level">
+                            <div class="node polipay">PoliPay</div>
+                        </div>
+                        
+                        <div class="middle-level">
+                            <div class="node stakeholders">Stakeholders</div>
+                        </div>
+                        
+                        <div class="bottom-level">
+                            <div class="node service">Tecnologia</div>
+                            <div class="node service">BaaS</div>
+                            <div class="node service">Crédito</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="characteristics">
+                    <div class="characteristics-title">Características:</div>
+                    <div class="characteristic-item"><span class="underline">Não há mar aberto.</span></div>
+                    <div class="characteristic-item">A BU atende <span class="underline">especificamente FairFax.</span></div>
+                </div>
+            </div>
+
+            <!-- Cenário 2 -->
+            <div class="scenario-card">
+                <div class="diagram-area">
+                    <div class="scenario-2">
+                        <div class="top-level">
+                            <div class="node socio">Sócio</div>
+                            <div class="node fairfax">FairFax</div>
+                        </div>
+                        
+                        <div class="middle-level">
+                            <div class="node polipay">PoliPay</div>
+                        </div>
+                        
+                        <div class="middle-level">
+                            <div class="node stakeholders">Stakeholders</div>
+                        </div>
+                        
+                        <div class="bottom-level">
+                            <div class="node service">Tecnologia</div>
+                            <div class="node service">BaaS</div>
+                            <div class="node service">Crédito</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="characteristics">
+                    <div class="characteristics-title">Características:</div>
+                    <div class="characteristic-item">Blindagem do business para o regulatório.</div>
+                    <div class="characteristic-item">Pode ir a mar aberto, mas com restrições em conversão de clientes White label.</div>
+                </div>
+            </div>
+
+            <!-- Cenário 3 -->
+            <div class="scenario-card">
+                <div class="diagram-area">
+                    <div class="scenario-3">
+                        <div class="top-level">
+                            <div class="node vc">VC</div>
+                            <div class="node fairfax">FairFax</div>
+                        </div>
+                        
+                        <div class="middle-level">
+                            <div class="node polipay">PoliPay</div>
+                        </div>
+                        
+                        <div class="middle-level">
+                            <div class="node stakeholders">Stakeholders</div>
+                        </div>
+                        
+                        <div class="bottom-level">
+                            <div class="node service">Tecnologia</div>
+                            <div class="node service">BaaS</div>
+                            <div class="node service">Crédito</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="characteristics">
+                    <div class="characteristics-title">Características:</div>
+                    <div class="characteristic-item">Blindagem do business para o regulatório.</div>
+                    <div class="characteristic-item">Mar aberto sem restrições.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="slide44.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">45 / 63</div>
+            <a href="slide46.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add entrance animations
+            const cards = document.querySelectorAll('.scenario-card');
+            const nodes = document.querySelectorAll('.node');
+            
+            // Animate cards entrance
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // Add interactive hover effects to nodes
+            nodes.forEach(node => {
+                node.addEventListener('mouseenter', function() {
+                    // Find related nodes and highlight them
+                    const card = this.closest('.scenario-card');
+                    const relatedNodes = card.querySelectorAll('.node');
+                    
+                    relatedNodes.forEach(relatedNode => {
+                        if (relatedNode !== this) {
+                            relatedNode.style.opacity = '0.6';
+                        }
+                    });
+                });
+                
+                node.addEventListener('mouseleave', function() {
+                    const card = this.closest('.scenario-card');
+                    const relatedNodes = card.querySelectorAll('.node');
+                    
+                    relatedNodes.forEach(relatedNode => {
+                        relatedNode.style.opacity = '1';
+                    });
+                });
+            });
+
+            // Add click effects
+            nodes.forEach(node => {
+                node.addEventListener('click', function() {
+                    // Add a ripple effect
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1.1)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 150);
+                    }, 100);
+                });
+            });
+
+            // Add periodic subtle animations
+            setInterval(() => {
+                const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
+                randomNode.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    randomNode.style.transform = 'scale(1)';
+                }, 300);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

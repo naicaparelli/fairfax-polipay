@@ -18,7 +18,7 @@
 
         /* Header */
         .header {
-            margin-bottom: 40px;
+            margin-bottom: 20px;
         }
 
         .main-title {
@@ -46,7 +46,7 @@
             display: grid;
             grid-template-columns: 1fr 400px;
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
         }
 
         /* Chart section */

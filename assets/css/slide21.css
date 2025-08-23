@@ -53,6 +53,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             max-height: 80vh;
             overflow-y: auto;
+            padding-bottom:120px;
         }
 
         table {
@@ -167,7 +168,7 @@
 
         /* Status icons */
         .status-icon {
-            font-size: 20px;
+            font-size: 0px;
             display: inline-block;
         }
 
@@ -178,6 +179,9 @@
         .status-no {
             color: #ff6b6b;
         }
+
+        .status-yes::before{content:"✔"; font-size:20px; color:#00d4aa}
+        .status-no::before{content:"✖"; font-size:20px; color:#ff6b6b}
 
         /* Feature categories */
         .feature-category {
