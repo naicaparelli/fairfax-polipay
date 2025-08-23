@@ -107,7 +107,7 @@
         /* Axis labels */
         .axis-label-y {
             position: absolute;
-            left: 10px;
+            left: -32px;
             top: 200px;
             transform: rotate(-90deg);
             font-size: 14px;
@@ -203,7 +203,7 @@
         .quick-wins {
             position: absolute;
             left: 80px;
-            top: 320px;
+            top: 280px;
             width: 200px;
             height: 80px;
             border: 2px solid #00d4aa;
@@ -214,7 +214,7 @@
         .quick-wins-label {
             position: absolute;
             left: 80px;
-            top: 410px;
+            top: 370px;
             font-size: 12px;
             color: #00d4aa;
             font-weight: bold;

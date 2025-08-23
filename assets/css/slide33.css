@@ -6,7 +6,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: #f8f9fa;
+            background: #ffffff;
             color: #333;
             min-height: 100vh;
         }
@@ -71,12 +71,13 @@
             position: relative;
         }
 
-        .image-placeholder {
-            width: 100%;
-            height: 500px;
-            background-image: url('../images/slide33.jpg');
-            background-size: cover;      /* cobre todo o espaço */
-            background-position: center; /* centraliza a imagem */
+        .image-placeholder{
+            width:100%;
+            height:500px;                /* mantém a área */
+            background-image:url('../images/slide33.jpg');
+            background-size:contain;     /* mostra a imagem inteira */
+            background-repeat:no-repeat; /* evita tiles */
+            background-position:center;  /* centraliza */
         }
 
         /* Right side - steps */
