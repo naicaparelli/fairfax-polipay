@@ -55,10 +55,22 @@ body{
 
 /* Receita empilhada */
 .stacked-bar{width:60px;border-radius:4px 4px 0 0;display:flex;flex-direction:column;margin-bottom:10px}
-.stack-segment{width:100%;position:relative}
+.stack-segment{width:100%;position:relative; z-index:0;}
 .stack-diretas{background:linear-gradient(180deg,#4fc3f7,#29b6f6);border-radius:4px 4px 0 0}
 .stack-indiretas{background:linear-gradient(180deg,#ffb74d,#ffa726)}
-.stack-value{position:absolute;right:-30px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:bold;color:#333;white-space:nowrap}
+
+.stack-value {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  z-index: 5; /* 🔥 garante que fica acima da barra */
+  pointer-events: none; /* opcional, evita clicar no valor */
+}
 
 /* Custos empilhado */
 .custos-bar{display:flex;flex-direction:column;width:60px;border-radius:4px 4px 0 0;margin-bottom:10px}

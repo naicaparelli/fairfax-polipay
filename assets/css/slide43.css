@@ -85,6 +85,18 @@
             transition: transform 0.3s ease;
         }
 
+        .section-card-pie {
+            display: flex;
+            align-items: start;
+            justify-content: space-between;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            gap:40px
+        }
+
         .section-card:hover {
             transform: translateY(-3px);
         }
@@ -147,9 +159,10 @@
         .pie-chart-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             position: relative;
             height: 300px;
+            gap:40px
         }
 
         .pie-chart {
@@ -166,6 +179,7 @@
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            margin: 44px;
         }
 
         .pie-chart:hover {
@@ -331,41 +345,6 @@
         .table-cell.ebitda {
             color: #27ae60;
             font-weight: 600;
-        }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-btn {
-            background: linear-gradient(45deg, #4CAF50, #45a049);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .nav-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
-            background: linear-gradient(45deg, #45a049, #3d8b40);
-        }
-
-        .slide-counter {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            color: #2c3e50;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 768px) {

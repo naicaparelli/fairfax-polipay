@@ -6,6 +6,45 @@
   <link rel="stylesheet" href="assets/css/common.css">
   <link rel="stylesheet" href="assets/css/slide40.css">
   <title>Economics - 36 meses</title>
+
+ <style>
+  
+    /* --- Garantir que os valores das barras fiquem acima --- */
+.bars-container{
+  position: relative;
+  overflow: visible; /* não corta nada que sai da coluna */
+}
+
+/* Cada grupo vira um stacking context com ordem decrescente
+   (o 1º fica acima do 2º, que fica acima do 3º) */
+.bar-group{ position: relative; z-index: 3; }
+.bar-group:nth-child(2){ z-index: 2; }
+.bar-group:nth-child(3){ z-index: 1; }
+
+/* As barras não competem com os rótulos */
+.bar, .stacked-bar, .custos-bar{
+  position: relative;
+  z-index: 0;
+}
+
+/* Segmento com contexto para o valor absoluto */
+.stack-segment{ position: relative; }
+
+/* O valor vai por cima de tudo */
+.stack-value{
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 9px;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  z-index: 20;           /* <- acima das barras */
+  pointer-events: none;  /* opcional */
+}
+</style>
+
 </head>
 <body>
   <div class="container">
