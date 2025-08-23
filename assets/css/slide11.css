@@ -16,7 +16,7 @@ body {
 /* Left side - Image */
 .hero-image {
   flex: 1;
-  background-image: url('../images/slide11.jpg');
+  background-image: url('../images/slide11.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
