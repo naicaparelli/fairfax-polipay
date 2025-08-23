@@ -164,21 +164,24 @@
             gap:40px
         }
 
-        .pie-chart {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: conic-gradient(
-                #4ECDC4 0deg 216deg,
-                #45B7B8 216deg 232.2deg,
-                #3498DB 232.2deg 257.4deg,
-                #2ECC71 257.4deg 282.6deg,
-                #F39C12 282.6deg 360deg
-            );
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            margin: 44px;
+        .pie-chart{
+        width:250px;
+        height:250px;
+        border-radius:50%;
+        background: conic-gradient(
+            /* Pessoas 60% */
+            #4ECDC4 0deg 216deg,
+            /* Transacionais 26% */
+            #45B7B8 216deg 309.6deg,
+            /* Impostos 7% */
+            #3498DB 309.6deg 334.8deg,
+            /* Terceiros 7% */
+            #2ECC71 334.8deg 360deg
+        );
+        position:relative;
+        box-shadow:0 10px 30px rgba(0,0,0,.2);
+        transition:transform .3s ease;
+        margin:44px;
         }
 
         .pie-chart:hover {
