@@ -1,91 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/slide17.css">
-    <title>Potenciais Melhorias - Fluxos de Cobrança</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/slide17.css">
+  <title>Potenciais Melhorias - Fluxos de Cobrança</title>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1 class="title">Potenciais melhorias fluxos de cobrança</h1>
-            <!-- <div class="wip-badge">WIP Guilherme</div> -->
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Potenciais melhorias fluxos de cobrança</h1>
+    </div>
+
+    <div class="flows-container">
+      <!-- ERP Flow -->
+      <div class="flow-section erp-section">
+        <div class="flow-header">
+          <div class="flow-title">Fluxo ERP</div>
+          <div class="flow-subtitle">(Join/Insurance Core)</div>
         </div>
 
-        <div class="flows-container">
-            <!-- ERP Flow -->
-            <div class="flow-section erp-section">
-                <div class="flow-header">
-                    <div class="flow-title">Fluxo ERP</div>
-                    <div class="flow-subtitle">(Join/Insurance Core)</div>
-                </div>
-
-                <div class="diagram">
-                    <div class="step-box glow-effect">Corretor solicita cotação</div>
-                    <div class="step-box">Subscrição insere dados no ERP</div>
-                    <div class="step-box">ERP define produto e formas de pagamento</div>
-                    <div class="step-box">ERP gera parcelas e remessa</div>
-                    <div class="step-box">DW3 processa arquivos</div>
-                    <div class="step-box">Banco confirma pagamento</div>
-                    <div class="step-box">ERP envia apólice</div>
-                    <div class="step-box">Corretor recebe comissão</div>
-                </div>
-
-                <div class="hover-hint">Passe o mouse para ver detalhes</div>
-
-                <div class="info-panel">
-                    <div class="info-title">Detalhes do Fluxo ERP</div>
-                    <div class="info-item">O processo começa com o corretor entrando em contato com a subscrição, que insere todas as informações do seguro no sistema, incluindo dados financeiros e escolha da forma de pagamento.</div>
-                    <div class="info-item">Após o cálculo do prêmio, o sistema gera as parcelas e a remessa de cobrança, que é processada pela DW3. Os arquivos de remessa são trocados via FTP com o banco.</div>
-                    <div class="info-item">O pagamento é confirmado pelo retorno bancário. Dependendo do produto, a emissão da apólice pode depender do pagamento da primeira parcela.</div>
-                    <div class="info-item">Não há automação para suspensão/cancelamento por inadimplência, mas relatórios de inadimplência podem ser gerados.</div>
-                    <div class="info-item">O pagamento de comissão ao corretor está vinculado à quitação das parcelas. O sistema gera os movimentos de comissão após o pagamento.</div>
-                    <div class="info-item">O sistema é fortemente baseado em trocas de arquivos e processamento em batch, com poucas integrações via API.</div>
-                </div>
-            </div>
-
-            <!-- Digital Flow -->
-            <div class="flow-section digital-section digital-flow">
-                <div class="flow-header">
-                    <div class="flow-title">Fluxo Digital</div>
-                    <div class="flow-subtitle"></div>
-                </div>
-
-                <div class="diagram">
-                    <div class="step-box glow-effect">Corretor faz cotação na plataforma</div>
-                    <div class="step-box">Corretor escolhe forma de pagamento</div>
-                    <div class="step-box">Sistema gera link via MaxPago</div>
-                    <div class="step-box">Cartão API MaxPago - Banco</div>
-                    <div class="step-box">Cliente recebe link de pagamento</div>
-                    <div class="step-box">Conciliação de pagamento</div>
-                    <div class="step-box">Repasse de comissão ao corretor</div>
-                </div>
-
-                <div class="hover-hint">Passe o mouse para ver detalhes</div>
-
-                <div class="info-panel">
-                    <div class="info-title">Detalhes do Fluxo Digital</div>
-                    <div class="info-item">Na plataforma digital, o corretor faz todo o processo de cotação e contratação diretamente, sem intermediação manual. O sistema oferece opções de pagamento via MaxPago ou boleto via ERP.</div>
-                    <div class="info-item">O boleto segue o mesmo fluxo do ERP, mas o cartão de crédito é processado via API com a MaxPago, sem armazenamento de dados sensíveis na plataforma.</div>
-                    <div class="info-item">O corretor pode definir o número de parcelas (respeitando mínimo por apólice), influenciando o recebimento via comissão.</div>
-                    <div class="info-item">O contratante recebe o link de pagamento por e-mail ou WhatsApp, faz o aceite e o pagamento é processado. O fluxo de conciliação e repasse de comissão no cartão é mais demorado.</div>
-                    <div class="info-item">Não há recorrência no cartão, apenas parcelamento. O boleto não possui opção Pix nativa (apenas código de barras).</div>
-                    <div class="info-item">Há dores relacionadas à demora na conciliação, falta de automação de comunicação de cobrança e necessidade de flexibilizar formas de pagamento.</div>
-                    <div class="info-item">O objetivo é evoluir para um hub de pagamentos self-service, com múltiplas opções e automação de notificação, além de oportunidades de antecipação de recebíveis para corretores e clientes.</div>
-                </div>
-            </div>
+        <div class="diagram">
+          <div class="step-box glow-effect">Corretor solicita cotação</div>
+          <div class="step-box">Subscrição insere dados no ERP</div>
+          <div class="step-box">ERP define produto e formas de pagamento</div>
+          <div class="step-box">ERP gera parcelas e remessa</div>
+          <div class="step-box">DW3 processa arquivos</div>
+          <div class="step-box">Banco confirma pagamento</div>
+          <div class="step-box">ERP envia apólice</div>
+          <div class="step-box">Corretor recebe comissão</div>
         </div>
+
+        <div class="info-panel">
+          <div class="info-title">Detalhes do Fluxo ERP</div>
+          <div class="info-item">O processo começa com o corretor entrando em contato com a subscrição...</div>
+          <div class="info-item">Após o cálculo do prêmio, o sistema gera as parcelas e a remessa de cobrança...</div>
+          <div class="info-item">O pagamento é confirmado pelo retorno bancário...</div>
+          <div class="info-item">Não há automação para suspensão/cancelamento por inadimplência...</div>
+          <div class="info-item">O pagamento de comissão ao corretor está vinculado à quitação das parcelas...</div>
+          <div class="info-item">O sistema é fortemente baseado em trocas de arquivos e processamento em batch...</div>
+        </div>
+      </div>
+
+      <!-- Digital Flow -->
+      <div class="flow-section digital-section digital-flow">
+        <div class="flow-header">
+          <div class="flow-title">Fluxo Digital</div>
+        </div>
+
+        <div class="diagram">
+          <div class="step-box glow-effect">Corretor faz cotação na plataforma</div>
+          <div class="step-box">Corretor escolhe forma de pagamento</div>
+
+          <!-- bifurcação -->
+          <div class="split-connector" aria-hidden="true"></div>
+
+          <div class="flow-row">
+            <div class="step-box no-arrow">1 Boleto: ERP</div>
+            <div class="step-box no-arrow">Cartão API</div>
+          </div>
+
+          <!-- convergência -->
+          <div class="merge-connector" aria-hidden="true">
+            <span class="down-arrow">↓</span>
+          </div>
+
+          <div class="step-box">Cliente recebe link de pagamento</div>
+          <div class="step-box">Conciliação de pagamento</div>
+          <div class="step-box">Repasse de comissão ao corretor</div>
+        </div>
+
+        <div class="info-panel">
+          <div class="info-title">Detalhes do Fluxo Digital</div>
+          <div class="info-item">Na plataforma digital, o corretor faz todo o processo de cotação...</div>
+          <div class="info-item">O boleto segue o mesmo fluxo do ERP...</div>
+          <div class="info-item">O corretor pode definir o número de parcelas...</div>
+          <div class="info-item">O contratante recebe o link de pagamento por e-mail ou WhatsApp...</div>
+          <div class="info-item">Não há recorrência no cartão, apenas parcelamento...</div>
+          <div class="info-item">Há dores relacionadas à demora na conciliação...</div>
+          <div class="info-item">O objetivo é evoluir para um hub de pagamentos self-service...</div>
+        </div>
+      </div>
     </div>
- <div class="navigation">
-        <a href="slide16.html" class="nav-btn">← Anterior</a>
-        <div class="slide-counter">17 / 63</div>
-        <a href="slide18.html" class="nav-btn">Próximo →</a>
-    </div>
-    </section>
-    <script src="assets/js/navigation.js"></script>
-    </div>
+  </div>
+
+  <div class="navigation">
+    <a href="slide16.html" class="nav-btn">← Anterior</a>
+    <div class="slide-counter">17 / 63</div>
+    <a href="slide18.html" class="nav-btn">Próximo →</a>
+  </div>
+
+  <script src="assets/js/navigation.js"></script>
 </body>
 </html>
