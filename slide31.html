@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>PoliPay – Ecossistema</title>
-<link rel="stylesheet" href="assets/css/common.css">
-  <link rel="stylesheet" href="assets/css/slide31.css" />
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/slide31.css">
+  <style>
+  </style>
 </head>
 <body>
   <main class="page">
@@ -21,24 +23,31 @@
 
     <!-- Painel direito -->
     <section class="right">
-      <!-- Donut -->
-      <figure class="donut-wrap">
+      <figure class="donut-wrap" id="donutWrap">
+        <!-- SVG DONUT (3 slices = 3×120° = 360°) -->
         <svg class="donut" viewBox="0 0 400 400" role="img" aria-label="Ecossistema PoliPay">
-          <!-- base (anel cinza claro) -->
+          <!-- base -->
           <circle cx="200" cy="200" r="170" fill="#eef0f1"/>
-          <!-- slices -->
+
+          <!-- Slices (120° cada) -->
+          <!-- Segurado: -90° (top) -> 30° -->
           <g class="slice slice--segurado" data-key="segurado">
-            <path d="M200,200 L200,30 A170,170 0 0,1 370,200 Z" fill="#f2b705"/>
+            <path d="M200,200 L200,30 A170,170 0 0,1 347,285 Z" fill="#f2b705"/>
             <text x="245" y="155" class="slice-label">Segurado</text>
           </g>
+
+          <!-- Corretor: 30° -> 150° -->
           <g class="slice slice--corretor" data-key="corretor">
-            <path d="M200,200 L370,200 A170,170 0 0,1 200,370 Z" fill="#ef867e"/>
+            <path d="M200,200 L347,285 A170,170 0 0,1 53,285 Z" fill="#ef867e"/>
             <text x="290" y="245" class="slice-label">Corretor</text>
           </g>
+
+          <!-- Seguradora: 150° -> 270° (fecha no topo) -->
           <g class="slice slice--seguradora" data-key="seguradora">
-            <path d="M200,200 L200,370 A170,170 0 0,1 30,200 Z" fill="#3fb49e"/>
-            <text x="125" y="300" class="slice-label">Seguradora</text>
+            <path d="M200,200 L53,285 A170,170 0 0,1 200,30 Z" fill="#3fb49e"/>
+            <text x="115" y="240" class="slice-label">Seguradora</text>
           </g>
+
           <!-- círculo central -->
           <circle cx="200" cy="200" r="115" fill="#fff" stroke="#d9dee2" stroke-width="6"/>
           <g class="center-logo" aria-hidden="true">
@@ -50,17 +59,18 @@
           </g>
         </svg>
 
-        <!-- Badges ao redor -->
+        <!-- Badges (aparecem só no hover do slice correspondente) -->
         <ul class="badges">
+          <!-- Segurado -->
           <li class="badge b--top-left"     data-key="segurado">💱 <span>Cashback</span></li>
           <li class="badge b--top"          data-key="segurado">🏦 <span>Consórcio</span></li>
           <li class="badge b--left"         data-key="segurado">✅ <span>Fidelização</span></li>
-
+          <!-- Corretor -->
           <li class="badge b--top-right"    data-key="corretor">🧠 <span>Gestão</span></li>
           <li class="badge b--right-top"    data-key="corretor">💸 <span>Antecipação</span></li>
           <li class="badge b--right"        data-key="corretor">🎁 <span>Benefícios</span></li>
           <li class="badge b--right-bottom" data-key="corretor">⚙️ <span>Automação</span></li>
-
+          <!-- Seguradora -->
           <li class="badge b--bottom"       data-key="seguradora">📄 <span>Relatórios</span></li>
           <li class="badge b--bottom-left"  data-key="seguradora">📊 <span>Gestão</span></li>
           <li class="badge b--left-bottom"  data-key="seguradora">📈 <span>Rentabilização</span></li>
@@ -68,13 +78,35 @@
       </figure>
     </section>
   </main>
-    <div class="navigation">
-        <a href="slide30.html" class="nav-btn">← Anterior</a>
-        <div class="slide-counter">31 / 63</div>
-        <a href="slide32.html" class="nav-btn">Próximo →</a>
-    </div>
 
-    <script src="assets/js/navigation.js"></script>
-  <script src="assets/js/polipay-ecosystem.js"></script>
+  <div class="navigation">
+    <a href="slide30.html" class="nav-btn">← Anterior</a>
+    <div class="slide-counter">31 / 63</div>
+    <a href="slide32.html" class="nav-btn">Próximo →</a>
+  </div>
+
+  <script src="assets/js/navigation.js"></script>
+  <script>
+    // Mostrar badges apenas do slice ativo
+    const wrap = document.getElementById('donutWrap');
+    const slices = wrap.querySelectorAll('.slice');
+
+    const clear = () => {
+      wrap.classList.remove('show-segurado','show-corretor','show-seguradora');
+      slices.forEach(s=>s.classList.remove('is-active'));
+    };
+
+    slices.forEach(slice=>{
+      slice.addEventListener('mouseenter', ()=>{
+        clear();
+        const key = slice.dataset.key;
+        slice.classList.add('is-active');
+        wrap.classList.add('show-'+key);
+      });
+    });
+
+    // Ao sair da figura, esconde tudo
+    wrap.addEventListener('mouseleave', clear);
+  </script>
 </body>
 </html>

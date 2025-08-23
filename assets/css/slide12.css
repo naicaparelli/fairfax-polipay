@@ -49,10 +49,11 @@ body{
 /* Colunas de timeline */
 .timeline-col{text-align:center;position:relative}
 .profile-circle{
-  width:100px;height:100px;border-radius:50%;margin:0 auto 10px;
+  width:100px;height:100px;border-radius:50%;margin:0 auto 10px; background:linear-gradient(135deg,#6f42c1,#5a2c8a);
   border:4px solid #fff;box-shadow:0 6px 20px rgba(0,0,0,.15);
-  display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff
+  display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff; overflow:hidden
 }
+.profile-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:42px;color:#fff}
 .profile-placeholder-1{background:linear-gradient(135deg,#6f42c1,#5a2c8a)}
 .profile-placeholder-2{background:linear-gradient(135deg,#fd7e14,#dc6a02)}
 .profile-placeholder-3{background:linear-gradient(135deg,#20c997,#198754)}

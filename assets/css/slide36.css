@@ -136,7 +136,7 @@
         }
 
         .section-1 { left: 360px; } /* 33% of 1080px + 50px offset */
-        .section-2 { left: 720px; } /* 66% of 1080px + 50px offset */
+        .section-2 { left: 640px; } /* 66% of 1080px + 50px offset */
 
         /* Section labels */
         .section-label {
@@ -229,30 +229,32 @@
         /* Hub section */
         .motor-liquidacao { left: 400px; top: 120px; width: 60px; height: 60px; }
         .ia-conciliacao { left: 380px; top: 200px; width: 55px; height: 55px; }
-        .conta-pj { left: 460px; top: 220px; width: 50px; height: 50px; }
-        .gateway-split { left: 520px; top: 160px; width: 65px; height: 65px; }
-        .regua-cobranca { left: 450px; top: 280px; width: 70px; height: 70px; }
-        .adquirencia { left: 540px; top: 320px; width: 75px; height: 75px; }
+        .conta-pj { left: 460px; top: 180px; width: 50px; height: 50px; }
+        .gateway-split { left: 490px; top: 210px; width: 65px; height: 65px; }
+        .regua-cobranca { left: 530px; top: 250px; width: 70px; height: 70px; }
+        .adquirencia { left: 560px; top: 300px; width: 75px; height: 75px; }
 
         /* Evolução section */
-        .beneficio-cashback { left: 740px; top: 240px; width: 65px; height: 65px; }
-        .integ-whatsapp { left: 720px; top: 300px; width: 55px; height: 55px; }
-        .credito-financiar { left: 830px; top: 260px; width: 70px; height: 70px; }
-        .credito-invest { left: 860px; top: 320px; width: 60px; height: 60px; }
-        .credito-consignado { left: 800px; top: 340px; width: 60px; height: 60px; }
-        .dashboard-dre { left: 750px; top: 360px; width: 65px; height: 65px; }
+        .beneficio-cashback { left: 690px; top: 165px; width: 65px; height: 65px; }
+        .integ-whatsapp { left: 650px; top: 200px; width: 55px; height: 55px; }
+        .credito-financiar { left: 870px; top: 230px; width: 70px; height: 70px; }
+        .credito-invest { left: 830px; top: 280px; width: 60px; height: 60px; }
+        .credito-consignado { left: 780px; top: 310px; width: 60px; height: 60px; }
+        .dashboard-dre { left: 720px; top: 340px; width: 65px; height: 65px; }
         .contador-virtual { left: 950px; top: 160px; width: 65px; height: 65px; }
-        .cartao-credito { left: 980px; top: 220px; width: 55px; height: 55px; }
+        .cartao-credito { left: 1010px; top: 160px; width: 55px; height: 55px; }
         .cartao-beneficios { left: 930px; top: 320px; width: 60px; height: 60px; }
 
         /* Dollar signs - AJUSTADAS */
-        .dollar-1 { top: 250px; left: 220px; }
-        .dollar-2 { top: 190px; left: 370px; }
-        .dollar-3 { top: 380px; left: 570px; }
-        .dollar-4 { top: 250px; left: 810px; }
-        .dollar-5 { top: 310px; left: 910px; }
-        .dollar-6 { top: 210px; left: 1000px; }
-        .dollar-7 { top: 150px; left: 940px; }
+        .dollar-1 { top: 275px; left: 135px; }
+        .dollar-2 { top: 298px; left: 190px; }
+        .dollar-3 { top: 258px; left: 235px; }
+        .dollar-4 { top: 305px; left: 618px; }
+        .dollar-5 { top: 310px; left: 820px; }
+        .dollar-6 { top: 230px; left: 920px; }
+        .dollar-7 { top: 280px; left: 870px; }
+        .dollar-8 { top: 320px; left: 970px; }
+        .dollar-9 { top: 160px; left: 1050px; }
 
         /* Responsive - but maintain fixed chart size */
         @media (max-width: 1120px) {
