@@ -16,6 +16,7 @@ body{
   gap:16px 18px;
   align-items:start;
   position:relative;
+  padding-bottom: 120px;
 }
 
 /* Linha horizontal “timeline” abaixo do cabeçalho */

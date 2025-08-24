@@ -125,3 +125,17 @@ body{
   .bottom-box{max-width:100%}
   .axis-y,.axis-x{display:none}
 }
+
+/* Espaço para a navegação fixa não cobrir o conteúdo */
+.nav-spacer{
+  height: 140px; /* altura ~ dos botões + respiro */
+}
+
+/* Em telas “baixas” (ex.: 1280x720), aumenta o respiro */
+@media (max-height: 820px){
+  .nav-spacer{ height: 180px; }
+}
+
+/* Se o common.css fixa a .navigation, garanta que o corpo permita rolagem por trás */
+body{ padding-bottom: 0; } /* usamos o spacer em vez de padding */
+

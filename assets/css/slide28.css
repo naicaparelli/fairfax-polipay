@@ -6,7 +6,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: #1e2227;
             color: white;
             padding: 40px;
             min-height: 100vh;
@@ -135,35 +135,19 @@
         }
 
         .flow-subtitle {
-            font-size: 12px;
+            font-size: 14px;
+            font-weight: bold;
             text-align: center;
-            color: #00d4aa;
-            font-weight: 500;
-        }
-
-        .flow-subtitle.highlight {
-            text-decoration: underline;
-            color: #e74c3c;
-        }
-
-        /* Connection arrows */
-        .flow-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 60px;
-            right: -45px;
-            width: 30px;
-            height: 2px;
-            background: #00d4aa;
-            z-index: 1;
+            margin-bottom: 8px;
+            color: white;
         }
 
         .flow-item:not(:last-child)::before {
             content: '→';
             position: absolute;
-            top: 52px;
-            right: -52px;
-            font-size: 18px;
+            top: 35px;
+            right: -22px;
+            font-size: 40px;
             color: #00d4aa;
             font-weight: bold;
             z-index: 2;

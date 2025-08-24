@@ -27,6 +27,7 @@ body{
   align-items:start;
   z-index:2;
   position:relative;
+  padding-bottom: 120px;
 }
 
 /* Labels fixos */

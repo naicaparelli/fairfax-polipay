@@ -104,7 +104,6 @@
             color: #00d4aa;
             text-transform: uppercase;
             letter-spacing: 1px;
-            text-decoration: underline;
             text-decoration-color: #00d4aa;
         }
 
@@ -130,7 +129,6 @@
 
         .highlight-item strong {
             color: #ffffff;
-            text-decoration: underline;
         }
 
         /* Sub-sections */
