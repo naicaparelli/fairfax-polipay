@@ -6,7 +6,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
             color: white;
             padding: 40px;
             min-height: 100vh;
@@ -92,6 +92,7 @@
             padding: 60px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 100px;
         }
 
         .chart-svg {
@@ -120,31 +121,38 @@
         .mercado-pago {
             background: #00a8ff;
             color: white;
-            top: 80px;
-            left: 50%;
+            top: 100px;
+            left: 230px;
             transform: translateX(-50%);
         }
 
         .pag-seguro {
             background: #ff6b35;
             color: white;
-            top: 200px;
-            left: 50%;
+            top: 233px;
+            left: 230px;
             transform: translateX(-50%);
         }
 
         .porto-seguro {
             background: #0066cc;
             color: white;
-            top: 80px;
-            right: 60px;
+            top: 140px;
+            right: 220px;
+        }
+
+         .polipay {
+            background: #059e57;
+            color: white;
+            top: 210px;
+            right: 220px;
         }
 
         .youiso {
             background: #9b59b6;
             color: white;
-            bottom: 120px;
-            left: 40%;
+            bottom: 80px;
+            left: 400px;
             transform: translateX(-50%);
         }
 
@@ -152,7 +160,7 @@
             background: #2c3e50;
             color: white;
             bottom: 80px;
-            right: 60px;
+            right: 190px;
         }
 
         /* Axis labels */
