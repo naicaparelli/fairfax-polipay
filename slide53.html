@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Pagamento PIX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .left-column,
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* === LADO ESQUERDO === */
+
+        /* Fluxo de Passos */
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: #28a745;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: #5d6d7e;
+        }
+
+        /* Participantes */
+        .participants-section {
+            margin-top: 20px;
+        }
+
+        .participants-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .participants-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .participant-card {
+            background: rgba(52, 152, 219, 0.05);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .participant-card:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .participant-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+
+        .participant-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .participant-role {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+        }
+
+        /* === LADO DIREITO === */
+
+        /* Diagrama PIX */
+        .pix-diagram {
+            background: rgba(108, 117, 125, 0.1);
+            border: 2px dashed #6c757d;
+            border-radius: 10px;
+            padding: 25px;
+            min-height: 350px;
+            position: relative;
+        }
+
+        .diagram-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .polipay-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .polipay-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c5aa0;
+        }
+
+        .flow-participants {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-participant {
+            text-align: center;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-width: 70px;
+            font-size: 0.8rem;
+        }
+
+        .flow-participant-title {
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        .flow-participant-subtitle {
+            font-size: 0.7rem;
+            color: #7f8c8d;
+            margin-top: 2px;
+        }
+
+        .flow-arrow {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin: 0 5px;
+        }
+
+        .spi-button {
+            background: #3498db;
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .erp-logo {
+            background: #2196F3;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            align-self: center;
+            width: fit-content;
+            margin: 20px auto 0;
+        }
+
+        /* Benefícios PIX */
+        .benefits-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .benefit-card {
+            background: rgba(66, 133, 244, 0.1);
+            border: 1px solid #4285f4;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .benefit-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4285f4;
+            margin-bottom: 8px;
+        }
+
+        .benefit-description {
+            font-size: 0.9rem;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+
+        /* Estatísticas PIX */
+        .pix-stats {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .stats-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .stats-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #28a745;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #5d6d7e;
+            line-height: 1.2;
+        }
+
+        /* Características Fairfax */
+        .fairfax-section {
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .fairfax-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .fairfax-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .fairfax-item {
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        .fairfax-item strong {
+            color: #2c5aa0;
+        }
+
+        .fairfax-item .underline {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1024px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .participants-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 1.6rem;
+            }
+            
+            .flow-participants {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1 class="title">Fluxo de Pagamento PIX</h1>
+            
+            <div class="content-layout">
+                <!-- LADO ESQUERDO -->
+                <div class="left-column">
+                    <!-- Passos do Fluxo -->
+                    <div class="flow-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Geração do QR Code</h3>
+                                <p>Polipay gera QR Code estático ou dinâmico</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Leitura pelo Cliente</h3>
+                                <p>Cliente lê o QR Code no app bancário</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Autorização</h3>
+                                <p>Cliente confirma e autoriza o pagamento</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Processamento SPI</h3>
+                                <p>Sistema de Pagamentos Instantâneos processa</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Liquidação Instantânea</h3>
+                                <p>Transferência imediata entre contas</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h3>Confirmação</h3>
+                                <p>Polipay recebe confirmação</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">
+                                <h3>Repasse à Fairfax</h3>
+                                <p>Repasse conforme prazo acordado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Participantes -->
+                    <div class="participants-section">
+                        <div class="participants-title">Principais Participantes:</div>
+                        
+                        <div class="participants-grid">
+                            <div class="participant-card">
+                                <div class="participant-icon">👤</div>
+                                <div class="participant-name">Cliente</div>
+                                <div class="participant-role">Pagador</div>
+                            </div>
+
+                            <div class="participant-card">
+                                <div class="participant-icon">📋</div>
+                                <div class="participant-name">Lojista</div>
+                                <div class="participant-role">Beneficiário</div>
+                            </div>
+
+                            <div class="participant-card">
+                                <div class="participant-icon">🏛️</div>
+                                <div class="participant-name">Agente Direto PIX</div>
+                                <div class="participant-role">Iniciador</div>
+                            </div>
+
+                            <div class="participant-card">
+                                <div class="participant-icon">🔄</div>
+                                <div class="participant-name">BACEN</div>
+                                <div class="participant-role">SPI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LADO DIREITO -->
+                <div class="right-column">
+                    <!-- Diagrama PIX -->
+                    <div class="pix-diagram">
+                        <div class="diagram-header">
+                            <div class="polipay-logo">
+                                <div style="width: 40px; height: 40px; background: #2196F3; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">P</div>
+                                <span class="polipay-text">PoliPay</span>
+                            </div>
+                            <div style="font-size: 1.5rem;">📱</div>
+                        </div>
+
+                        <div class="flow-participants">
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Registro</div>
+                                <div class="flow-participant-title">PIX</div>
+                                <div class="flow-participant-subtitle">Iniciador direto PIX</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Cliente</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">IF</div>
+                                <div class="flow-participant-title">Cliente</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="spi-button">SPI</div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">IF</div>
+                                <div class="flow-participant-title">Recebedor</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Crédito no</div>
+                                <div class="flow-participant-title">Recebedor</div>
+                            </div>
+                        </div>
+
+                        <div class="erp-logo">FF</div>
+                    </div>
+
+                    <!-- Benefícios PIX -->
+                    <div class="benefits-section">
+                        <div class="benefit-card">
+                            <div class="benefit-title">Instantaneidade</div>
+                            <div class="benefit-description">Liquidação em tempo real (menos de 10 segundos)</div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-title">Disponibilidade</div>
+                            <div class="benefit-description">24/7, incluindo feriados e finais de semana</div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-title">Segurança</div>
+                            <div class="benefit-description">Transações via SPI do Banco Central</div>
+                        </div>
+                    </div>
+
+                    <!-- Estatísticas PIX -->
+                    <div class="pix-stats">
+                        <div class="stats-title">
+                            <span class="stats-icon">📈</span>
+                            Crescimento do PIX
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">+26%</span>
+                                <span class="stat-label">Participação no mercado</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">10 seg</span>
+                                <span class="stat-label">Tempo médio de liquidação</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">0,2-1%</span>
+                                <span class="stat-label">Taxa média para lojistas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Características Fairfax -->
+                    <div class="fairfax-section">
+                        <div class="fairfax-title">Características e definições Fairfax:</div>
+                        <div class="fairfax-items">
+                            <div class="fairfax-item">• <strong>Prazo de vencimento:</strong> Definido pela Fairfax (3 dias)</div>
+                            <div class="fairfax-item">• <strong>Compensação:</strong> <span class="underline">imediata</span></div>
+                            <div class="fairfax-item">• <strong>Custo:</strong> a desenvolver</div>
+                            <div class="fairfax-item">• <strong>Chargeback:</strong> Risco <span class="underline">nulo</span></div>
+                            <div class="fairfax-item">• <strong>Liquidação:</strong> X dias</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animação sequencial dos passos
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(-30px)';
+                setTimeout(() => {
+                    step.style.transition = 'all 0.5s ease';
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+
+            // Animação dos elementos do lado direito
+            const rightElements = document.querySelectorAll('.right-column > *');
+            rightElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 800 + (index * 200));
+            });
+        });
+
+        // Efeito hover nos passos
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.borderColor = '#28a745';
+                this.style.background = '#d4edda';
+            });
+            
+            step.addEventListener('mouseleave', function() {
+                this.style.borderColor = '#ffeaa7';
+                this.style.background = '#fff3cd';
+            });
+        });
+    </script>
+</body>
+</html>
