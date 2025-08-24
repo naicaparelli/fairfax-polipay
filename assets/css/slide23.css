@@ -8,12 +8,12 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #333;
-            padding: 40px;
+            padding: 40px 40px 120px 40px;
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 0 120px auto;
+            margin: 0 auto;
         }
 
         /* Header */
@@ -232,7 +232,6 @@
             font-weight: 300;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 40px;
             text-align: center;
             color: #ecf0f1;
         }
@@ -240,6 +239,7 @@
         .timeline {
             position: relative;
             padding: 40px 0;
+            margin-bottom: 40px;
         }
 
         .timeline-line {
@@ -361,9 +361,9 @@
         .timeline-arrow {
             position: absolute;
             right: 20px;
-            top: 50%;
+            top: 46%;
             transform: translateY(-50%);
-            font-size: 28px;
+            font-size: 40px;
             color: #00d4aa;
             font-weight: bold;
         }

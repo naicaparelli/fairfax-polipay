@@ -97,15 +97,34 @@ body{
   content:"";position:absolute;left:50%;transform:translateX(-50%);
   width:2px;height:100%;background:#28a745
 }
-/* .flow-row::before{
-  content:"";position:absolute;top:-24px;left:25%;
-  width:2px;height:24px;background:#28a745
+
+.flow-row .step-box::after {
+  content: '↓';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  color: #28a745; /* verde para fluxo digital */
 }
-.flow-row::after{
-  content:"";position:absolute;top:-24px;left:75%;
-  width:2px;height:24px;background:#28a745
-} */
- 
+
+/* FIX: setas nas duas caixas da linha (Boleto e Cartão) */
+.digital-section .flow-row .step-box::after {
+  content: '↓';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  display: block;
+}
+
+/* Reativa a seta do último box (Cartão), que o global escondia */
+.digital-section .flow-row .step-box:last-child::after {
+  display: block !important;
+}
+
+
 .merge-connector::before{
   content:"";position:absolute;left:25%;width:2px;height:100%;background:#28a745
 }

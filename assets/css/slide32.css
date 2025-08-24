@@ -60,6 +60,31 @@
     .slice.is-active{filter:brightness(1.12) drop-shadow(0 10px 24px rgba(0,0,0,.18))}
     .badge.is-active{outline:3px solid #222;scale:1.04}
 
+    
+
+    /* garantir que os badges fiquem acima do SVG */
+    .donut-wrap .badges{ z-index: 2; }
+
+    /* Novo layout do slice "Segurado": todos à direita (como no mock) */
+    .donut-wrap.show-segurado .badge.b--top{        /* Consórcio */
+      left:58%; top:16%;
+    }
+    .donut-wrap.show-segurado .badge.b--top-left{   /* Cashback */
+      left:71%; top:32%;
+    }
+    .donut-wrap.show-segurado .badge.b--left{       /* Fidelização */
+      left:84%; top:56%;
+    }
+
+    /* (opcional) limite pra não “vazar” em telas menores */
+    @media (max-width: 880px){
+      .donut-wrap.show-segurado .badge.b--left{ left:80%; top:58%; }
+    }
+
+
+
+
+
     /* Responsivo */
     @media (max-width: 1100px){
       .page{grid-template-columns:36% 64%}

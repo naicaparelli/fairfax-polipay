@@ -1,8 +1,18 @@
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#2a2a2a;color:#fff;min-height:100vh}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#2a2a2a;
+  color:#fff;
+  min-height:100vh;
+  padding-bottom:140px;          /* espaço para a navegação fixa */
+}
 
 /* layout */
-.container{display:grid;grid-template-columns:46% 64%;min-height:100vh}
+.container{
+  margin: 0 auto;
+  display: flex; 
+  min-height: 100vh;
+}
 
 /* esquerda */
 .left-side{background:#2a2a2a;padding:64px 40px;display:flex;flex-direction:column;justify-content:center;position:relative}
@@ -12,23 +22,17 @@ body{font-family:Arial,Helvetica,sans-serif;background:#2a2a2a;color:#fff;min-he
 .title-highlight{color:#00d4aa}
 .description{font-size:18px;color:#ccc;line-height:1.6;max-width:420px}
 
-/* direita: centro (gráfico) + coluna de boxes */
-.right-side{background:#f8f9fa;color:#333;display:flex;align-items:center; gap:32px; padding: 20px 8px 80px 240px;}
+/* direita*/
+.right-side{
+  flex: 1;                  /* ocupa todo o espaço restante */
+  background: #f8f9fa;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 20px 40px 80px 40px;
+}
 
-/* ---- centro (meia‑lua) ---- */
-.center-wrap{grid-column:1;display:grid;place-items:center;position:absolute;left: 379px; min-height:520px}
-.segments-container{position:relative;width:420px;height:420px}
-.semi-donut{
-  position:absolute;inset:0;border-radius:50%;
-  background:conic-gradient(#00d4aa 0 90deg,#26de81 90deg 180deg,#74b9ff 180deg 270deg,#6c5ce7 270deg 360deg);
-  clip-path:inset(0 0 0 50%); /* mostra só a metade direita */
-}
-/* miolo único */
-.central-circle{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:240px;height:240px;border-radius:50%;background:#fff;
-  display:flex;align-items:center;justify-content:center;box-shadow:0 20px 60px rgba(0,0,0,.1);z-index:2
-}
 .polipay-logo{display:flex;align-items:center;font-size:32px;font-weight:700;color:#333}
 .logo-dots{margin-right:12px;display:flex;flex-direction:column;gap:2px}
 .dot{width:12px;height:12px;border-radius:50%}
@@ -46,6 +50,25 @@ body{font-family:Arial,Helvetica,sans-serif;background:#2a2a2a;color:#fff;min-he
 .content-list li::before{content:"•";position:absolute;left:0;font-weight:700}
 .green-bullets li::before{color:#00b894}.blue-bullets li::before{color:#0984e3}.purple-bullets li::before{color:#6c5ce7}.teal-bullets li::before{color:#00d4aa}
 .underlined{text-decoration:underline;text-decoration-color:#ff6b6b}
+
+.image-divider {
+  background: url('../images/slide18.png') center center no-repeat;
+  background-size: contain;   /* mostra a imagem inteira */
+  flex: 0 0 auto;             /* não encolhe nem estica demais */
+  width: 300px;               /* largura fixa, você pode ajustar */
+  height: 100vh;              /* ocupa toda a altura da tela */
+}
+
+/* navegação fixa na viewport */
+.navigation{
+  position:fixed !important;
+  left:50% !important;
+  bottom:20px !important;
+  transform:translateX(-50%);
+  z-index:9999;
+  display:flex;gap:12px;align-items:center;
+}
+.navigation .nav-btn,.navigation .slide-counter{flex-shrink:0}
 
 /* responsivo */
 @media (max-width:1200px){

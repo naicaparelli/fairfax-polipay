@@ -1,0 +1,341 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background:#2a2a2a;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            position: relative;
+        }
+
+        /* Cubo animado */
+        .cube-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            z-index: 2;
+        }
+
+        .hands {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cube {
+            transform-style: preserve-3d;
+            animation: rotateCube 8s infinite linear;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            font-weight: bold;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .front { background: rgba(33, 150, 243, 0.9); transform: rotateY(0deg) translateZ(70px); }
+        .back { background: rgba(76, 175, 80, 0.9); transform: rotateY(180deg) translateZ(70px); }
+        .right { background: rgba(255, 152, 0, 0.9); transform: rotateY(90deg) translateZ(70px); }
+        .left { background: rgba(156, 39, 176, 0.9); transform: rotateY(-90deg) translateZ(70px); }
+        .top { background: rgba(244, 67, 54, 0.9); transform: rotateX(90deg) translateZ(70px); }
+        .bottom { background: rgba(96, 125, 139, 0.9); transform: rotateX(-90deg) translateZ(70px); }
+
+        /* Conteúdo principal */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+            color: white;
+            z-index: 3;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .arrow-icon {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .arrow {
+            width: 0;
+            height: 0;
+            border-left: 20px solid #4CAF50;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-right: 15px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #4CAF50;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .phases-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .phases-number {
+            font-size: 6rem;
+            font-weight: 900;
+            color: white;
+            line-height: 0.8;
+            margin-right: 20px;
+        }
+
+        .phases-text {
+            font-size: 2rem;
+            font-weight: 300;
+            color: white;
+        }
+
+        /* Timeline das fases */
+        .timeline {
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+        }
+
+        .phase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .phase:hover {
+            transform: translateX(10px);
+        }
+
+        .phase-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .phase-circle::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        .phase-icon {
+            font-size: 1.8rem;
+            z-index: 2;
+        }
+
+        .phase-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            flex: 1;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .phase-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.02);
+        }
+
+        .phase-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .phase-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            line-height: 1.3;
+        }
+
+
+        /* Background decorativo */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            left: 10%;
+            animation-delay: -1s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 80%;
+            animation-delay: -3s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 80%;
+            left: 20%;
+            animation-delay: -5s;
+        }
+
+        /* Animações */
+        @keyframes rotateCube {
+            0% { transform: rotateX(15deg) rotateY(15deg); }
+            100% { transform: rotateX(15deg) rotateY(375deg); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes flowVertical {
+            0% { top: -100%; }
+            100% { top: 100%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .cube-container {
+                padding: 20px;
+            }
+            
+            .hands {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .cube-face {
+                width: 100px;
+                height: 100px;
+                font-size: 36px;
+            }
+            
+            .front { transform: rotateY(0deg) translateZ(50px); }
+            .back { transform: rotateY(180deg) translateZ(50px); }
+            .right { transform: rotateY(90deg) translateZ(50px); }
+            .left { transform: rotateY(-90deg) translateZ(50px); }
+            .top { transform: rotateX(90deg) translateZ(50px); }
+            .bottom { transform: rotateX(-90deg) translateZ(50px); }
+            
+            .main-content {
+                padding: 40px;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .phases-number {
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .phases-number {
+                font-size: 4rem;
+            }
+            
+            .phases-text {
+                font-size: 2rem;
+            }
+            
+            .phase-card {
+                min-width: 200px;
+                padding: 20px;
+            }
+            
+            .phase-circle {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .phase-icon {
+                font-size: 2rem;
+            }
+        }
