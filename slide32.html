@@ -1,112 +1,105 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>PoliPay – Ecossistema</title>
-  <link rel="stylesheet" href="assets/css/common.css">
-  <link rel="stylesheet" href="assets/css/slide32.css">
-  <style>
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="assets/css/common.css"/>
+  <link rel="stylesheet" href="assets/css/slide32.css"/>
+<title>PoliPay – Ecossistema</title>
+
 </head>
+
 <body>
-  <main class="page">
-    <!-- Painel esquerdo -->
-    <section class="left">
-      <div class="arrow" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><path d="M8 32h40M36 16l16 16-16 16" fill="none" stroke="#35b79c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <p class="lede">
-        Os segurados, corretores e operadoras são <strong>as peças‑chave desse ecossistema</strong> e serão o foco da estratégia da PoliPay.</p>
-      <p>Os segurados, corretores e operadoras são as peças-chave desse ecossistema e serão o foco da estratégia da PoliPay.</p>
-    </section>
+<main class="page">
+  <!-- Painel esquerdo (texto curto) -->
+  <section class="left">
+    <div class="main-title">
+    <h1 class="title">
+                A plataforma do PoliPay será construída em <br>
+                <span class="title-highlight">três frentes</span><br>
+            </h1>
+            <p class="description">
+                Os segurados, corretores e operadoras são as peças-chave desse ecossistema e serão o foco da estratégia da PoliPay. </p>
+  </section>
 
-    <!-- Painel direito -->
-    <section class="right">
-      <figure class="donut-wrap" id="donutWrap">
-        <!-- SVG DONUT (3 slices = 3×120° = 360°) -->
-        <svg class="donut" viewBox="0 0 400 400" role="img" aria-label="Ecossistema PoliPay">
-          <!-- base -->
-          <circle cx="200" cy="200" r="170" fill="#eef0f1"/>
+  <!-- Donut + badges -->
+  <section class="right">
+    <figure class="donut-wrap" id="donutWrap">
+      <svg class="donut" viewBox="0 0 400 400" aria-label="Ecossistema PoliPay">
+        <!-- Base do anel -->
+        <circle cx="200" cy="200" r="170" fill="#eef0f1"/>
 
-          <!-- Slices (120° cada) -->
-          <!-- Segurado: -90° (top) -> 30° -->
-          <g class="slice slice--segurado" data-key="segurado">
-            <path d="M200,200 L200,30 A170,170 0 0,1 347,285 Z" fill="#f2b705"/>
-            <text x="245" y="155" class="slice-label">Segurado</text>
-          </g>
+        <!-- Slices (120° cada) -->
+        <!-- Segurado: -90° (top) -> 30° -->
+        <g class="slice" data-key="segurado" role="button">
+          <path d="M200,200 L200,30 A170,170 0 0,1 347,285 Z" fill="#f2b705"/>
+        </g>
 
-          <!-- Corretor: 30° -> 150° -->
-          <g class="slice slice--corretor" data-key="corretor">
-            <path d="M200,200 L347,285 A170,170 0 0,1 53,285 Z" fill="#ef867e"/>
-            <text x="290" y="245" class="slice-label">Corretor</text>
-          </g>
+        <!-- Corretor: 30° -> 150° -->
+        <g class="slice" data-key="corretor" role="button">
+          <path d="M200,200 L347,285 A170,170 0 0,1 53,285 Z" fill="#ef867e"/>
+        </g>
 
-          <!-- Seguradora: 150° -> 270° (fecha no topo) -->
-          <g class="slice slice--seguradora" data-key="seguradora">
-            <path d="M200,200 L53,285 A170,170 0 0,1 200,30 Z" fill="#3fb49e"/>
-            <text x="115" y="240" class="slice-label">Seguradora</text>
-          </g>
+        <!-- Seguradora: 150° -> 270° -->
+        <g class="slice" data-key="seguradora" role="button">
+          <path d="M200,200 L53,285 A170,170 0 0,1 200,30 Z" fill="#3fb49e"/>
+        </g>
 
-          <!-- círculo central -->
-          <circle cx="200" cy="200" r="115" fill="#fff" stroke="#d9dee2" stroke-width="6"/>
-          <g class="center-logo" aria-hidden="true">
-            <circle cx="165" cy="190" r="7" fill="#ff6b6b"/>
-            <circle cx="180" cy="190" r="7" fill="#4ecdc4"/>
-            <circle cx="165" cy="205" r="7" fill="#45b7d1"/>
-            <circle cx="180" cy="205" r="7" fill="#f9ca24"/>
-            <text x="198" y="202" class="brandword">PoliPay</text>
-          </g>
-        </svg>
+        <!-- Centro -->
+        <circle cx="200" cy="200" r="115" fill="#fff" stroke="#d9dee2" stroke-width="6"/>
+        <g class="center-logo" aria-hidden="true">
+          <circle cx="165" cy="190" r="7" fill="#ff6b6b"/>
+          <circle cx="180" cy="190" r="7" fill="#4ecdc4"/>
+          <circle cx="165" cy="205" r="7" fill="#45b7d1"/>
+          <circle cx="180" cy="205" r="7" fill="#f9ca24"/>
+          <text x="198" y="202" class="brandword">PoliPay</text>
+        </g>
+      </svg>
 
-        <!-- Badges (aparecem só no hover do slice correspondente) -->
-        <ul class="badges">
-          <!-- Segurado -->
-          <li class="badge b--top-left"     data-key="segurado">💱 <span>Cashback</span></li>
-          <li class="badge b--top"          data-key="segurado">🏦 <span>Consórcio</span></li>
-          <li class="badge b--left"         data-key="segurado">✅ <span>Fidelização</span></li>
-          <!-- Corretor -->
-          <li class="badge b--top-right"    data-key="corretor">🧠 <span>Gestão</span></li>
-          <li class="badge b--right-top"    data-key="corretor">💸 <span>Antecipação</span></li>
-          <li class="badge b--right"        data-key="corretor">🎁 <span>Benefícios</span></li>
-          <li class="badge b--right-bottom" data-key="corretor">⚙️ <span>Automação</span></li>
-          <!-- Seguradora -->
-          <li class="badge b--bottom"       data-key="seguradora">📄 <span>Relatórios</span></li>
-          <li class="badge b--bottom-left"  data-key="seguradora">📊 <span>Gestão</span></li>
-          <li class="badge b--left-bottom"  data-key="seguradora">📈 <span>Rentabilização</span></li>
-        </ul>
-      </figure>
-    </section>
-  </main>
+      <!-- Badges com posições individuais -->
+      <ul class="badges">
+        <!-- Segurado -->
+        <li class="badge" data-key="segurado"  data-item="consorcio">🏦 <span>Consórcio</span></li>
+        <li class="badge" data-key="segurado"  data-item="cashback">💱 <span>Cashback</span></li>
+        <li class="badge" data-key="segurado"  data-item="fidelizacao">✅ <span>Fidelização</span></li>
+        <!-- Corretor -->
+        <li class="badge" data-key="corretor"  data-item="automacao">⚙️ <span>Automação</span></li>
+        <li class="badge" data-key="corretor"  data-item="beneficios">🎁 <span>Benefícios</span></li>
+        <li class="badge" data-key="corretor"  data-item="antecipacao">💸 <span>Antecipação</span></li>
+        <li class="badge" data-key="corretor"  data-item="gestao">🧠 <span>Gestão</span></li>
+        <!-- Seguradora -->
+        <li class="badge" data-key="seguradora" data-item="relatorios">📄 <span>Relatórios</span></li>
+        <li class="badge" data-key="seguradora" data-item="gestao">📊 <span>Gestão</span></li>
+        <li class="badge" data-key="seguradora" data-item="rentabilizacao">📈 <span>Rentabilização</span></li>
+      </ul>
+    </figure>
+  </section>
+</main>
 
-  <div class="navigation">
-    <a href="slide31.html" class="nav-btn">← Anterior</a>
-    <div class="slide-counter">32 / 63</div>
-    <a href="slide33.html" class="nav-btn">Próximo →</a>
-  </div>
+<!-- Navegação do deck (seu componente padrão) -->
+<div class="navigation">
+  <a href="slide31.html" class="nav-btn">← Anterior</a>
+  <div class="slide-counter">32 / 63</div>
+  <a href="slide33.html" class="nav-btn">Próximo →</a>
+</div>
 
-  <script src="assets/js/navigation.js"></script>
-  <script>
-    // Mostrar badges apenas do slice ativo
-    const wrap = document.getElementById('donutWrap');
-    const slices = wrap.querySelectorAll('.slice');
+<script>
+/* Hover: mostra apenas as badges do slice ativo */
+const wrap = document.getElementById('donutWrap');
+const slices = wrap.querySelectorAll('.slice');
 
-    const clear = () => {
-      wrap.classList.remove('show-segurado','show-corretor','show-seguradora');
-      slices.forEach(s=>s.classList.remove('is-active'));
-    };
+function clearActive(){
+  wrap.classList.remove('show-segurado','show-corretor','show-seguradora');
+}
 
-    slices.forEach(slice=>{
-      slice.addEventListener('mouseenter', ()=>{
-        clear();
-        const key = slice.dataset.key;
-        slice.classList.add('is-active');
-        wrap.classList.add('show-'+key);
-      });
-    });
+slices.forEach(slice=>{
+  slice.addEventListener('mouseenter',()=>{
+    clearActive();
+    wrap.classList.add('show-'+slice.dataset.key);
+  });
+});
 
-    // Ao sair da figura, esconde tudo
-    wrap.addEventListener('mouseleave', clear);
-  </script>
+wrap.addEventListener('mouseleave', clearActive);
+</script>
 </body>
 </html>

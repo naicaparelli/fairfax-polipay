@@ -173,12 +173,11 @@
         }
 
         .bank-item.meta2025 {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: linear-gradient(135deg, #ca766d, #f07b6e);
             color: white;
             grid-column: 1 / -1;
             font-size: 18px;
             font-weight: bold;
-            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
