@@ -3,116 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelo Operacional</title>
+    <title>Economics - Análise de Custos</title>
     <link rel="stylesheet" href="assets/css/common.css"/>
     <link rel="stylesheet" href="assets/css/slide45.css"/>
-    <style>
 
-    </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <div class="logo"></div>
             <div>
-                <h1 class="title">Modelo operacional</h1>
-                <div class="subtitle">Cenários que permitem definição de <span class="highlight">estratégia</span> pela Fairfax</div>
+                <h1 class="title">Economics</h1>
+                <div class="subtitle">Análise de Custos e Indicadores operacionais</div>
             </div>
         </div>
 
-        <div class="scenarios-container">
-            <!-- Cenário 1 -->
-            <div class="scenario-card">
-                <div class="diagram-area">
-                    <div class="scenario-1">
-                        <div class="top-level">
-                            <div class="node fairfax">FairFax</div>
+        <div class="main-content">
+            <div class="left-section">
+                <!-- Estrutura de Custos -->
+                <div class="section-card">
+                    <h3 class="section-title">Estrutura de Custos</h3>
+                    <div class="cost-structure">
+                        <div class="month-item">
+                            <div class="month-label">Mês 1</div>
+                            <div class="month-value">R$ 580 mil</div>
                         </div>
-                        
-                        <div class="middle-level">
-                            <div class="node polipay">PoliPay</div>
+                        <div class="month-item">
+                            <div class="month-label">Mês 2</div>
+                            <div class="month-value">R$ 530 mil</div>
                         </div>
-                        
-                        <div class="middle-level">
-                            <div class="node stakeholders">Stakeholders</div>
-                        </div>
-                        
-                        <div class="bottom-level">
-                            <div class="node service">Tecnologia</div>
-                            <div class="node service">BaaS</div>
-                            <div class="node service">Crédito</div>
+                        <div class="month-item">
+                            <div class="month-label">Mês 3</div>
+                            <div class="month-value">R$ 536 mil</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="characteristics">
-                    <div class="characteristics-title">Características:</div>
-                    <div class="characteristic-item"><span class="underline">Não há mar aberto.</span></div>
-                    <div class="characteristic-item">A BU atende <span class="underline">especificamente FairFax.</span></div>
+                <!-- Gráfico de Pizza -->
+                <div class="section-card-pie">
+                    <div class="pie-chart-container">
+                        <div class="pie-chart"></div>
+                        <div class="pie-legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #4ECDC4;"></div>
+                                <span class="legend-text">Pessoas</span>
+                                <span class="legend-percent">60%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #45B7B8;"></div>
+                                <span class="legend-text">Transacionais</span>
+                                <span class="legend-percent">26%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3498DB;"></div>
+                                <span class="legend-text">Impostos</span>
+                                <span class="legend-percent">7%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #2ECC71;"></div>
+                                <span class="legend-text">Terceiros</span>
+                                <span class="legend-percent">7%</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Cenário 2 -->
-            <div class="scenario-card">
-                <div class="diagram-area">
-                    <div class="scenario-2">
-                        <div class="top-level">
-                            <div class="node socio">Sócio</div>
-                            <div class="node fairfax">FairFax</div>
+            <div class="right-section">
+                <!-- Indicadores Operacionais -->
+                <div class="section-card">
+                    <h3 class="section-title">Indicadores Operacionais Chave</h3>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-label">CAC</div>
+                            <div class="kpi-value">R$ XXX</div>
+                            <div class="kpi-description">Custo de Aquisição de Cliente</div>
                         </div>
-                        
-                        <div class="middle-level">
-                            <div class="node polipay">PoliPay</div>
-                        </div>
-                        
-                        <div class="middle-level">
-                            <div class="node stakeholders">Stakeholders</div>
-                        </div>
-                        
-                        <div class="bottom-level">
-                            <div class="node service">Tecnologia</div>
-                            <div class="node service">BaaS</div>
-                            <div class="node service">Crédito</div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">LTV</div>
+                            <div class="kpi-value">R$ X.XXX</div>
+                            <div class="kpi-description">Valor do Tempo de Vida do Cliente</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="characteristics">
-                    <div class="characteristics-title">Características:</div>
-                    <div class="characteristic-item">Blindagem do business para o regulatório.</div>
-                    <div class="characteristic-item">Pode ir a mar aberto, mas com restrições em conversão de clientes White label.</div>
-                </div>
-            </div>
+                <!-- Projeções Financeiras -->
+                <div class="section-card">
+                    <h3 class="section-title">Projeções Financeiras</h3>
+                    
+                    <div class="projections-chart">
+                    <div style="position: absolute; top: 15px; left: 20px; font-weight: 600; color: #2c3e50; font-size: 16px; text-align:center; width:100%;">
+                        EBITDA fintech / Fairfax
+                    </div>
+                    <div class="chart-line">
+                        <svg width="100%" height="160" viewBox="0 0 500 160">
+                        <!-- Linha ligando os pontos -->
+                        <path d="M 20 130 Q 80 60 140 55 Q 200 50 260 52 Q 320 54 380 48 Q 440 40 480 35"
+                                stroke="#4ECDC4"
+                                stroke-width="4"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
 
-            <!-- Cenário 3 -->
-            <div class="scenario-card">
-                <div class="diagram-area">
-                    <div class="scenario-3">
-                        <div class="top-level">
-                            <div class="node vc">VC</div>
-                            <div class="node fairfax">FairFax</div>
-                        </div>
-                        
-                        <div class="middle-level">
-                            <div class="node polipay">PoliPay</div>
-                        </div>
-                        
-                        <div class="middle-level">
-                            <div class="node stakeholders">Stakeholders</div>
-                        </div>
-                        
-                        <div class="bottom-level">
-                            <div class="node service">Tecnologia</div>
-                            <div class="node service">BaaS</div>
-                            <div class="node service">Crédito</div>
+                        <!-- Pontos -->
+                        <circle cx="20"  cy="130" r="6" fill="#4ECDC4"/>
+                        <circle cx="140" cy="55"  r="6" fill="#4ECDC4"/>
+                        <circle cx="260" cy="52"  r="6" fill="#4ECDC4"/>
+                        <circle cx="380" cy="48"  r="6" fill="#4ECDC4"/>
+                        <circle cx="480" cy="35"  r="6" fill="#4ECDC4"/>
+
+                        <!-- Labels de valores -->
+                        <text x="20"  y="120" font-size="12" font-weight="600" fill="#2c3e50">3,4%</text>
+                        <text x="140" y="45"  font-size="12" font-weight="600" fill="#2c3e50">6,3%</text>
+                        <text x="260" y="42"  font-size="12" font-weight="600" fill="#2c3e50">6,6%</text>
+                        <text x="380" y="38"  font-size="12" font-weight="600" fill="#2c3e50">6,7%</text>
+                        <text x="480" y="25"  font-size="12" font-weight="600" fill="#2c3e50">7,5%</text>
+
+                        <!-- Labels de anos -->
+                        <text x="20"  y="150" font-size="11" fill="#7f8c8d" text-anchor="middle">Ano 1</text>
+                        <text x="140" y="150" font-size="11" fill="#7f8c8d" text-anchor="middle">Ano 2</text>
+                        <text x="260" y="150" font-size="11" fill="#7f8c8d" text-anchor="middle">Ano 3</text>
+                        <text x="380" y="150" font-size="11" fill="#7f8c8d" text-anchor="middle">Ano 4</text>
+                        <text x="480" y="150" font-size="11" fill="#7f8c8d" text-anchor="middle">Ano 5</text>
+                        </svg>
+                    </div>
+                    </div>
+
+                    <div class="data-table">
+                        <div class="table-header">Receita e EBITDA</div>
+                        <div class="table-content">
+                              <div class="table-row">
+                                <div class="table-cell year"></div>
+                                <div class="table-cell revenue">Receira (R$ mi)</div>
+                                <div class="table-cell ebitda">EBITDA %</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell year">Ano 1</div>
+                                <div class="table-cell revenue">10,9</div>
+                                <div class="table-cell ebitda">42%</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell year">Ano 2</div>
+                                <div class="table-cell revenue">16,5</div>
+                                <div class="table-cell ebitda">52%</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell year">Ano 3</div>
+                                <div class="table-cell revenue">18,2</div>
+                                <div class="table-cell ebitda">49%</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell year">Ano 4</div>
+                                <div class="table-cell revenue">19,1</div>
+                                <div class="table-cell ebitda">48%</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell year">Ano 5</div>
+                                <div class="table-cell revenue">20,1</div>
+                                <div class="table-cell ebitda">51%</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="characteristics">
-                    <div class="characteristics-title">Características:</div>
-                    <div class="characteristic-item">Blindagem do business para o regulatório.</div>
-                    <div class="characteristic-item">Mar aberto sem restrições.</div>
                 </div>
             </div>
         </div>
@@ -123,70 +174,42 @@
             <a href="slide46.html" class="nav-btn">Próximo →</a>
         </div>
     </div>
-
     <script src="assets/js/navigation.js"></script>
     <script>
+        // Add interactive hover effects
         document.addEventListener('DOMContentLoaded', function() {
-            // Add entrance animations
-            const cards = document.querySelectorAll('.scenario-card');
-            const nodes = document.querySelectorAll('.node');
+            const monthItems = document.querySelectorAll('.month-item');
+            const kpiCards = document.querySelectorAll('.kpi-card');
+            const tableRows = document.querySelectorAll('.table-row');
             
-            // Animate cards entrance
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
+            // Animate elements on load
+            monthItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-20px)';
                 setTimeout(() => {
-                    card.style.transition = 'all 0.6s ease';
+                    item.style.transition = 'all 0.5s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 150);
+            });
+
+            kpiCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
-                }, index * 200);
+                }, (index + 3) * 150);
             });
 
-            // Add interactive hover effects to nodes
-            nodes.forEach(node => {
-                node.addEventListener('mouseenter', function() {
-                    // Find related nodes and highlight them
-                    const card = this.closest('.scenario-card');
-                    const relatedNodes = card.querySelectorAll('.node');
-                    
-                    relatedNodes.forEach(relatedNode => {
-                        if (relatedNode !== this) {
-                            relatedNode.style.opacity = '0.6';
-                        }
-                    });
-                });
-                
-                node.addEventListener('mouseleave', function() {
-                    const card = this.closest('.scenario-card');
-                    const relatedNodes = card.querySelectorAll('.node');
-                    
-                    relatedNodes.forEach(relatedNode => {
-                        relatedNode.style.opacity = '1';
-                    });
-                });
-            });
-
-            // Add click effects
-            nodes.forEach(node => {
-                node.addEventListener('click', function() {
-                    // Add a ripple effect
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1.1)';
-                        setTimeout(() => {
-                            this.style.transform = 'scale(1)';
-                        }, 150);
-                    }, 100);
-                });
-            });
-
-            // Add periodic subtle animations
+            // Add pulse effect to pie chart
+            const pieChart = document.querySelector('.pie-chart');
             setInterval(() => {
-                const randomNode = nodes[Math.floor(Math.random() * nodes.length)];
-                randomNode.style.transform = 'scale(1.05)';
+                pieChart.style.transform = 'scale(1.02)';
                 setTimeout(() => {
-                    randomNode.style.transform = 'scale(1)';
-                }, 300);
+                    pieChart.style.transform = 'scale(1)';
+                }, 200);
             }, 3000);
         });
     </script>

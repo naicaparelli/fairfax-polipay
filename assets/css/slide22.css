@@ -1,4 +1,4 @@
-  * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -6,374 +6,197 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #333;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
             padding: 40px;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            height: calc(100vh - 80px);
+            display: flex;
+            flex-direction: column;
         }
 
         /* Header */
         .header {
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
         }
 
         .main-title {
-            font-size: 48px;
+            font-size: 72px;
             font-weight: 300;
             color: #00d4aa;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
         .main-title::before {
             content: "//";
-            margin-right: 15px;
+            margin-right: 20px;
             color: #00d4aa;
         }
 
-        .subtitle {
-            font-size: 20px;
-            color: #6c757d;
-            font-weight: 400;
-        }
-
-        /* Top section */
-        .top-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        /* Porto Seguro Section */
-        .porto-seguro-section {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .section-header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 25px 30px;
-            font-size: 20px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-content {
-            padding: 30px;
-        }
-
-        .content-block {
-            margin-bottom: 25px;
-            padding: 25px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .content-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .content-block:last-child {
-            margin-bottom: 0;
-        }
-
-        .content-block.transformacao {
-            background: linear-gradient(135deg, #00d4aa, #00b894);
-            color: white;
-        }
-
-        .content-block.crescimento {
-            background: linear-gradient(135deg, #3f51b5, #2196f3);
-            color: white;
-        }
-
-        .content-block.base-solida {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-        }
-
-        .content-block strong {
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .content-text {
-            font-size: 14px;
-            line-height: 1.5;
-            font-weight: 400;
-        }
-
-        /* Porto Bank Section */
-        .porto-bank-section {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .bank-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: repeat(3, 1fr);
-            gap: 20px;
-            padding: 30px;
-            min-height: 400px;
-        }
-
-        .bank-item {
-            padding: 25px;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .bank-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .bank-item.clientes {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-        }
-
-        .bank-item.receita {
-            background: linear-gradient(135deg, #00d4aa, #00b894);
-            color: white;
-        }
-
-        .bank-item.ativos {
-            background: linear-gradient(135deg, #3f51b5, #2196f3);
-            color: white;
-        }
-
-        .bank-item.top15 {
-            background: linear-gradient(135deg, #ff6b35, #f7931e);
-            color: white;
-        }
-
-        .bank-item.meta2025 {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            grid-column: 1 / -1;
-            font-size: 18px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .bank-value {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .bank-text {
-            font-size: 14px;
-            font-weight: 400;
-            line-height: 1.3;
-        }
-
-        /* Characteristics section */
-        .characteristics-section {
-            background: linear-gradient(135deg, #00d4aa, #00b894);
-            color: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
-        }
-
-        .characteristics-header {
-            font-size: 20px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .characteristics-content {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        /* Timeline section */
-        .timeline-section {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-        }
-
-        .timeline-title {
-            font-size: 24px;
-            font-weight: 300;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #ecf0f1;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline-line {
+        .brand-logo {
             position: absolute;
-            top: 50%;
-            left: 50px;
-            right: 50px;
-            height: 3px;
-            background: #00d4aa;
-            transform: translateY(-50%);
-            border-radius: 2px;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .timeline-points {
+        .logo-bf {
+            background: white;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .logo-dots {
             display: flex;
-            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #e74c3c; }
+        .dot.yellow { background: #f1c40f; }
+        .dot.green { background: #2ecc71; }
+        .dot.blue { background: #3498db; }
+
+        /* Chart Section */
+        .chart-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
             align-items: center;
             position: relative;
-            z-index: 2;
-            padding: 0 50px;
         }
 
-        .timeline-point {
+        .chart-container {
+            width: 800px;
+            height: 500px;
             position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 60px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chart-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Company logos positioning */
+        .company-logo {
+            position: absolute;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: white;
-            border: 4px solid #00d4aa;
-            border-radius: 50%;
-            transition: all 0.3s ease;
+        .company-logo:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
         }
 
-        .timeline-point:hover .timeline-dot {
-            transform: scale(1.4);
-            background: #00d4aa;
-            border-color: white;
-            box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
-        }
-
-        .timeline-tooltip {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.95);
+        .mercado-pago {
+            background: #00a8ff;
             color: white;
-            padding: 25px;
-            border-radius: 15px;
-            min-width: 300px;
-            max-width: 350px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-
-        .timeline-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
+            top: 80px;
             left: 50%;
             transform: translateX(-50%);
-            border: 10px solid transparent;
-            border-top-color: rgba(0, 0, 0, 0.95);
         }
 
-        .timeline-point:hover .timeline-tooltip {
-            opacity: 1;
-            visibility: visible;
-            bottom: 60px;
+        .pag-seguro {
+            background: #ff6b35;
+            color: white;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .tooltip-year {
-            font-size: 18px;
-            font-weight: bold;
-            color: #00d4aa;
-            margin-bottom: 10px;
+        .porto-seguro {
+            background: #0066cc;
+            color: white;
+            top: 80px;
+            right: 60px;
         }
 
-        .tooltip-title {
+        .youiso {
+            background: #9b59b6;
+            color: white;
+            bottom: 120px;
+            left: 40%;
+            transform: translateX(-50%);
+        }
+
+        .fp-seguros {
+            background: #2c3e50;
+            color: white;
+            bottom: 80px;
+            right: 60px;
+        }
+
+        /* Axis labels */
+        .axis-label {
+            position: absolute;
             font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 12px;
+            font-weight: 500;
+            color: #ecf0f1;
         }
 
-        .tooltip-description {
-            font-size: 14px;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            color: #bdc3c7;
+        .x-axis-label {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .tooltip-list {
-            list-style: none;
-            font-size: 12px;
-        }
-
-        .tooltip-list li {
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 15px;
-            line-height: 1.4;
-        }
-
-        .tooltip-list li::before {
-            content: "•";
-            color: #00d4aa;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 14px;
-        }
-
-        .timeline-arrow {
-            position: absolute;
-            right: 20px;
+        .y-axis-label {
+            left: 20px;
             top: 50%;
-            transform: translateY(-50%);
-            font-size: 28px;
-            color: #00d4aa;
-            font-weight: bold;
+            transform: translateY(-50%) rotate(-90deg);
         }
 
+        /* Grid lines */
+        .grid-line {
+            stroke: rgba(255, 255, 255, 0.1);
+            stroke-width: 1;
+            stroke-dasharray: 5,5;
+        }
+
+        .axis-line {
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 2;
+        }
 
         /* Responsive design */
         @media (max-width: 1200px) {
-            .top-section {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .main-title {
+                font-size: 56px;
+            }
+            
+            .chart-container {
+                width: 90%;
+                height: 400px;
+                padding: 40px;
             }
         }
 
@@ -383,41 +206,23 @@
             }
 
             .main-title {
-                font-size: 36px;
+                font-size: 42px;
             }
 
-            .bank-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .timeline-points {
-                flex-direction: column;
-                gap: 40px;
-                padding: 20px;
-            }
-
-            .timeline-line {
-                left: 50%;
-                right: auto;
-                width: 3px;
-                height: 100%;
-                top: 0;
-                transform: translateX(-50%);
-            }
-
-            .timeline-tooltip {
+            .brand-logo {
                 position: relative;
-                bottom: auto;
-                left: auto;
-                transform: none;
+                justify-content: center;
                 margin-top: 20px;
-                opacity: 1;
-                visibility: visible;
             }
 
-            .timeline-tooltip::after {
-                display: none;
+            .chart-container {
+                width: 100%;
+                height: 350px;
+                padding: 30px;
             }
 
+            .company-logo {
+                font-size: 10px;
+                padding: 6px 12px;
+            }
         }

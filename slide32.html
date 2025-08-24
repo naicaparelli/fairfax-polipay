@@ -1,82 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/slide32.css">
-    <title>Pilares de Estratégia</title>
-
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>PoliPay – Ecossistema</title>
+  <link rel="stylesheet" href="assets/css/common.css">
+  <link rel="stylesheet" href="assets/css/slide32.css">
+  <style>
+  </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <div class="header-section">
-        <div class="header-content">
-            <div class="chevron-icon">››</div>
-            <h1 class="main-title">
-                Pilares de<br>
-                Estratégia
-            </h1>
-        </div>
-    </div>
+  <main class="page">
+    <!-- Painel esquerdo -->
+    <section class="left">
+      <div class="arrow" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><path d="M8 32h40M36 16l16 16-16 16" fill="none" stroke="#35b79c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <p class="lede">
+        Os segurados, corretores e operadoras são <strong>as peças‑chave desse ecossistema</strong> e serão o foco da estratégia da <span class="brand">PoliPay</span>.
+      </p>
+    </section>
 
-    <!-- Main Section -->
-    <div class="main-section">
-        
-        <div class="content-container">
-            <!-- PoliPay Logo -->
-            <div class="polipay-logo">
-                <div class="logo-dots">
-                    <div class="dot dot-1"></div>
-                    <div class="dot dot-2"></div>
-                    <div class="dot dot-3"></div>
-                    <div class="dot dot-4"></div>
-                </div>
-                <div class="logo-text">PoliPay</div>
-            </div>
-        </div>
-    </div>
+    <!-- Painel direito -->
+    <section class="right">
+      <figure class="donut-wrap" id="donutWrap">
+        <!-- SVG DONUT (3 slices = 3×120° = 360°) -->
+        <svg class="donut" viewBox="0 0 400 400" role="img" aria-label="Ecossistema PoliPay">
+          <!-- base -->
+          <circle cx="200" cy="200" r="170" fill="#eef0f1"/>
 
-    <!-- Content Section -->
-    <div class="content-section">
-        <div class="content-container">
-            <!-- Strategy Pillars -->
-            <div class="pillars-container">
-                <div class="connection-line line-1"></div>
-                <div class="connection-line line-2"></div>
-                
-                <div class="pillar">
-                    <div class="pillar-number">1</div>
-                    <h3 class="pillar-title">Fundação</h3>
-                    <p class="pillar-description">
-                        Para estarmos "preparados para o crescimento", há questões estruturais a desenvolver.
-                    </p>
-                </div>
+          <!-- Slices (120° cada) -->
+          <!-- Segurado: -90° (top) -> 30° -->
+          <g class="slice slice--segurado" data-key="segurado">
+            <path d="M200,200 L200,30 A170,170 0 0,1 347,285 Z" fill="#f2b705"/>
+            <text x="245" y="155" class="slice-label">Segurado</text>
+          </g>
 
-                <div class="pillar">
-                    <div class="pillar-number">2</div>
-                    <h3 class="pillar-title">Impulso</h3>
-                    <p class="pillar-description">
-                        Para entregar resultados rápidos, há muitas oportunidades de <span class="highlight">otimização no estágio "as-is"</span> que podem permitir a geração imediata de receita e captura de TPV, melhorando a vida dos <span class="highlight">corretores</span>.
-                    </p>
-                </div>
+          <!-- Corretor: 30° -> 150° -->
+          <g class="slice slice--corretor" data-key="corretor">
+            <path d="M200,200 L347,285 A170,170 0 0,1 53,285 Z" fill="#ef867e"/>
+            <text x="290" y="245" class="slice-label">Corretor</text>
+          </g>
 
-                <div class="pillar">
-                    <div class="pillar-number">3</div>
-                    <h3 class="pillar-title">Expansão</h3>
-                    <p class="pillar-description">
-                        Com a implementação da <span class="highlight">PoliPay</span> e crescimento de uso do produto no Brasil, logo outras iniciativas permitirão a expansão da <span class="highlight">PoliPay</span> a outros países.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navigation">
-        <a href="slide31.html" class="nav-btn">← Anterior</a>
-        <div class="slide-counter">32 / 63</div>
-        <a href="slide33.html" class="nav-btn">Próximo →</a>
-    </div>
+          <!-- Seguradora: 150° -> 270° (fecha no topo) -->
+          <g class="slice slice--seguradora" data-key="seguradora">
+            <path d="M200,200 L53,285 A170,170 0 0,1 200,30 Z" fill="#3fb49e"/>
+            <text x="115" y="240" class="slice-label">Seguradora</text>
+          </g>
 
-    <script src="assets/js/navigation.js"></script>
+          <!-- círculo central -->
+          <circle cx="200" cy="200" r="115" fill="#fff" stroke="#d9dee2" stroke-width="6"/>
+          <g class="center-logo" aria-hidden="true">
+            <circle cx="165" cy="190" r="7" fill="#ff6b6b"/>
+            <circle cx="180" cy="190" r="7" fill="#4ecdc4"/>
+            <circle cx="165" cy="205" r="7" fill="#45b7d1"/>
+            <circle cx="180" cy="205" r="7" fill="#f9ca24"/>
+            <text x="198" y="202" class="brandword">PoliPay</text>
+          </g>
+        </svg>
+
+        <!-- Badges (aparecem só no hover do slice correspondente) -->
+        <ul class="badges">
+          <!-- Segurado -->
+          <li class="badge b--top-left"     data-key="segurado">💱 <span>Cashback</span></li>
+          <li class="badge b--top"          data-key="segurado">🏦 <span>Consórcio</span></li>
+          <li class="badge b--left"         data-key="segurado">✅ <span>Fidelização</span></li>
+          <!-- Corretor -->
+          <li class="badge b--top-right"    data-key="corretor">🧠 <span>Gestão</span></li>
+          <li class="badge b--right-top"    data-key="corretor">💸 <span>Antecipação</span></li>
+          <li class="badge b--right"        data-key="corretor">🎁 <span>Benefícios</span></li>
+          <li class="badge b--right-bottom" data-key="corretor">⚙️ <span>Automação</span></li>
+          <!-- Seguradora -->
+          <li class="badge b--bottom"       data-key="seguradora">📄 <span>Relatórios</span></li>
+          <li class="badge b--bottom-left"  data-key="seguradora">📊 <span>Gestão</span></li>
+          <li class="badge b--left-bottom"  data-key="seguradora">📈 <span>Rentabilização</span></li>
+        </ul>
+      </figure>
+    </section>
+  </main>
+
+  <div class="navigation">
+    <a href="slide31.html" class="nav-btn">← Anterior</a>
+    <div class="slide-counter">32 / 63</div>
+    <a href="slide33.html" class="nav-btn">Próximo →</a>
+  </div>
+
+  <script src="assets/js/navigation.js"></script>
+  <script>
+    // Mostrar badges apenas do slice ativo
+    const wrap = document.getElementById('donutWrap');
+    const slices = wrap.querySelectorAll('.slice');
+
+    const clear = () => {
+      wrap.classList.remove('show-segurado','show-corretor','show-seguradora');
+      slices.forEach(s=>s.classList.remove('is-active'));
+    };
+
+    slices.forEach(slice=>{
+      slice.addEventListener('mouseenter', ()=>{
+        clear();
+        const key = slice.dataset.key;
+        slice.classList.add('is-active');
+        wrap.classList.add('show-'+key);
+      });
+    });
+
+    // Ao sair da figura, esconde tudo
+    wrap.addEventListener('mouseleave', clear);
+  </script>
 </body>
 </html>

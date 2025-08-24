@@ -1,78 +1,73 @@
 /* fundo com gradiente escuro */
 body {
-    background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 73, 94, 0.85) 100%);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 60px;
+  background: linear-gradient(135deg, rgba(44,62,80,.9) 0%, rgba(52,73,94,.85) 100%);
+  min-height: 100vh;
+  display: block;             /* não precisamos centralizar o body */
+  position: relative;
+  padding: 60px 60px 140px;   /* respiro no fim p/ não ficar atrás da navegação fixa */
 }
 
 /* container flex para texto + imagem */
 .project-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    width: 100%;
-    max-width: 1200px;
-    z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;             /* centra o wrapper na página */
+  z-index: 2;
 }
 
 /* caixa de texto */
 .project-content {
-    flex: 1;
-    background: rgba(44, 62, 80, 0.9);
-    padding: 50px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(78, 205, 196, 0.2);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: slideInLeft 0.8s ease 0.3s both;
+  flex: 1;
+  background: rgba(44,62,80,.9);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(78,205,196,.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  animation: slideInLeft .8s ease .3s both;
 }
 
-.project-title {
-    font-size: 3.5rem;
-    font-weight: 300;
-    color: white;
-    margin-bottom: 2rem;
-    line-height: 1.2;
-}
-
-.project-text {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.highlight {
-    color: #4ecdc4;
-    font-weight: 600;
-}
+.project-title { font-size: 3.5rem; font-weight: 300; color: #fff; margin-bottom: 2rem; line-height: 1.2; }
+.project-text  { font-size: 1.2rem; line-height: 1.8; color: rgba(255,255,255,.9); }
+.highlight     { color: #4ecdc4; font-weight: 600; }
 
 /* imagem ao lado direito */
 .images {
-    flex: 1;
-    min-height: 800px;
-    min-width: 1200px;
-    background-image: url('../images/slide5.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    animation: slideInRight 0.8s ease 0.3s both;
+  flex: 1;
+  min-height: 800px;
+  /* removi min-width gigante que quebrava em telas pequenas */
+  width: 100%;
+  background-color: #fff;   
+  background-image: url('../images/slide5.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  animation: slideInRight .8s ease .3s both;
+}
+
+/* NAVIGAÇÃO FIXA */
+.navigation {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 9999;              /* sempre acima do conteúdo */
+  width: max-content;
+  padding: 8px 12px;          /* opcional: click area maior */
+  pointer-events: auto;
 }
 
 /* responsivo */
 @media (max-width: 768px) {
-    .project-wrapper {
-        flex-direction: column;
-    }
-    .project-content, .images {
-        width: 100%;
-    }
-    .project-title { font-size: 2.5rem; }
-    .project-text { font-size: 1.1rem; }
+  .project-wrapper { flex-direction: column; gap: 24px; }
+  .project-content, .images { width: 100%; }
+  .project-title { font-size: 2.5rem; }
+  .project-text  { font-size: 1.1rem; }
+  body { padding: 24px 16px 140px; } /* mantém o respiro para a navegação fixa */
 }

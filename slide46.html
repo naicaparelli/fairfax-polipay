@@ -1,42 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoliPay - Slide 2</title>
-    <link rel="stylesheet" href="assets/css/common.css">
-    <link rel="stylesheet" href="assets/css/slide2.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modelo Operacional</title>
+  <link rel="stylesheet" href="assets/css/common.css"/>
+  <link rel="stylesheet" href="assets/css/slide46.css"/>
 </head>
 <body>
-    <div class="logo-position">
-        <div class="polipay-logo">
-            <div class="logo-dots">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot blue"></div>
-                <div class="dot green"></div>
-            </div>
-            <span class="logo-text">PoliPay</span>
-        </div>
+  <div class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <div>
+        <h1 class="title">Modelo operacional</h1>
+        <div class="subtitle">Cenários que permitem definição de <span class="highlight">estratégia</span> pela Fairfax</div>
+      </div>
     </div>
-    
-    <div class="fairfax-content">
-        <div class="content-left">
-            <h1 class="fairfax-title">// Próximos passos</h1>
-        </div>
-        <div class="content-right">
-            <div class="image-placeholder">
 
-            </div>
+    <div class="scenarios-container">
+      <!-- CENÁRIO 1 -->
+      <div class="scenario-card">
+        <div class="diagram-area">
+          <svg class="diagram" viewBox="0 0 600 360" aria-label="Cenário 1">
+            <defs>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+              </filter>
+            </defs>
+
+            <!-- fios -->
+            <path class="wire wire--solid"  d="M300 76 C 280 110, 260 120, 240 150" />
+            <path class="wire wire--dashed" d="M300 76 C 330 120, 360 150, 360 200" />
+            <path class="wire wire--dashed" d="M360 200 C 320 230, 260 250, 190 285" />
+            <path class="wire wire--dashed" d="M360 200 C 345 230, 320 255, 300 285" />
+            <path class="wire wire--dashed" d="M360 200 C 370 230, 390 255, 410 285" />
+
+            <!-- nós -->
+            <g filter="url(#shadow)">
+              <rect class="node node--fairfax" x="255" y="60"  rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="81">FairFax</text>
+
+              <rect class="node node--polipay" x="195" y="140" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="240" y="161">PoliPay</text>
+
+              <rect class="node node--stake"  x="315" y="184" rx="16" ry="16" width="110" height="32"/>
+              <text class="node__txt" x="370" y="205">Stakeholders</text>
+
+              <rect class="node node--svc" x="145" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="190" y="290">Tecnologia</text>
+
+              <rect class="node node--svc" x="255" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="290">BaaS</text>
+
+              <rect class="node node--svc" x="365" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="410" y="290">Crédito</text>
+            </g>
+          </svg>
         </div>
+
+        <div class="characteristics">
+          <div class="characteristics-title">Características:</div>
+          <div class="characteristic-item"><span class="underline">Não há mar aberto.</span></div>
+          <div class="characteristic-item">A BU atende <span class="underline">especificamente FairFax.</span></div>
+        </div>
+      </div>
+
+      <!-- CENÁRIO 2 -->
+      <div class="scenario-card">
+        <div class="diagram-area">
+          <svg class="diagram" viewBox="0 0 600 360" aria-label="Cenário 2">
+            <defs>
+              <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+              </filter>
+            </defs>
+
+            <!-- linha azul topo -->
+            <line class="wire wire--blue" x1="140" y1="90" x2="460" y2="90"/>
+            <!-- descida verde ao PoliPay -->
+            <path class="wire wire--solid" d="M300 90 L300 130" />
+            <!-- PoliPay -> Stakeholders e filhos -->
+            <path class="wire wire--dashed" d="M300 180 L300 215" />
+            <path class="wire wire--dashed" d="M300 215 C 240 245, 205 255, 190 285" />
+            <path class="wire wire--dashed" d="M300 215 C 300 245, 300 255, 300 285" />
+            <path class="wire wire--dashed" d="M300 215 C 360 245, 395 255, 410 285" />
+
+            <!-- nós -->
+            <g filter="url(#shadow2)">
+              <rect class="node node--socio"   x="145" y="74" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="190" y="95">Sócio</text>
+
+              <rect class="node node--fairfax" x="365" y="74" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="410" y="95">FairFax</text>
+
+              <rect class="node node--polipay" x="255" y="130" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="151">PoliPay</text>
+
+              <rect class="node node--stake" x="245" y="180" rx="16" ry="16" width="110" height="32"/>
+              <text class="node__txt" x="300" y="201">Stakeholders</text>
+
+              <rect class="node node--svc" x="145" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="190" y="290">Tecnologia</text>
+
+              <rect class="node node--svc" x="255" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="290">BaaS</text>
+
+              <rect class="node node--svc" x="365" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="410" y="290">Crédito</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="characteristics">
+          <div class="characteristics-title">Características:</div>
+          <div class="characteristic-item">Blindagem do business para o regulatório.</div>
+          <div class="characteristic-item">Pode ir a mar aberto, mas com restrições em conversão de clientes White label.</div>
+        </div>
+      </div>
+
+      <!-- CENÁRIO 3 -->
+      <div class="scenario-card">
+        <div class="diagram-area">
+          <svg class="diagram" viewBox="0 0 600 360" aria-label="Cenário 3">
+            <defs>
+              <filter id="shadow3" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.25"/>
+              </filter>
+              <marker id="arrowLeft" markerWidth="10" markerHeight="10" refX="1" refY="5" orient="auto">
+                <path d="M10,0 L0,5 L10,10 Z" fill="#2980b9"/>
+              </marker>
+            </defs>
+
+            <!-- linha azul com seta apontando para a esquerda -->
+            <line class="wire wire--blue" x1="460" y1="90" x2="140" y2="90" marker-end="url(#arrowLeft)"/>
+            <!-- descida verde ao PoliPay -->
+            <path class="wire wire--solid" d="M300 90 L300 130" />
+            <!-- PoliPay -> Stakeholders e filhos -->
+            <path class="wire wire--dashed" d="M300 180 L300 215" />
+            <path class="wire wire--dashed" d="M300 215 C 240 245, 205 255, 190 285" />
+            <path class="wire wire--dashed" d="M300 215 C 300 245, 300 255, 300 285" />
+            <path class="wire wire--dashed" d="M300 215 C 360 245, 395 255, 410 285" />
+
+            <!-- nós -->
+            <g filter="url(#shadow3)">
+              <rect class="node node--vc" x="255" y="74" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="95">VC</text>
+
+              <rect class="node node--fairfax" x="515" y="74" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="560" y="95">FairFax</text>
+
+              <rect class="node node--polipay" x="255" y="130" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="151">PoliPay</text>
+
+              <rect class="node node--stake" x="245" y="180" rx="16" ry="16" width="110" height="32"/>
+              <text class="node__txt" x="300" y="201">Stakeholders</text>
+
+              <rect class="node node--svc" x="145" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="190" y="290">Tecnologia</text>
+
+              <rect class="node node--svc" x="255" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="300" y="290">BaaS</text>
+
+              <rect class="node node--svc" x="365" y="269" rx="16" ry="16" width="90" height="32"/>
+              <text class="node__txt" x="410" y="290">Crédito</text>
+            </g>
+          </svg>
+        </div>
+
+        <div class="characteristics">
+          <div class="characteristics-title">Características:</div>
+          <div class="characteristic-item">Blindagem do business para o regulatório.</div>
+          <div class="characteristic-item">Mar aberto sem restrições.</div>
+        </div>
+      </div>
     </div>
 
     <div class="navigation">
-        <a href="slide45.html" class="nav-btn">← Anterior</a>
-        <div class="slide-counter">46 / 63</div>
-        <a href="slide47.html" class="nav-btn">Próximo →</a>
+      <a href="slide45.html" class="nav-btn">← Anterior</a>
+      <div class="slide-counter">46 / 63</div>
+      <a href="slide47.html" class="nav-btn">Próximo →</a>
     </div>
+  </div>
 
-    <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/navigation.js"></script>
 </body>
 </html>

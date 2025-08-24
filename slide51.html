@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide51.css"/>
+    <title>Hub de Pagamentos</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <h1>Hub de pagamentos</h1>
+            </div>
+            <div class="toggle-container">
+                <span class="toggle-label">MaxiPago</span>
+                <div class="toggle-switch" onclick="toggleProvider()">
+                    <div class="toggle-slider">M</div>
+                </div>
+                <span class="toggle-label">PoliPay</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Row Corretor -->
+            <div class="section">
+                <div class="section-label">
+                    <div class="avatar corretor">C</div>
+                    <span class="section-name">Corretor</span>
+                </div>
+                
+                <div class="flow-node node-cotacao">Faz cotação</div>
+                <div class="arrow arrow-1 right"></div>
+                <div class="flow-node node-escolhe-meio">Escolhe meio pgto</div>
+                <div class="arrow arrow-2 down"></div>
+            </div>
+
+            <!-- Row ERP -->
+            <div class="section">
+                <div class="section-label">
+                    <div class="avatar erp">FF</div>
+                    <span class="section-name">ERP</span>
+                </div>
+                
+                <div class="flow-node node-gera-apolice">Gera apólice</div>
+                <div class="flow-node node-emite-boleto">Emite boleto</div>
+                <div class="flow-node node-concilia">Concilia pgto</div>
+                <div class="arrow arrow-4 right"></div>
+                <div class="flow-node node-gera-comissao">Gera comissão</div>
+            </div>
+
+            <!-- Row Provider (MaxiPago/PoliPay) -->
+            <div class="section">
+                <div class="section-label">
+                    <div id="provider-avatar" class="avatar payment">maxi</div>
+                    <span id="provider-name" class="section-name">MaxiPago</span>
+                </div>
+                
+                <div class="flow-node node-cartao">Cartão crédito</div>
+                <div id="node-pix" class="flow-node node-pix">PIX</div>
+            </div>
+
+            <!-- Row Bancos -->
+            <div class="section">
+                <div class="section-label">
+                    <div class="avatar bancos">B</div>
+                    <span class="section-name">Bancos</span>
+                </div>
+                
+                <div class="flow-node node-confirma">Confirma pgto</div>
+                <div class="arrow arrow-3 up"></div>
+            </div>
+
+            <!-- Painel de Benefícios -->
+            <div id="benefits-panel" class="benefits-panel">
+                <div class="benefits-title">Principais funções do Hub Polipay:</div>
+                <div class="benefit-item">Facilitar o acesso a múltiplos meios de pagamento</div>
+                <div class="benefit-item">Oferecer tecnologia de integração simplificada</div>
+                <div class="benefit-item">Processar transações e gerenciar riscos</div>
+                <div class="benefit-item">Realizar conciliação financeira e liquidação</div>
+            </div>
+        </div>
+    </div>
+
+            <div class="navigation">
+            <a href="slide50.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">51 / 63</div>
+            <a href="slide52.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+
+    <script>
+        let isPoliPay = false;
+
+        function toggleProvider() {
+            const toggle = document.querySelector('.toggle-switch');
+            const slider = document.querySelector('.toggle-slider');
+            const providerAvatar = document.getElementById('provider-avatar');
+            const providerName = document.getElementById('provider-name');
+            const pixNode = document.getElementById('node-pix');
+            const benefitsPanel = document.getElementById('benefits-panel');
+            
+            isPoliPay = !isPoliPay;
+            
+            if (isPoliPay) {
+                // Mudar para PoliPay
+                toggle.classList.add('active');
+                slider.textContent = 'P';
+                
+                providerAvatar.style.background = '#2196F3';
+                providerAvatar.textContent = 'Poli';
+                providerName.textContent = 'PoliPay';
+                
+                // Mostrar PIX
+                pixNode.style.display = 'block';
+                
+                // Destacar melhorias
+                setTimeout(() => {
+                    pixNode.classList.add('highlight');
+                    document.querySelector('.node-cartao').classList.add('highlight');
+                    document.querySelector('.node-concilia').classList.add('highlight');
+                    benefitsPanel.classList.add('show');
+                }, 300);
+                
+            } else {
+                // Voltar para MaxiPago
+                toggle.classList.remove('active');
+                slider.textContent = 'M';
+                
+                providerAvatar.style.background = '#FF9800';
+                providerAvatar.textContent = 'maxi';
+                providerName.textContent = 'MaxiPago';
+                
+                // Esconder PIX e remover destaques
+                pixNode.style.display = 'none';
+                document.querySelectorAll('.flow-node').forEach(node => {
+                    node.classList.remove('highlight');
+                });
+                benefitsPanel.classList.remove('show');
+            }
+        }
+
+        // Animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.flow-node, .arrow');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.4s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Interatividade nos nodes
+        document.querySelectorAll('.flow-node').forEach(node => {
+            node.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>

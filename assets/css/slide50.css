@@ -1,0 +1,260 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid #4CAF50;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-right: 15px;
+        }
+
+        .header::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid #4CAF50;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-left: 5px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .main-content {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .left-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .right-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .phase {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .phase-marker {
+            position: absolute;
+            left: -22px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 10px;
+        }
+
+        .phase-icon {
+            font-size: 1.2rem;
+        }
+
+        .phase-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .phase-duration {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: auto;
+        }
+
+        .phase-tasks {
+            margin-left: 35px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .task-item.completed {
+            color: #27ae60;
+        }
+
+        .task-item.pending {
+            color: #3498db;
+        }
+
+        .task-icon {
+            margin-right: 8px;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .task-text {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .task-text:hover {
+            color: #2980b9;
+        }
+
+        .success-factors {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .factor-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .factor-icon {
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        .factor-content {
+            font-size: 0.9rem;
+        }
+
+        .factor-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .factor-description {
+            color: #5d6d7e;
+        }
+
+        .factor-description .underline {
+            text-decoration: underline;
+        }
+
+        .key-considerations {
+            background: #fff8e1;
+            border: 1px solid #ffb74d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .considerations-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #f57c00;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .considerations-icon {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .considerations-text {
+            font-size: 0.9rem;
+            color: #5d4e37;
+            line-height: 1.6;
+        }
+
+        .considerations-text .underline {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .timeline {
+                padding-left: 25px;
+            }
+            
+            .phase-marker {
+                left: -19px;
+            }
+        }

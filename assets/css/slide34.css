@@ -8,196 +8,237 @@
             font-family: 'Arial', sans-serif;
             background: #ffffff;
             color: #333;
-            padding: 30px;
-            line-height: 1.3;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 400px 1fr;
+            min-height: 100vh;
+            max-width: 1400px;
             margin: 0 auto;
+            gap: 40px;
+            padding: 60px 40px;
         }
 
-        /* Header */
-        .header {
+        /* Left side - content */
+        .left-side {
             display: flex;
-            align-items: center;
-            margin-bottom: 30px;
+            flex-direction: column;
+            justify-content: center;
+            padding-right: 20px;
         }
 
         .arrow-icon {
-            font-size: 30px;
+            font-size: 48px;
             color: #00d4aa;
-            margin-right: 15px;
-            font-weight: bold;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
 
         .main-title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .main-title .android-ios {
-            color: #00d4aa;
+            font-size: 42px;
             font-weight: 300;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
-        }
-
-        /* Bento Grid Layout */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 350px 1fr 1fr;
-            grid-template-rows: auto auto auto;
-            gap: 15px;
-            grid-template-areas: 
-                "left1 left2 center right1 right2"
-                ". . center . ."
-                "bottom1 bottom2 bottom3 bottom4 bottom5";
-        }
-
-        /* Grid Areas */
-        .left1 { grid-area: left1; }
-        .left2 { grid-area: left2; }
-        .center { grid-area: center; }
-        .right1 { grid-area: right1; }
-        .right2 { grid-area: right2; }
-        .bottom1 { grid-area: bottom1; }
-        .bottom2 { grid-area: bottom2; }
-        .bottom3 { grid-area: bottom3; }
-        .bottom4 { grid-area: bottom4; }
-        .bottom5 { grid-area: bottom5; }
-
-        /* Feature Section Styling */
-        .feature-section {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            height: fit-content;
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            line-height: 1.2;
+            margin-bottom: 40px;
         }
 
-        .feature-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
+        .description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
-        .feature-item {
+        .detailed-description {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Center - image area */
+        .center-image {
             display: flex;
             align-items: center;
-            font-size: 11px;
-            color: #555;
-            line-height: 1.2;
+            justify-content: center;
+            position: relative;
         }
 
-        .feature-item::before {
-            content: "•";
-            color: #00d4aa;
-            font-weight: bold;
-            margin-right: 6px;
-            font-size: 12px;
-            flex-shrink: 0;
-        }
-
-        .feature-item.highlight {
-            color: #e74c3c;
-            font-weight: 500;
-        }
-
-        .feature-item.highlight::before {
-            color: #e74c3c;
-        }
-
-        /* Center Column - Phone Images */
-        .center-column {
+        .image-placeholder{
+            width:100%;
+            height:500px;                /* mantém a área */
             background-image:url('../images/slide33.jpg');
             background-size:contain;     /* mostra a imagem inteira */
             background-repeat:no-repeat; /* evita tiles */
-            min-height: 400px;
+            background-position:center;  /* centraliza */
         }
 
-        /* Section Colors
-        .onboarding-section .section-title { color: #0066cc; }
-        .gestao-section .section-title { color: #e74c3c; }
-        .push-section .section-title { color: #9b59b6; }
-        .comodidades-section .section-title { color: #f39c12; }
-        .adquirencia-section .section-title { color: #2ecc71; }
-        .banking-section .section-title { color: #34495e; } */
-
-        /* Compact sections */
-        .compact-section {
-            padding: 12px;
+        /* Right side - steps */
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 20px;
         }
 
-        .compact-section .section-title {
-            font-size: 13px;
+        .intro-text {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #00d4aa;
+            font-weight: 500;
+        }
+
+        .steps-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #00d4aa;
+        }
+
+        .step:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
             margin-bottom: 8px;
         }
 
-        .compact-section .feature-item {
-            font-size: 10px;
+        .step-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .bento-grid {
-                grid-template-columns: 1fr 1fr;
-                grid-template-areas: 
-                    "left1 right1"
-                    "left2 right2"
-                    "center center"
-                    "bottom1 bottom2"
-                    "bottom3 bottom4"
-                    "bottom5 .";
+        /* Research note */
+        .research-note {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .research-text {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Animations */
+        .step {
+            opacity: 0;
+            animation: slideInRight 0.6s ease forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.2s; }
+        .step:nth-child(2) { animation-delay: 0.4s; }
+        .step:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px;
+            }
+
+            .left-side,
+            .right-side {
+                padding: 0;
+                text-align: center;
+            }
+
+            .main-title {
+                font-size: 36px;
+            }
+
+            .center-image {
+                order: 2;
+            }
+
+            .right-side {
+                order: 3;
             }
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-
             .main-title {
-                font-size: 24px;
+                font-size: 28px;
             }
 
-            .bento-grid {
-                grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "center"
-                    "left1"
-                    "left2"
-                    "right1"
-                    "right2"
-                    "bottom1"
-                    "bottom2"
-                    "bottom3"
-                    "bottom4"
-                    "bottom5";
+            .image-placeholder {
+                height: 300px;
+                font-size: 16px;
             }
 
-            .phone-mockups {
-                gap: 10px;
+            .placeholder-icon {
+                font-size: 36px;
             }
 
-            .phone-mockup {
-                width: 80px;
-                height: 160px;
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .step-number {
+                margin: 0 auto;
             }
         }

@@ -3,162 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Na Prática</title>
     <link rel="stylesheet" href="assets/css/common.css"/>
     <link rel="stylesheet" href="assets/css/slide47.css"/>
+    <title>Convivência com Regulatório</title>
 
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo"></div>
-            <h1 class="title">Na prática</h1>
+            <h1>Convivência com regulatório</h1>
         </div>
-
-        <div class="steps-container">
-            <!-- Step 01 -->
-            <div class="step">
-                <div class="step-number">01</div>
-                <h3 class="step-title">Constituir CNPJ independente</h3>
-                <p class="step-description">
-                    Centralizar iniciativas financeiras com autonomia operacional, mantendo 
-                    <span class="highlight">governança</span> da Fairfax.
-                </p>
-            </div>
-
-            <!-- Step 02 -->
-            <div class="step step-02">
-                <div class="step-number">02</div>
-                <h3 class="step-title">Definição da estrutura dedicada</h3>
-                <p class="step-description">
-                    Equipe focada em parcerias e eficiência operacional de curto prazo, com 
-                    expansão condicionada à maturidade e resultados.
-                </p>
-
-                <div class="details-grid">
-                    <div class="detail-section">
-                        <div class="detail-title">Jurídico: 1 HC ou cross jurídico Fairfax</div>
+        
+        <div class="main-content">
+            <!-- Seção Principal -->
+            <div class="architecture-wrapper">
+                <div class="left-labels">
+                    <div class="polipay-label">PoliPay</div>
+                    <div class="polipay-description">
+                        <span class="underline">Funcionalidades disponíveis</span> e remover <span class="underline">funcionalidades</span> de acordo com suas <span class="underline">necessidades</span>
                     </div>
-
-                    <div class="detail-section">
-                        <div class="detail-title">Produtos financeiros: 1 HC</div>
-                        <ul class="detail-list">
-                            <li class="detail-item underline">Gestão de parceiros e terceiros</li>
-                            <li class="detail-item">Gestão de contratos</li>
-                            <li class="detail-item">Planejamento comercial</li>
-                            <li class="detail-item">Indicadores e funil</li>
-                            <li class="detail-item">Demandas de mercado para produtos</li>
-                        </ul>
+                </div>
+                
+                <div class="polipay-section">
+                    <div class="section-header">
+                        <div class="polipay-title">PoliPay Financial cloud</div>
+                        <div class="fairfax-title">FairFax</div>
                     </div>
-
-                    <div class="detail-section">
-                        <div class="detail-title underline">Performance</div>
-                        <ul class="detail-list">
-                            <li class="detail-item">Definição pricing</li>
-                            <li class="detail-item">Ciclo de vida</li>
-                            <li class="detail-item underline">Régua comunicação</li>
-                        </ul>
+                    
+                    <div class="app-layer">
+                        <div class="app-box">Aplicativo (PJ/PF)</div>
+                        <div class="app-box">Internet Banking (PJ/PF)</div>
                     </div>
-
-                    <div class="detail-section strategy-section">
-                        <div class="detail-title">Estratégia de Produtos</div>
-                        <ul class="detail-list">
-                            <li class="detail-item">Controle Backlog</li>
-                            <li class="detail-item underline">Priorização devs</li>
-                            <li class="detail-item">QA</li>
-                        </ul>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card has-icon">Onboarding KYC</div>
+                        <div class="feature-card has-icon">Auth MFA</div>
+                        <div class="feature-card has-icon">PIX</div>
+                        <div class="feature-card has-icon">TED/P2P</div>
+                        <div class="feature-card has-icon">Recarga de celular</div>
+                        <div class="feature-card">Benefícios +</div>
+                        <div class="feature-card">Cartão físico +</div>
+                        <div class="feature-card">Cartão Virtual +</div>
+                        <div class="feature-card has-icon">Link de Pagamento</div>
+                        <div class="feature-card has-icon">Market Place</div>
+                        <div class="feature-card has-icon">Saldo e Extrato</div>
+                        <div class="feature-card has-icon">Fatura</div>
+                        <div class="feature-card">Remittance</div>
                     </div>
                 </div>
             </div>
-
-            <!-- Step 03 -->
-            <div class="step step-03">
-                <div class="step-number">03</div>
-                <h3 class="step-title">Implementação do Hub de Pagamentos</h3>
-                <p class="step-description">
-                    Visitar mercado e definir <span class="highlight">solução</span> com contratos 
-                    sem <span class="highlight">exclusividade</span> para <span class="highlight">evolução</span>.
-                </p>
+            
+            <!-- Ambiente Externo -->
+            <div class="external-wrapper">
+                <div class="external-labels">
+                    <div class="baas-label">BaaS</div>
+                    <div class="baas-description">
+                        <span class="underline">Ledger -> APIs standard para os</span><br>
+                        <span class="underline core">serviços</span> <span class="core">core</span>
+                    </div>
+                    
+                    <div class="services-core-label">Serviços core</div>
+                    <div class="services-description">
+                        <span class="underline">Não desenvolvem</span> APIs para <span class="underline">cada</span> fintech
+                    </div>
+                </div>
+                
+                <div class="external-environment">
+                    <div class="external-title">Ambiente externo</div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">Operações</div>
+                        <div class="service-card">Processamento</div>
+                        <div class="service-card">Onboarding</div>
+                        <div class="service-card">Risco</div>
+                    </div>
+                    
+                    <div class="core-services">
+                        <div class="core-services-grid">
+                            <div class="service-card">Regulatório</div>
+                            <div class="service-card">Licenças</div>
+                            <div class="service-card">Pagamentos</div>
+                            <div class="service-card">Seguros e Assistências</div>
+                            <div class="service-card">Empréstimos (EP, Consignado etc)</div>
+                            <div class="service-card">Cartões crédito, débito, benefício, etc.</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="navigation">
-            <a href="slide46.html" class="nav-btn">← Anterior</a>
-            <div class="slide-counter">47 / 63</div>
-            <a href="slide48.html" class="nav-btn">Próximo →</a>
-        </div>
     </div>
+    <div class="navigation">
+      <a href="slide46.html" class="nav-btn">← Anterior</a>
+      <div class="slide-counter">47 / 63</div>
+      <a href="slide48.html" class="nav-btn">Próximo →</a>
+    </div>
+  </div>
 
-    <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/navigation.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add entrance animations
-            const steps = document.querySelectorAll('.step');
-            
-            // Animate steps entrance
-            steps.forEach((step, index) => {
-                step.style.opacity = '0';
-                step.style.transform = 'translateX(-50px)';
+        // Adicionar interatividade aos cards
+        document.querySelectorAll('.feature-card, .service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    step.style.transition = 'all 0.8s ease';
-                    step.style.opacity = '1';
-                    step.style.transform = 'translateX(0)';
-                }, index * 300);
+                    this.style.transform = '';
+                }, 150);
             });
-
-            // Add progressive reveal for detail items
-            const detailItems = document.querySelectorAll('.detail-item');
-            detailItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(10px)';
-                setTimeout(() => {
-                    item.style.transition = 'all 0.5s ease';
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }, 1000 + (index * 100));
-            });
-
-            // Add hover effects for step numbers
-            const stepNumbers = document.querySelectorAll('.step-number');
-            stepNumbers.forEach(number => {
-                number.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.2) rotate(360deg)';
-                });
-                
-                number.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1) rotate(0deg)';
-                });
-            });
-
-            // Add click interaction for detail sections
-            const detailSections = document.querySelectorAll('.detail-section');
-            detailSections.forEach(section => {
-                section.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 150);
-                });
-            });
-
-            // Progressive highlight effect
-            setInterval(() => {
-                const highlights = document.querySelectorAll('.highlight');
-                const randomHighlight = highlights[Math.floor(Math.random() * highlights.length)];
-                if (randomHighlight) {
-                    randomHighlight.style.background = 'linear-gradient(45deg, #f39c12, #e67e22)';
-                    randomHighlight.style.color = 'white';
-                    randomHighlight.style.padding = '2px 4px';
-                    randomHighlight.style.borderRadius = '3px';
-                    
-                    setTimeout(() => {
-                        randomHighlight.style.background = 'none';
-                        randomHighlight.style.color = '#2c3e50';
-                        randomHighlight.style.padding = '0';
-                        randomHighlight.style.borderRadius = '0';
-                    }, 2000);
-                }
-            }, 4000);
         });
     </script>
 </body>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide52.css"/>
+    <title>Hub de pagamentos Polipay</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1 class="title">Hub de pagamentos <span class="underline">Polipay</span></h1>
+            
+            <div class="description">
+                <p><strong>Texto do Paulo...</strong></p>
+                <p>A <span class="underline">Polipay</span> será responsável por toda a orquestração das formas de cobrança, liquidação, conciliação, réguas de comunicação de cobrança, taxas de atraso...</p>
+                <p>O ERP permanece responsável pelo core de emissão de apólices etc, e receberá a informação de que o cliente pagou, seja qual for o meio de pagamento.</p>
+                <p>Fica mais ágil e eficiente plugar e desplugar fornecedores, novos meios de pagamento, produtos etc.</p>
+                <p>A <span class="underline">Polipay</span> pode servir a todo o Grupo...</p>
+            </div>
+
+            <div class="ecosystem-section">
+                <div class="ecosystem-title">No ecossistema de pagamentos, o Hub se conectará com:</div>
+                
+                <div class="ecosystem-grid">
+                    <div class="ecosystem-left">
+                        <div class="ecosystem-item">
+                            <div class="ecosystem-icon fairfax">
+                                <span>📋</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <div class="ecosystem-name">Fairfax</div>
+                                <div class="ecosystem-description">Corretores, Segurados e Fairfax</div>
+                            </div>
+                        </div>
+
+                        <div class="ecosystem-item">
+                            <div class="ecosystem-icon bancos">
+                                <span>🏛️</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <div class="ecosystem-name">Bancos</div>
+                                <div class="ecosystem-description">Liquidação financeira</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ecosystem-right">
+                        <div class="ecosystem-item">
+                            <div class="ecosystem-icon adquirentes">
+                                <span>💳</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <div class="ecosystem-name">Adquirentes</div>
+                                <div class="ecosystem-description">Processamento de cartões</div>
+                            </div>
+                        </div>
+
+                        <div class="ecosystem-item">
+                            <div class="ecosystem-icon bandeiras">
+                                <span>🔄</span>
+                            </div>
+                            <div class="ecosystem-content">
+                                <div class="ecosystem-name">Bandeiras</div>
+                                <div class="ecosystem-description">Regras e roteamento</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="payments-section">
+                <div class="payments-title">Principais meios de pagamento oferecidos:</div>
+                
+                <div class="payments-grid">
+                    <div class="payment-method">
+                        <div class="payment-icon">
+                            <span>⚡</span>
+                        </div>
+                        <div class="payment-name">PIX</div>
+                        <div class="payment-description">Pagamento instantâneo</div>
+                        <div class="payment-time">Instantâneo</div>
+                    </div>
+
+                    <div class="payment-method">
+                        <div class="payment-icon">
+                            <span>📄</span>
+                        </div>
+                        <div class="payment-name">Boletos</div>
+                        <div class="payment-description">Compensação bancária</div>
+                        <div class="payment-time">1-3 dias</div>
+                    </div>
+
+                    <div class="payment-method">
+                        <div class="payment-icon">
+                            <span>💳</span>
+                        </div>
+                        <div class="payment-name">Cartões</div>
+                        <div class="payment-description">Débito e crédito</div>
+                        <div class="payment-time">1-30 dias</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div>Característica</div>
+                    <div>PIX</div>
+                    <div>Boleto</div>
+                    <div>Cartões</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell">Tempo de Liquidação</div>
+                    <div class="table-cell">Instantâneo</div>
+                    <div class="table-cell">1-3 dias úteis</div>
+                    <div class="table-cell">1-30 dias</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="table-cell">Risco de Chargeback</div>
+                    <div class="table-cell">Não possui</div>
+                    <div class="table-cell">Baixo</div>
+                    <div class="table-cell">Alto</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="navigation">
+            <a href="slide51.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">52 / 63</div>
+            <a href="slide53.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+
+    <script>
+        // Animação de entrada para os elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.payment-method, .ecosystem-item');
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.5s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Interatividade nos métodos de pagamento
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-2px)';
+                }, 200);
+            });
+        });
+
+        // Highlight nas linhas da tabela ao passar o mouse
+        document.querySelectorAll('.table-row').forEach(row => {
+            row.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(66, 133, 244, 0.05)';
+            });
+            
+            row.addEventListener('mouseleave', function() {
+                this.style.background = '';
+            });
+        });
+    </script>
+</body>
+</html>

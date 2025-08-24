@@ -1,293 +1,156 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* === Slide 13 (versão compacta, centro menor e caixas mais próximas) === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+body {
+  font-family: 'Arial', sans-serif;
+  background: #2a2a2a;
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-        .container {
-            max-width: 1080px;
-            width: 100%;
-        }
+/* layout geral: 30% esquerda, 70% direita */
+.container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  min-height: 100vh;
+}
 
-        /* Header */
-        .header {
-            margin-bottom: 80px;
-            position: relative;
-        }
+/* --- Coluna esquerda --- */
+.left-side {
+  background: #2a2a2a;
+  padding: 64px 40px;             /* reduzido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+.arrow-icon {
+  position: absolute;
+  top: 40px; left: 40px;
+  font-size: 48px; color: #00d4aa;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+.title {
+  font-size: 64px; font-weight: 300; color: #fff;
+  line-height: 1.1; margin-bottom: 32px;
+}
+.title-highlight { color: #00d4aa; }
+.description {
+  font-size: 18px; color: #ccc; line-height: 1.6; max-width: 420px;
+}
 
-        .main-title {
-            font-size: 72px;
-            font-weight: 300;
-            color: #00d4aa;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-        }
+/* --- Coluna direita (grid 3x3 com centro menor) --- */
+.right-side {
+  background: #f8f9fa;
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.45fr 420px 0.45fr;  /* aproxima caixas do centro */
+  grid-template-rows: 1fr 420px 1fr;
+  gap: 12px;                                   /* menos espaço */
+  align-items: center;
+  justify-items: center;
+  padding: 24px;                               /* reduzido */
+}
 
-        .main-title::before {
-            content: "//";
-            margin-right: 20px;
-            color: #00d4aa;
-        }
+/* anel colorido central */
+.segments-container {
+  grid-column: 2; grid-row: 2;
+  position: relative;
+  width: 420px; height: 420px; border-radius: 50%;
+}
+.segment {
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 50%);
+}
+.segment-1 { background: linear-gradient(45deg, #00d4aa, #00b894); transform: rotate(0deg); }
+.segment-2 { background: linear-gradient(45deg, #4ecdc4, #26de81); transform: rotate(90deg); }
+.segment-3 { background: linear-gradient(45deg, #74b9ff, #0984e3); transform: rotate(180deg); }
+.segment-4 { background: linear-gradient(45deg, #a29bfe, #6c5ce7); transform: rotate(270deg); }
 
-        .description {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #ecf0f1;
-            font-weight: 400;
-            max-width: 900px;
-        }
+/* círculo interno */
+.central-circle {
+  grid-column: 2; grid-row: 2;
+  width: 240px; height: 240px;                 /* menor */
+  background: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2; box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+.polipay-logo { display: flex; align-items: center; font-size: 32px; font-weight: 700; color: #333; }
+.logo-dots { margin-right: 12px; display: flex; flex-direction: column; gap: 2px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot-1 { background: #ff6b6b; } .dot-2 { background: #4ecdc4; }
+.dot-3 { background: #45b7d1; } .dot-4 { background: #f9ca24; }
 
-        .brand-logo {
-            position: absolute;
-            top: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+/* ícones sobre o anel */
+.segment-icon { position: absolute; font-size: 32px; color: #fff; z-index: 5; }
+.icon-1 { top: 95px; right: 70px; }
+.icon-2 { bottom: 70px; right: 95px; }
+.icon-3 { bottom: 95px; left: 70px; }
+.icon-4 { top: 70px; left: 95px; }
 
-        .logo-bf {
-            background: white;
-            color: #333;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 14px;
-        }
+/* caixas nos cantos, mais próximas do centro */
+.content-box {
+  background: #fff; border-radius: 15px;
+  padding: 18px;                                 /* menor */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 300px;                              /* menor */
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.content-box:hover { transform: translateY(-4px); }
 
-        .logo-dots {
-            display: flex;
-            gap: 8px;
-        }
+.box-1 { grid-column: 3; grid-row: 1; justify-self: start; align-self: end; }
+.box-2 { grid-column: 3; grid-row: 3; justify-self: start; align-self: start; }
+.box-3 { grid-column: 1; grid-row: 3; justify-self: end;   align-self: start; }
+.box-4 { grid-column: 1; grid-row: 1; justify-self: end;   align-self: end; }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
+/* tipografia das caixas */
+.content-title { font-size: 16px; font-weight: 700; margin-bottom: 12px; text-transform: uppercase; }
+.content-title-green  { color: #00d4aa; }
+.content-title-blue   { color: #0984e3; }
+.content-title-purple { color: #6c5ce7; }
+.content-title-teal   { color: #00b894; }
+.subtitle-text { color: #888; font-size: 12px; text-transform: uppercase; letter-spacing: .5px; }
 
-        .dot.red { background: #e74c3c; }
-        .dot.yellow { background: #f1c40f; }
-        .dot.green { background: #2ecc71; }
-        .dot.blue { background: #3498db; }
+.content-list { list-style: none; color: #555; }
+.content-list li { font-size: 13px; line-height: 1.5; margin-bottom: 8px; position: relative; padding-left: 14px; }
+.content-list li::before { content: "•"; position: absolute; left: 0; font-weight: 700; }
+.green-bullets  li::before { color: #00d4aa; }
+.blue-bullets   li::before { color: #0984e3; }
+.purple-bullets li::before { color: #6c5ce7; }
+.teal-bullets   li::before { color: #00b894; }
+.underlined { text-decoration: underline; text-decoration-color: #ff6b6b; }
 
-        /* Diagnostic Flow */
-        .diagnostic-flow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            padding: 20px 0;
-        }
+/* responsivo */
+@media (max-width: 1200px) {
+  .container { grid-template-columns: 34% 66%; }
+  .right-side {
+    grid-template-columns: 0.4fr 360px 0.4fr;
+    grid-template-rows: 1fr 360px 1fr;
+  }
+  .segments-container { width: 360px; height: 360px; }
+  .central-circle { width: 210px; height: 210px; }
+  .polipay-logo { font-size: 28px; }
+}
 
-        .flow-item {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 150px;
-        }
+@media (max-width: 900px) {
+  .container { grid-template-columns: 1fr; }
+  .left-side { padding: 48px 24px; text-align: center; }
+  .arrow-icon { position: static; margin-bottom: 8px; }
+  .title { font-size: 48px; }
+  .description { margin: 0 auto; }
 
-        .flow-circle {
-            width: 120px;
-            height: 120px;
-            border: 4px solid #00d4aa;
-            border-radius: 50%;
-            background: rgba(0, 212, 170, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .flow-circle:hover {
-            background: rgba(0, 212, 170, 0.2);
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 212, 170, 0.3);
-        }
-
-        .flow-icon {
-            font-size: 36px;
-            color: #00d4aa;
-        }
-
-        .flow-title {
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 8px;
-            color: white;
-        }
-
-        .flow-subtitle {
-            font-size: 12px;
-            text-align: center;
-            color: #00d4aa;
-            font-weight: 500;
-        }
-
-        .flow-subtitle.highlight {
-            text-decoration: underline;
-            color: #e74c3c;
-        }
-
-        /* Connection arrows */
-        .flow-item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            top: 60px;
-            right: -45px;
-            width: 30px;
-            height: 2px;
-            background: #00d4aa;
-            z-index: 1;
-        }
-
-        .flow-item:not(:last-child)::before {
-            content: '→';
-            position: absolute;
-            top: 52px;
-            right: -52px;
-            font-size: 18px;
-            color: #00d4aa;
-            font-weight: bold;
-            z-index: 2;
-        }
-
-        /* Icons using Unicode characters and CSS shapes */
-        .icon-network::before {
-            content: '⚏';
-            font-size: 36px;
-        }
-
-        .icon-database::before {
-            content: '🗄';
-            font-size: 36px;
-        }
-
-        .icon-eye::before {
-            content: '👁';
-            font-size: 36px;
-        }
-
-        .icon-gear::before {
-            content: '⚙';
-            font-size: 36px;
-        }
-
-        .icon-money::before {
-            content: '💰';
-            font-size: 36px;
-        }
-
-        /* Custom icons using CSS */
-        .icon-custom {
-            width: 36px;
-            height: 36px;
-            position: relative;
-        }
-
-        .icon-network {
-            display: grid;
-            grid-template-columns: repeat(3, 8px);
-            gap: 4px;
-            width: 36px;
-            height: 24px;
-        }
-
-        .icon-network::before,
-        .icon-network::after {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #00d4aa;
-            border-radius: 50%;
-        }
-
-        .icon-database {
-            width: 32px;
-            height: 36px;
-            background: linear-gradient(to bottom, 
-                transparent 0%, transparent 25%,
-                #00d4aa 25%, #00d4aa 30%,
-                transparent 30%, transparent 50%,
-                #00d4aa 50%, #00d4aa 55%,
-                transparent 55%, transparent 75%,
-                #00d4aa 75%, #00d4aa 80%,
-                transparent 80%, transparent 100%);
-            border: 2px solid #00d4aa;
-            border-radius: 4px;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            body {
-                padding: 20px;
-            }
-
-            .main-title {
-                font-size: 48px;
-            }
-
-            .description {
-                font-size: 16px;
-            }
-
-            .brand-logo {
-                position: relative;
-                justify-content: center;
-                margin-top: 30px;
-            }
-
-            .diagnostic-flow {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .flow-item:not(:last-child)::after,
-            .flow-item:not(:last-child)::before {
-                display: none;
-            }
-
-            .flow-item:not(:last-child) {
-                position: relative;
-            }
-
-            .flow-item:not(:last-child)::after {
-                content: '';
-                position: absolute;
-                bottom: -30px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 2px;
-                height: 20px;
-                background: #00d4aa;
-                display: block;
-            }
-
-            .flow-item:not(:last-child)::before {
-                content: '↓';
-                position: absolute;
-                bottom: -40px;
-                left: 50%;
-                transform: translateX(-50%);
-                font-size: 18px;
-                color: #00d4aa;
-                display: block;
-            }
-        }
+  .right-side {
+    display: flex; flex-direction: column; gap: 16px;
+    padding: 20px;
+  }
+  .segments-container { width: 300px; height: 300px; }
+  .central-circle { width: 190px; height: 190px; margin: 12px 0; }
+  .content-box { max-width: 100%; }
+}
