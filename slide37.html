@@ -5,89 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/common.css">
     <link rel="stylesheet" href="assets/css/slide37.css">
-    <title>Priorização - Metodologia</title>
+    <title>Priorização - Bubble Chart</title>
 
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="arrow-icon">➤</div>
             <div class="title-section">
-                <h1 class="main-title">Priorização</h1>
-                <p class="subtitle">Metodologia de ranking de prioridades baseada em 5 quesitos.</p>
+                <div class="arrow-icon">➤</div>
+                <div class="title-content">
+                    <h1>Priorização</h1>
+                    <p>Metodologia de ranking de prioridades baseada em 5 quesitos.</p>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot legend-fairfax"></div>
+                    <span>FairFax</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot legend-corretora"></div>
+                    <span>Corretora</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot legend-segurado"></div>
+                    <span>Segurado</span>
+                </div>
             </div>
         </div>
 
-        <!-- Cards Container -->
-        <div class="cards-container">
-            <!-- Card 1: Aderência -->
-            <div class="priority-card card-primary">
-                <div class="card-image">
-                    <div class="image-placeholder icon-finance"></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Aderência às condições atuais</h3>
-                    <p class="card-description">
-                        Polipay nasce resolvendo problemas e sinergias atuais na Fairfax
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 2: Prontidão técnica -->
-            <div class="priority-card card-secondary">
-                <div class="card-image">
-                    <div class="image-placeholder icon-tech"></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Prontidão técnica</h3>
-                    <p class="card-description">
-                        Os fornecedores atuais estão preparados para as novas soluções demandadas pelo ecossistema?
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 3: Dependência fornecedores -->
-            <div class="priority-card card-primary">
-                <div class="card-image">
-                    <div class="image-placeholder icon-supply"></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Dependência fornecedores</h3>
-                    <p class="card-description">
-                        Conseguimos atender as novas demandas com o ecossistema atual?
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 4: Complexidade técnica -->
-            <div class="priority-card card-accent">
-                <div class="card-image">
-                    <div class="image-placeholder icon-complexity"></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Complexidade técnica</h3>
-                    <p class="card-description">
-                        Viabilidade, esforço, custos e prazos.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Card 5: Valor para o negócio -->
-            <div class="priority-card card-primary">
-                <div class="card-image">
-                    <div class="image-placeholder icon-value"></div>
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Valor para o negócio</h3>
-                    <p class="card-description">
-                        Soluções alinhadas à estratégia, para ganho de sinergia, margens, base de clientes, valuation e outros.
-                    </p>
-                </div>
-            </div>
+        <!-- Chart Container - FIXED SIZE -->
+        <div class="chart-container">
+            <!-- Axes -->
+            <div class="axis-y"></div>
+            <div class="axis-x"></div>
+            
+            <!-- Axis labels -->
+            <div class="axis-label-y">Complexidade técnica</div>
+            <div class="axis-label-x">Tempo</div>
+            
+            <!-- Section dividers -->
+            <div class="section-divider-vertical section-1"></div>
+            <div class="section-divider-vertical section-2"></div>
+            
+            <!-- Section labels -->
+            <div class="section-label label-setup">Setup</div>
+            <div class="section-label label-hub">Hub de Pagamentos</div>
+            <div class="section-label label-evolucao">Evolução</div>
+            
+            <!-- Quick wins highlight -->
+            <div class="quick-wins"></div>
+            <div class="quick-wins-label">Quick wins</div>
+            
+            <!-- Dollar signs -->
+            <div class="dollar-sign dollar-1">$</div>
+            <div class="dollar-sign dollar-2">$</div>
+            <div class="dollar-sign dollar-3">$</div>
+            <div class="dollar-sign dollar-4">$</div>
+            <div class="dollar-sign dollar-5">$</div>
+            <div class="dollar-sign dollar-6">$</div>
+            <div class="dollar-sign dollar-7">$</div>
+            <div class="dollar-sign dollar-8">$</div>
+            <div class="dollar-sign dollar-9">$</div>
+            
+            <!-- Bubbles - FIXED POSITIONS -->
+            <!-- Setup -->
+            <div class="bubble bubble-fairfax txn-mercantil">TXN Mercantil</div>
+            <div class="bubble bubble-fairfax ant-saque">Ant. saque aniversário</div>
+            <div class="bubble bubble-corretora ant-recebiveis">Ant. recebíveis</div>
+            
+            <!-- Hub -->
+            <div class="bubble bubble-fairfax motor-liquidacao">Motor de liquidação</div>
+            <div class="bubble bubble-fairfax ia-conciliacao">IA conciliação</div>
+            <div class="bubble bubble-corretora conta-pj">Conta PJ FF</div>
+            <div class="bubble bubble-corretora gateway-split">Gateway/ split</div>
+            <div class="bubble bubble-corretora regua-cobranca">Régua de cobrança</div>
+            <div class="bubble bubble-corretora adquirencia">Adquirência</div>
+            
+            <!-- Evolução -->
+            <div class="bubble bubble-segurado beneficio-cashback">Benefício/ Cashback</div>
+            <div class="bubble bubble-corretora integ-whatsapp">Integ. WhatsApp</div>
+            <div class="bubble bubble-segurado credito-financiar">Crédito financiar apólice</div>
+            <div class="bubble bubble-corretora credito-invest">Crédito Invest. corretora</div>
+            <div class="bubble bubble-corretora credito-consignado">Crédito consignado func.</div>
+            <div class="bubble bubble-corretora dashboard-dre">Dashboard DRE</div>
+            <div class="bubble bubble-corretora contador-virtual">Contador virtual</div>
+            <div class="bubble bubble-corretora cartao-credito">Cartão de crédito</div>
+            <div class="bubble bubble-corretora cartao-beneficios">Cartão benefícios</div>
         </div>
     </div>
-       <div class="navigation">
+           <div class="navigation">
         <a href="slide36.html" class="nav-btn">← Anterior</a>
         <div class="slide-counter">37 / 63</div>
         <a href="slide38.html" class="nav-btn">Próximo →</a>

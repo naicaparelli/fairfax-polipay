@@ -1,174 +1,136 @@
-<!-- slide40.html -->
+<!-- slide41.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economics Dashboard</title>
   <link rel="stylesheet" href="assets/css/common.css"/>
   <link rel="stylesheet" href="assets/css/slide42.css"/>
-  <title>Economics - 36 meses</title>
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
     <div class="header">
-      <div class="arrow-icon">➤</div>
-      <div class="title-section">
-        <h1 class="main-title">Economics <span class="period">- 36 meses</span></h1>
-        <p class="description">
-          O planejamento foi estruturado com projeções em ciclos anuais, com racional focado na geração de valor em quatro frentes principais:
-        </p>
-      </div>
+      <div class="logo"></div>
+      <h1 class="title">Economics</h1>
+      <span class="subtitle">36 meses</span>
     </div>
 
-    <div class="divider-line"></div>
-
-    <!-- Content Layout -->
-    <div class="content-layout">
-      <!-- Left Column -->
-      <div class="info-section">
-        <div class="info-box">
-          <h3 class="box-title">Objetivos Estratégicos</h3>
-          <ul class="bullet-list">
-            <li class="bullet-item"><strong>Facilitar a operação dos corretores:</strong> mais meios de pagamento, gestão integrada e acesso a crédito.</li>
-            <li class="bullet-item"><strong>Reter negócios:</strong> redução de <span class="highlight">churn</span> e aumento da longevidade da carteira.</li>
-            <li class="bullet-item"><strong>Rentabilizar custos:</strong> transformar despesas recorrentes em novas receitas.</li>
-            <li class="bullet-item"><strong>Criar novas fontes de receita:</strong> explorar oportunidades ainda inexistentes no grupo.</li>
-          </ul>
-        </div>
-
-        <div class="info-box">
-          <h3 class="box-title">Receitas Indiretas</h3>
-          <ul class="bullet-list">
-            <li class="bullet-item"><strong>Redução de <span class="highlight">churn</span> nos seguros</strong> via maior conveniência de pagamento.</li>
-            <li class="bullet-item"><strong>Ganho adicional de <span class="highlight">floating</span></strong> com prazos estendidos a fornecedores.</li>
-          </ul>
+    <div class="charts-grid">
+      <!-- Ebitda com receita Total (mantido) -->
+      <div class="chart-container">
+        <div class="chart-title">Ebitda</div>
+        <div class="chart-subtitle">com receita Total<br>(em milhões)</div>
+        <div class="bar-chart">
+          <div class="bar" style="height:46%"><div class="bar-value">R$ 4,60</div><div class="bar-label">Ano 1</div></div>
+          <div class="bar" style="height:82%"><div class="bar-value">R$ 8,66</div><div class="bar-label">Ano 2</div></div>
+          <div class="bar" style="height:90%"><div class="bar-value">R$ 9,00</div><div class="bar-label">Ano 3</div></div>
         </div>
       </div>
 
-      <!-- Right Column -->
-      <div class="info-section">
-        <div class="info-box">
-          <h3 class="box-title">Receitas Diretas</h3>
-          <ul class="bullet-list">
-            <li class="bullet-item"><strong><span class="highlight">Floating</span> sobre saldos médios</strong> de contas (corretores e Fairfax).</li>
-            <li class="bullet-item"><strong>Taxas em adquirência</strong> nas transações multimeios.</li>
-            <li class="bullet-item"><strong>Antecipação de comissões</strong> para corretores.</li>
-            <li class="bullet-item"><strong>Crédito estruturado</strong> com garantia nos recebíveis.</li>
-            <li class="bullet-item"><strong>Plataforma mercantil</strong> com adiantamento a fornecedores e receita sobre desconto de notas fiscais.</li>
-            <li class="bullet-item"><strong>Produtos consignados e benefícios</strong> para funcionários (Fairfax e corretores).</li>
-            <li class="bullet-item"><strong>Antecipação de <span class="highlight">sinistros</span> para <span class="highlight">liquidez</span> imediata</strong> ao cliente.</li>
-          </ul>
-        </div>
+      <!-- Ebitda APENAS receita direta (com baseline) -->
+      <div class="chart-container">
+        <div class="chart-title">Ebitda</div>
+        <div class="chart-subtitle">apenas receita direta<br>(em milhões)</div>
 
-        <div class="info-box">
-          <h3 class="box-title">Estrutura de Custos</h3>
-          <ul class="bullet-list">
-            <li class="bullet-item"><strong>Custos Diretos:</strong> processamento, transações e infraestrutura da fintech.</li>
-            <li class="bullet-item"><strong>Custos Indiretos:</strong> equipe dedicada e serviços de terceiros para operação e evolução da plataforma.</li>
-          </ul>
+        <!-- A altura aqui é % da metade do gráfico (0 fica na linha central).
+             Ex.: 95% negativo = barra quase até o fundo; 20% positivo = barra pequena acima. -->
+        <div class="baseline-chart">
+          <!-- Ano 1: negativo -->
+          <div class="bar-col">
+            <div class="pos" style="height:0%"><span></span></div>
+            <div class="neg" style="height:95%"><span class="value">-R$1,90</span></div>
+            <div class="label">Ano 1</div>
+          </div>
+
+          <!-- Ano 2: negativo menor -->
+          <div class="bar-col">
+            <div class="pos" style="height:0%"><span></span></div>
+            <div class="neg" style="height:19%"><span class="value">-R$0,33</span></div>
+            <div class="label">Ano 2</div>
+          </div>
+
+          <!-- Ano 3: positivo -->
+          <div class="bar-col">
+            <div class="pos" style="height:20%"><span class="value">R$0,16</span></div>
+            <div class="neg" style="height:0%"><span></span></div>
+            <div class="label">Ano 3</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Charts Section -->
-    <div class="charts-section">
-      <div class="charts-container">
-        <!-- TPV Chart -->
-        <div class="chart">
-          <h3 class="chart-title">TPV</h3>
-          <p class="chart-subtitle">(em milhões)</p>
-          <div class="bars-container">
-            <div class="bar-group">
-              <div class="bar tpv-bar-1">
-                <div class="bar-value">R$ 902</div>
-              </div>
-              <div class="bar-label">Ano 1</div>
-            </div>
-            <div class="bar-group">
-              <div class="bar tpv-bar-2">
-                <div class="bar-value">R$ 1.181</div>
-              </div>
-              <div class="bar-label">Ano 2</div>
-            </div>
-            <div class="bar-group">
-              <div class="bar tpv-bar-3">
-                <div class="bar-value">R$ 1.452</div>
-              </div>
-              <div class="bar-label">Ano 3</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Receita Chart -->
-        <div class="chart">
-          <h3 class="chart-title">Receita</h3>
-          <p class="chart-subtitle">(em milhões)</p>
-          <div class="bars-container">
-            <div class="bar-group">
-              <div class="stacked-bar receita-stack-1">
-                <div class="stack-segment stack-diretas" style="height: 60px;"><p class="smalltext">Diretas R$5</p></div>
-                <div class="stack-segment stack-indiretas" style="height: 40px;"><p class="smalltext">Indiretas R$6</p></div>
-              </div>
-              <div class="total-value">R$ 11</div>
-              <div class="bar-label">Ano 1</div>
-            </div>
-            <div class="bar-group">
-              <div class="stacked-bar receita-stack-2">
-                <div class="stack-segment stack-diretas" style="height: 70px;"><p class="smalltext">Diretas R$8</p></div>
-                <div class="stack-segment stack-indiretas" style="height: 50px;"><p class="smalltext">Indiretas R$9</p></div>
-              </div>
-              <div class="total-value">R$ 16,59</div>
-              <div class="bar-label">Ano 2</div>
-            </div>
-            <div class="bar-group">
-              <div class="stacked-bar receita-stack-3">
-                <div class="stack-segment stack-diretas" style="height: 80px;"><p class="smalltext">Diretas R$9</p></div>
-                <div class="stack-segment stack-indiretas" style="height: 60px;"><p class="smalltext">Indiretas R$9</p></div>
-              </div>
-              <div class="total-value">R$ 18,26</div>
-              <div class="bar-label">Ano 3</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Custos Chart -->
-        <div class="chart">
-          <h3 class="chart-title">Custos</h3>
-          <p class="chart-subtitle">(em milhões)</p>
-          <div class="bars-container">
-            <div class="bar-group">
-              <div class="custos-bar custos-stack-1">
-                <div class="custo-indiretos" style="height: 35px;"><p class="smalltext">Diretos R$ 1,66</p></div>
-                <div class="custo-diretos" style="height: 45px;"><p class="smalltext">Indiretos R$ 4,28</p></div>
-              </div>
-              <div class="total-value">R$ 5,94</div>
-              <div class="bar-label">Ano 1</div>
-            </div>
-            <div class="bar-group">
-              <div class="custos-bar custos-stack-2">
-                <div class="custo-indiretos" style="height: 45px;"><p class="smalltext">Diretos R$ 3,19</p></div>
-                <div class="custo-diretos" style="height: 55px;"><p class="smalltext">Indiretos R$ 4,08</p></div>
-              </div>
-              <div class="total-value">R$ 7,27</div>
-              <div class="bar-label">Ano 2</div>
-            </div>
-            <div class="bar-group">
-              <div class="custos-bar custos-stack-3">
-                <div class="custo-indiretos" style="height: 55px;"><p class="smalltext">Diretos R$ 4,39</p></div>
-                <div class="custo-diretos" style="height: 65px;"><p class="smalltext">Indiretos R$ 4,08</p></div>
-              </div>
-              <div class="total-value">R$ 8,47</div>
-              <div class="bar-label">Ano 3</div>
-            </div>
-          </div>
+      <!-- Resultado 1º ano (mantido) -->
+      <div class="chart-container">
+        <div class="chart-title">Resultado 1º ano</div>
+        <div class="chart-subtitle">(em milhões)</div>
+        <div class="bar-chart">
+          <div class="bar" style="height:30%"><div class="bar-value" style="font-size:10px">R$ 4,50</div><div class="bar-label">Receitas Diretas</div></div>
+          <div class="bar" style="height:40%"><div class="bar-value" style="font-size:10px">R$ 6,50</div><div class="bar-label">Receitas Indiretas</div></div>
+          <div class="bar negative-bar" style="height:60%"><div class="bar-value" style="font-size:10px">-R$ 2,13</div><div class="bar-label">Custos Diretos</div></div>
+          <div class="bar" style="height:80%"><div class="bar-value" style="font-size:10px">-R$ 4,28</div><div class="bar-label">Custos Indiretos</div></div>
+          <div class="bar" style="height:50%"><div class="bar-value" style="font-size:10px">R$ 4,60</div><div class="bar-label">EBITDA</div></div>
         </div>
       </div>
     </div>
 
-    <!-- Espaço extra para não ficar sob a navegação fixa -->
-    <div class="scroll-spacer"></div>
+    <div class="opportunities-section">
+      <div class="section-card">
+        <h3 class="section-title">Métricas Finaneiras Chave</h3>
+        <div class="opportunity-item">
+          <div class="opportunity-text">Receita no ano 1</div>
+          <div class="opportunity-title">R$ 11 mi</div>
+        </div>
+        <div class="opportunity-item">
+          <div class="opportunity-text">TPV ano 1</div>
+          <div class="opportunity-title">R$ 900 mi</div>
+        </div>
+        <div class="opportunity-item">
+          <div class="opportunity-text">EBITDA 3 anos</div>
+          <div class="opportunity-title">R$ 22 mi</div>
+        </div>
+         <div class="opportunity-item">
+          <div class="opportunity-text">TPV 3 anos</div>
+          <div class="opportunity-title">R$ 3,5 bi</div>
+        </div>
+      </div>
+      <div class="section-card">
+        <h3 class="section-title">Resumo do Investimento</h3>
+        <div class="opportunity-item">
+          <div class="opportunity-title">R$ 3 milhões</div>
+          <div class="opportunity-text">R$ 2 mi de capital de giro</div>
+          <div class="opportunity-text">Distribuídos em 3 anos</div>
+        </div>
+      </div>
+      <div class="section-card">
+        <h3 class="section-title">Oportunidades não consideradas no modelo</h3>
+        <div class="opportunity-item">
+          <div class="opportunity-title">Replicação interna:</div>
+          <div class="opportunity-text">expansão da fintech para outras empresas e seguradoras do grupo Fairfax, com ganho de escala e sinergia.</div>
+        </div>
+        <div class="opportunity-item">
+          <div class="opportunity-title">Expansão de mercado:</div>
+          <div class="opportunity-text">oferta da plataforma a seguradoras de outros grupos, ampliando uma demanda comum de coretores, seguradora e clientes finais.</div>
+        </div>
+        <div class="opportunity-item">
+          <div class="opportunity-title">Potencial de mercado:</div>
+          <div class="opportunity-text">possibilidade de capturar participação relevante, em linha com players consolidados como o Porto Seguro.</div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h3 class="section-title">Potencial Estratégico da Fintech</h3>
+        <div><div class="opportunity-title">A plataforma proposta:</div></div>
+        <div class="strategic-item"><div class="strategic-text">Gera novas receitas</div></div>
+        <div class="strategic-item"><div class="strategic-text">Fortalece a base de clientes</div></div>
+        <div class="strategic-item"><div class="strategic-text">Converte custos em margem</div></div>
+        <div class="strategic-item"><div class="strategic-text">Abre caminho para expansão nacional</div></div>
+        <div class="strategic-item"><div class="strategic-text">Consolida vantagem competitiva no setor</div></div>
+      </div>
+      
+    </div>
   </div>
+
+  
 
   <div class="navigation">
     <a href="slide41.html" class="nav-btn">← Anterior</a>

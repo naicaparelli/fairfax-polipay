@@ -1,4 +1,4 @@
- * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -8,21 +8,27 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #333;
-            padding: 40px;
+            padding: 40px 20px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         /* Header */
         .header {
             display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .title-section {
+            display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 60px;
         }
 
         .arrow-icon {
@@ -31,235 +37,261 @@
             font-weight: bold;
         }
 
-        .title-section {
-            flex: 1;
-        }
-
-        .main-title {
+        .title-content h1 {
             font-size: 42px;
             font-weight: 300;
             color: #00d4aa;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
-        .subtitle {
+        .title-content p {
             font-size: 16px;
             color: #6c757d;
-            line-height: 1.4;
         }
 
-        /* Cards Container */
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 30px;
-        }
-
-        .priority-card {
-            background: white;
-            border-radius: 20px;
-            padding: 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            overflow: hidden;
-            position: relative;
-            height: 400px;
-        }
-
-        .priority-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Card backgrounds with our color palette */
-        .card-primary {
-            background: linear-gradient(135deg, #00d4aa, #00b894);
-        }
-
-        .card-secondary {
-            background: linear-gradient(135deg, #6c757d, #495057);
-        }
-
-        .card-light {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            color: #333;
-        }
-
-        .card-dark {
-            background: linear-gradient(135deg, #495057, #343a40);
-        }
-
-        .card-accent {
-            background: linear-gradient(135deg, #17a2b8, #138496);
-        }
-
-        /* Image circles */
-        .card-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 30px auto 25px;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .image-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #e9ecef, #dee2e6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            color: #6c757d;
-        }
-
-        /* Card content */
-        .card-content {
-            padding: 0 25px 30px;
-            text-align: center;
-            height: calc(100% - 175px);
+        /* Legend */
+        .legend {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 10px;
         }
 
-        .card-title {
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-light .card-title {
-            color: #333;
-            text-shadow: none;
-        }
-
-        .card-description {
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.5;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .card-light .card-description {
-            color: #555;
-            text-shadow: none;
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
         }
 
-        /* Icons for different categories */
-        .icon-finance::before {
-            content: "💰";
+        .legend-fairfax { background: #00d4aa; }
+        .legend-corretora { background: #ff9500; }
+        .legend-segurado { background: #007bff; }
+
+        /* Chart container - FIXED LAYOUT */
+        .chart-container {
+            width: 1080px;
+            height: 480px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
         }
 
-        .icon-tech::before {
-            content: "⚙️";
+        /* Axes */
+        .axis-y {
+            position: absolute;
+            left: 50px;
+            top: 40px;
+            bottom: 60px;
+            width: 2px;
+            background: #dee2e6;
         }
 
-        .icon-supply::before {
-            content: "🔄";
+        .axis-x {
+            position: absolute;
+            left: 50px;
+            right: 40px;
+            bottom: 60px;
+            height: 2px;
+            background: #dee2e6;
         }
 
-        .icon-complexity::before {
-            content: "🎯";
+        /* Axis labels */
+        .axis-label-y {
+            position: absolute;
+            left: -32px;
+            top: 200px;
+            transform: rotate(-90deg);
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 500;
+            white-space: nowrap;
         }
 
-        .icon-value::before {
-            content: "📈";
+        .axis-label-x {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 500;
         }
 
-        /* Animations */
-        .priority-card {
-            opacity: 0;
-            animation: slideInUp 0.8s ease forwards;
+        /* Section dividers */
+        .section-divider-vertical {
+            position: absolute;
+            top: 40px;
+            bottom: 60px;
+            width: 1px;
+            background: #e9ecef;
         }
 
-        .priority-card:nth-child(1) { animation-delay: 0.1s; }
-        .priority-card:nth-child(2) { animation-delay: 0.2s; }
-        .priority-card:nth-child(3) { animation-delay: 0.3s; }
-        .priority-card:nth-child(4) { animation-delay: 0.4s; }
-        .priority-card:nth-child(5) { animation-delay: 0.5s; }
+        .section-1 { left: 360px; } /* 33% of 1080px + 50px offset */
+        .section-2 { left: 640px; } /* 66% of 1080px + 50px offset */
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Section labels */
+        .section-label {
+            position: absolute;
+            top: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #495057;
+            text-align: center;
+        }
+
+        .label-setup {
+            left: 50px;
+            width: 310px;
+        }
+
+        .label-hub {
+            left: 360px;
+            width: 360px;
+        }
+
+        .label-evolucao {
+            left: 720px;
+            width: 320px;
+        }
+
+        /* Bubbles - FIXED POSITIONING */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.1;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .bubble:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+
+        /* Bubble colors */
+        .bubble-fairfax { background: linear-gradient(135deg, #00d4aa, #00b894); }
+        .bubble-corretora { background: linear-gradient(135deg, #ff9500, #e68900); }
+        .bubble-segurado { background: linear-gradient(135deg, #007bff, #0056b3); }
+
+        /* Dollar signs */
+        .dollar-sign {
+            position: absolute;
+            font-size: 16px;
+            color: #28a745;
+            font-weight: bold;
+            z-index: 5;
+        }
+
+        /* Quick wins highlight */
+        .quick-wins {
+            position: absolute;
+            left: 80px;
+            top: 280px;
+            width: 200px;
+            height: 80px;
+            border: 2px solid #00d4aa;
+            border-radius: 40px;
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .quick-wins-label {
+            position: absolute;
+            left: 80px;
+            top: 370px;
+            font-size: 12px;
+            color: #00d4aa;
+            font-weight: bold;
+        }
+
+        /* FIXED BUBBLE POSITIONS - DENTRO DOS EIXOS */
+        /* Setup section */
+        .txn-mercantil { left: 100px; top: 280px; width: 50px; height: 50px; }
+        .ant-saque { left: 150px; top: 300px; width: 55px; height: 55px; }
+        .ant-recebiveis { left: 200px; top: 260px; width: 50px; height: 50px; }
+
+        /* Hub section */
+        .motor-liquidacao { left: 400px; top: 120px; width: 60px; height: 60px; }
+        .ia-conciliacao { left: 380px; top: 200px; width: 55px; height: 55px; }
+        .conta-pj { left: 460px; top: 180px; width: 50px; height: 50px; }
+        .gateway-split { left: 490px; top: 210px; width: 65px; height: 65px; }
+        .regua-cobranca { left: 530px; top: 250px; width: 70px; height: 70px; }
+        .adquirencia { left: 560px; top: 300px; width: 75px; height: 75px; }
+
+        /* Evolução section */
+        .beneficio-cashback { left: 690px; top: 165px; width: 65px; height: 65px; }
+        .integ-whatsapp { left: 650px; top: 200px; width: 55px; height: 55px; }
+        .credito-financiar { left: 870px; top: 230px; width: 70px; height: 70px; }
+        .credito-invest { left: 830px; top: 280px; width: 60px; height: 60px; }
+        .credito-consignado { left: 780px; top: 310px; width: 60px; height: 60px; }
+        .dashboard-dre { left: 720px; top: 340px; width: 65px; height: 65px; }
+        .contador-virtual { left: 950px; top: 160px; width: 65px; height: 65px; }
+        .cartao-credito { left: 1010px; top: 160px; width: 55px; height: 55px; }
+        .cartao-beneficios { left: 930px; top: 320px; width: 60px; height: 60px; }
+
+        /* Dollar signs - AJUSTADAS */
+        .dollar-1 { top: 275px; left: 135px; }
+        .dollar-2 { top: 298px; left: 190px; }
+        .dollar-3 { top: 258px; left: 235px; }
+        .dollar-4 { top: 305px; left: 618px; }
+        .dollar-5 { top: 310px; left: 820px; }
+        .dollar-6 { top: 230px; left: 920px; }
+        .dollar-7 { top: 280px; left: 870px; }
+        .dollar-8 { top: 320px; left: 970px; }
+        .dollar-9 { top: 160px; left: 1050px; }
+
+        /* Responsive - but maintain fixed chart size */
+        @media (max-width: 1120px) {
+            .chart-container {
+                transform: scale(0.9);
+                transform-origin: center top;
+                margin-bottom: -50px;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
-        /* Responsive design */
-        @media (max-width: 1200px) {
-            .cards-container {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 25px;
+        @media (max-width: 1000px) {
+            .chart-container {
+                transform: scale(0.8);
+                transform-origin: center top;
+                margin-bottom: -100px;
             }
         }
 
         @media (max-width: 900px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 20px;
-            }
-
             .header {
                 flex-direction: column;
-                text-align: center;
-                gap: 15px;
+                gap: 20px;
+                align-items: flex-start;
             }
 
-            .main-title {
+            .chart-container {
+                transform: scale(0.7);
+                transform-origin: center top;
+                margin-bottom: -150px;
+            }
+
+            .title-section {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .title-content h1 {
                 font-size: 32px;
             }
-
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .priority-card {
-                height: 400px;
-            }
-
-            .card-image {
-                width: 100px;
-                height: 100px;
-                margin: 25px auto 20px;
-            }
-
-            .card-content {
-                height: calc(100% - 145px);
-            }
-        }
-
-        /* Decorative elements */
-        .priority-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .card-primary::before {
-            background: rgba(255, 255, 255, 0.4);
         }

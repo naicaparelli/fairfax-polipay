@@ -1,4 +1,4 @@
-        * {
+ * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -9,7 +9,7 @@
             background: #f8f9fa;
             min-height: 100vh;
             padding: 20px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .container {
@@ -21,240 +21,362 @@
             overflow: hidden;
         }
 
-        .header {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 25px 40px;
-            display: flex;
-            align-items: center;
-        }
-
-        .header::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-right: 15px;
-        }
-
-        .header::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-left: 5px;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 400;
-        }
-
         .main-content {
             padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
         }
 
-        .left-section h2 {
-            font-size: 1.4rem;
+        .title {
+            font-size: 2rem;
+            color: #2c5aa0;
             font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-
-        .right-section h2 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 30px;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #3498db;
-        }
-
-        .phase {
-            position: relative;
             margin-bottom: 40px;
         }
 
-        .phase-marker {
-            position: absolute;
-            left: -22px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            background: #3498db;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px #3498db;
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
-        .phase-header {
+        .left-column,
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* === LADO ESQUERDO === */
+
+        /* Fluxo de Passos */
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            gap: 10px;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
         }
 
-        .phase-icon {
-            font-size: 1.2rem;
+        .step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .phase-title {
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: #28a745;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
             font-size: 1rem;
             font-weight: 600;
             color: #2c3e50;
+            margin-bottom: 5px;
         }
 
-        .phase-duration {
-            font-size: 0.85rem;
-            color: #7f8c8d;
-            font-style: italic;
-            margin-left: auto;
+        .step-content p {
+            font-size: 0.9rem;
+            color: #5d6d7e;
         }
 
-        .phase-tasks {
-            margin-left: 35px;
+        /* Participantes */
+        .participants-section {
+            margin-top: 20px;
         }
 
-        .task-item {
-            display: flex;
-            align-items: flex-start;
+        .participants-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .participants-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .participant-card {
+            background: rgba(52, 152, 219, 0.05);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .participant-card:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .participant-icon {
+            font-size: 1.8rem;
             margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .task-item.completed {
-            color: #27ae60;
-        }
-
-        .task-item.pending {
             color: #3498db;
         }
 
-        .task-icon {
-            margin-right: 8px;
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-
-        .task-text {
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        .task-text:hover {
-            color: #2980b9;
-        }
-
-        .success-factors {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .factor-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .factor-icon {
-            color: #3498db;
-            font-size: 1.1rem;
-            margin-right: 12px;
-            margin-top: 2px;
-        }
-
-        .factor-content {
-            font-size: 0.9rem;
-        }
-
-        .factor-title {
+        .participant-name {
+            font-size: 1rem;
             font-weight: 600;
             color: #2c3e50;
             margin-bottom: 3px;
         }
 
-        .factor-description {
-            color: #5d6d7e;
+        .participant-role {
+            font-size: 0.85rem;
+            color: #7f8c8d;
         }
 
-        .factor-description .underline {
-            text-decoration: underline;
+        /* === LADO DIREITO === */
+
+        /* Diagrama PIX */
+        .pix-diagram {
+            background: rgba(108, 117, 125, 0.1);
+            border: 2px dashed #6c757d;
+            border-radius: 10px;
+            padding: 25px;
+            min-height: 350px;
+            position: relative;
         }
 
-        .key-considerations {
-            background: #fff8e1;
-            border: 1px solid #ffb74d;
+        .diagram-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .polipay-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .polipay-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c5aa0;
+        }
+
+        .flow-participants {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-participant {
+            text-align: center;
+            background: white;
+            padding: 10px;
             border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-width: 70px;
+            font-size: 0.8rem;
+        }
+
+        .flow-participant-title {
+            font-weight: 600;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        .flow-participant-subtitle {
+            font-size: 0.7rem;
+            color: #7f8c8d;
+            margin-top: 2px;
+        }
+
+        .flow-arrow {
+            color: #3498db;
+            font-size: 1.2rem;
+            margin: 0 5px;
+        }
+
+        .spi-button {
+            background: #3498db;
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .erp-logo {
+            background: #2196F3;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            align-self: center;
+            width: fit-content;
+            margin: 20px auto 0;
+        }
+
+        /* Benefícios PIX */
+        .benefits-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .benefit-card {
+            background: rgba(66, 133, 244, 0.1);
+            border: 1px solid #4285f4;
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .benefit-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4285f4;
+            margin-bottom: 8px;
+        }
+
+        .benefit-description {
+            font-size: 0.9rem;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+
+        /* Estatísticas PIX */
+        .pix-stats {
+            background: rgba(40, 167, 69, 0.1);
+            border: 1px solid #28a745;
+            border-radius: 10px;
             padding: 20px;
         }
 
-        .considerations-header {
+        .stats-title {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            color: #f57c00;
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .considerations-icon {
-            margin-right: 8px;
             font-size: 1.1rem;
+            font-weight: 600;
+            color: #28a745;
+            margin-bottom: 15px;
         }
 
-        .considerations-text {
+        .stats-icon {
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #28a745;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #5d6d7e;
+            line-height: 1.2;
+        }
+
+        /* Características Fairfax */
+        .fairfax-section {
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .fairfax-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .fairfax-items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .fairfax-item {
             font-size: 0.9rem;
-            color: #5d4e37;
-            line-height: 1.6;
+            color: #2c3e50;
         }
 
-        .considerations-text .underline {
+        .fairfax-item strong {
+            color: #2c5aa0;
+        }
+
+        .fairfax-item .underline {
             text-decoration: underline;
         }
 
         @media (max-width: 1024px) {
-            .main-content {
+            .content-layout {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 30px;
+            }
+            
+            .participants-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            
             .main-content {
                 padding: 20px;
             }
             
-            .timeline {
-                padding-left: 25px;
+            .title {
+                font-size: 1.6rem;
             }
             
-            .phase-marker {
-                left: -19px;
+            .flow-participants {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }

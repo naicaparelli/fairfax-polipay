@@ -1,81 +1,80 @@
-/* Slide 2 - FairFax */
-body {
-    background: #1e2227;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-    position: relative;
+/* slide30.css */
+/* Reset mínimo */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* BG da página */
+body{
+  font-family:'Arial',sans-serif;
+  background:url('../images/slide30.jpg') no-repeat center center fixed; /* ajuste o caminho */
+  background-size:cover;
+  color:#333;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-.fairfax-content {
-  display: grid;
-  grid-template-columns: 50% 50%; /* metade pra cada lado */
-  width: 100%;
-  height: 100vh; 
+/* Conteúdo com largura máxima e alinhado à esquerda */
+.container{
+  max-width:1080px;   /* largura máxima do conteúdo */
+  margin-left:0;      /* mantém à esquerda */
+  margin-right:auto;  /* evita centralizar */
+  min-height:100vh;
+  display:flex;
 }
 
-.content-left {
-    padding-right: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: start;
+/* Bloco de conteúdo */
+.left-side{
+  flex:1;
+  padding:80px 60px;
+  margin-left: 120px;
+  max-width: 600px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
 
+  /* fundo translúcido para legibilidade sobre a imagem */
+  background:rgba(248,249,250,.88);
+  backdrop-filter:blur(6px);
 }
 
-.fairfax-title {
-    font-size: 3.5rem;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    color: white;
-    line-height: 1.2;
-    text-align: start;
+/* Seta */
+.arrow-icon{
+  font-size:48px;
+  color:#00d4aa;
+  margin-bottom:30px;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translateY(0)}
+  40%{transform:translateY(-10px)}
+  60%{transform:translateY(-5px)}
 }
 
-.fairfax-subtitle {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.4;
+/* Texto */
+.main-content{max-width:720px}
+.intro-text{font-size:18px;color:#666;margin-bottom:20px}
+.title{
+  font-size:48px;font-weight:300;color:#333;line-height:1.2;margin-bottom:30px
 }
-
-.content-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.polipay-highlight{
+  color:#00d4aa;font-weight:500;text-decoration:underline;text-decoration-color:#00d4aa
 }
+.description{font-size:16px;color:#555;line-height:1.6;margin-bottom:20px}
 
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/slide29.jpg');
-  background-size: cover;      /* cobre todo o espaço */
-  background-position: center; /* centraliza a imagem */
+/* Destaque */
+.highlight-box{
+  background:linear-gradient(135deg,rgba(0,212,170,.12),rgba(0,212,170,.06));
+  border-left:4px solid #00d4aa;
+  padding:15px 20px;margin:20px 0;border-radius:8px
 }
+.highlight-text{font-weight:500;color:#333;font-style:italic}
 
-/* Animações específicas */
-.content-left { 
-    animation: slideInLeft 0.6s ease 0.2s both; 
+/* Responsivo */
+@media (max-width:1200px){
+  .left-side{padding:60px 40px}
+  .title{font-size:40px}
 }
-
-.content-right { 
-    animation: slideInRight 0.6s ease 0.4s both; 
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .fairfax-content { 
-        grid-template-columns: 1fr; 
-        gap: 30px; 
-        text-align: center;
-    }
-    .content-left { padding-right: 0; }
-    .fairfax-title { font-size: 2.5rem; }
-    .fairfax-subtitle { font-size: 1.4rem; }
-    .content-right { height: 250px; }
-    body { padding: 20px; }
+@media (max-width:768px){
+  .left-side{padding:40px 20px}
+  .title{font-size:32px}
+  .description{font-size:14px}
 }

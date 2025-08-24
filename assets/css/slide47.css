@@ -9,6 +9,7 @@
             background: #f8f9fa;
             min-height: 100vh;
             padding: 20px;
+            line-height: 1.5;
         }
 
         .container {
@@ -24,7 +25,6 @@
             background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
             color: white;
             padding: 25px 40px;
-            position: relative;
             display: flex;
             align-items: center;
         }
@@ -56,248 +56,188 @@
 
         .main-content {
             padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
         }
 
-        .architecture-wrapper {
-            display: flex;
-            gap: 30px;
+        .left-section h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 30px;
         }
 
-        .left-labels {
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-right: 20px;
-        }
-
-        .polipay-label {
-            color: #3498db;
-            font-size: 1rem;
+        .right-section h2 {
+            font-size: 1.4rem;
             font-weight: 600;
-            text-decoration: underline;
-            margin-bottom: 10px;
-        }
-
-        .polipay-description {
-            font-size: 0.9rem;
-            color: #e74c3c;
-            line-height: 1.4;
-        }
-
-        .polipay-description .underline {
-            text-decoration: underline;
-        }
-
-        .polipay-section {
-            flex: 1;
-            background: white;
-            border: 2px dashed #bdc3c7;
-            border-radius: 10px;
-            padding: 25px;
-            position: relative;
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .polipay-title {
-            color: #3498db;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .fairfax-title {
-            color: #e74c3c;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        .app-layer {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .app-box {
-            flex: 1;
-            background: #87CEEB;
             color: #2c3e50;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
+            margin-bottom: 30px;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 8px;
-        }
-
-        .feature-card {
-            background: #E6F3FF;
-            border: 1px solid #bdc3c7;
-            border-radius: 6px;
-            padding: 12px 8px;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #2c3e50;
-            transition: all 0.2s ease;
-            cursor: pointer;
+        .timeline {
             position: relative;
+            padding-left: 30px;
         }
 
-        .feature-card:hover {
-            background: #3498db;
-            color: white;
-        }
-
-        .feature-card.has-icon::after {
-            content: '?';
+        .timeline::before {
+            content: '';
             position: absolute;
-            top: 2px;
-            right: 4px;
-            background: #e74c3c;
-            color: white;
-            border-radius: 50%;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #3498db;
+        }
+
+        .phase {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .phase-marker {
+            position: absolute;
+            left: -22px;
+            top: 0;
             width: 16px;
             height: 16px;
+            background: #3498db;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+
+        .phase-header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-        }
-
-        .external-wrapper {
-            display: flex;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .external-labels {
-            width: 200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            padding-right: 20px;
-            padding-top: 20px;
-        }
-
-        .baas-label {
-            color: #ff9800;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .baas-description {
-            font-size: 0.9rem;
-            color: #ff9800;
-            line-height: 1.3;
-            margin-bottom: 30px;
-        }
-
-        .baas-description .underline {
-            text-decoration: underline;
-        }
-
-        .baas-description .core {
-            color: #e74c3c;
-        }
-
-        .services-core-label {
-            color: #ff6b35;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .services-description {
-            font-size: 0.9rem;
-            color: #e74c3c;
-            line-height: 1.3;
-        }
-
-        .services-description .underline {
-            text-decoration: underline;
-        }
-
-        .external-environment {
-            flex: 1;
-            background: rgba(255, 152, 0, 0.1);
-            border: 2px solid #ff9800;
-            border-radius: 10px;
-            padding: 25px;
-        }
-
-        .external-title {
-            color: #2c3e50;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            margin-bottom: 15px;
             gap: 10px;
-            margin-bottom: 25px;
         }
 
-        .service-card {
-            background: #ff9800;
-            color: white;
-            padding: 12px 8px;
-            border-radius: 6px;
-            text-align: center;
+        .phase-icon {
+            font-size: 1.2rem;
+        }
+
+        .phase-title {
+            font-size: 1rem;
             font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .phase-duration {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-left: auto;
+        }
+
+        .phase-tasks {
+            margin-left: 35px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
             font-size: 0.9rem;
-            transition: all 0.2s ease;
+        }
+
+        .task-item.completed {
+            color: #27ae60;
+        }
+
+        .task-item.pending {
+            color: #3498db;
+        }
+
+        .task-icon {
+            margin-right: 8px;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .task-text {
+            text-decoration: underline;
             cursor: pointer;
         }
 
-        .service-card:hover {
-            background: #f57c00;
-            transform: translateY(-2px);
+        .task-text:hover {
+            color: #2980b9;
         }
 
-        .core-services {
-            margin-top: 20px;
+        .success-factors {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
         }
 
-        .core-services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+        .factor-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .factor-icon {
+            color: #3498db;
+            font-size: 1.1rem;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        .factor-content {
+            font-size: 0.9rem;
+        }
+
+        .factor-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .factor-description {
+            color: #5d6d7e;
+        }
+
+        .factor-description .underline {
+            text-decoration: underline;
+        }
+
+        .key-considerations {
+            background: #fff8e1;
+            border: 1px solid #ffb74d;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .considerations-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #f57c00;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .considerations-icon {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .considerations-text {
+            font-size: 0.9rem;
+            color: #5d4e37;
+            line-height: 1.6;
+        }
+
+        .considerations-text .underline {
+            text-decoration: underline;
         }
 
         @media (max-width: 1024px) {
-            .architecture-wrapper,
-            .external-wrapper {
-                flex-direction: column;
-            }
-            
-            .left-labels,
-            .external-labels {
-                width: 100%;
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
         }
 
@@ -310,11 +250,11 @@
                 padding: 20px;
             }
             
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .timeline {
+                padding-left: 25px;
             }
             
-            .core-services-grid {
-                grid-template-columns: repeat(2, 1fr);
+            .phase-marker {
+                left: -19px;
             }
         }

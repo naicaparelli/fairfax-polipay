@@ -1,0 +1,277 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #1e2227;
+            color: white;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1080px;
+            width: 100%;
+        }
+
+        /* Header */
+        .header {
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 72px;
+            font-weight: 300;
+            color: #00d4aa;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        .main-title::before {
+            content: "//";
+            margin-right: 20px;
+            color: #00d4aa;
+        }
+
+        .description {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #ecf0f1;
+            font-weight: 400;
+            max-width: 900px;
+        }
+
+        .brand-logo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-bf {
+            background: white;
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .logo-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot.red { background: #e74c3c; }
+        .dot.yellow { background: #f1c40f; }
+        .dot.green { background: #2ecc71; }
+        .dot.blue { background: #3498db; }
+
+        /* Diagnostic Flow */
+        .diagnostic-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .flow-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 150px;
+        }
+
+        .flow-circle {
+            width: 120px;
+            height: 120px;
+            border: 4px solid #00d4aa;
+            border-radius: 50%;
+            background: rgba(0, 212, 170, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .flow-circle:hover {
+            background: rgba(0, 212, 170, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 212, 170, 0.3);
+        }
+
+        .flow-icon {
+            font-size: 36px;
+            color: #00d4aa;
+        }
+
+        .flow-title {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .flow-subtitle {
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .flow-item:not(:last-child)::before {
+            content: '→';
+            position: absolute;
+            top: 35px;
+            right: -22px;
+            font-size: 40px;
+            color: #00d4aa;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Icons using Unicode characters and CSS shapes */
+        .icon-network::before {
+            content: '⚏';
+            font-size: 36px;
+        }
+
+        .icon-database::before {
+            content: '🗄';
+            font-size: 36px;
+        }
+
+        .icon-eye::before {
+            content: '👁';
+            font-size: 36px;
+        }
+
+        .icon-gear::before {
+            content: '⚙';
+            font-size: 36px;
+        }
+
+        .icon-money::before {
+            content: '💰';
+            font-size: 36px;
+        }
+
+        /* Custom icons using CSS */
+        .icon-custom {
+            width: 36px;
+            height: 36px;
+            position: relative;
+        }
+
+        .icon-network {
+            display: grid;
+            grid-template-columns: repeat(3, 8px);
+            gap: 4px;
+            width: 36px;
+            height: 24px;
+        }
+
+        .icon-network::before,
+        .icon-network::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #00d4aa;
+            border-radius: 50%;
+        }
+
+        .icon-database {
+            width: 32px;
+            height: 36px;
+            background: linear-gradient(to bottom, 
+                transparent 0%, transparent 25%,
+                #00d4aa 25%, #00d4aa 30%,
+                transparent 30%, transparent 50%,
+                #00d4aa 50%, #00d4aa 55%,
+                transparent 55%, transparent 75%,
+                #00d4aa 75%, #00d4aa 80%,
+                transparent 80%, transparent 100%);
+            border: 2px solid #00d4aa;
+            border-radius: 4px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .main-title {
+                font-size: 48px;
+            }
+
+            .description {
+                font-size: 16px;
+            }
+
+            .brand-logo {
+                position: relative;
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            .diagnostic-flow {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .flow-item:not(:last-child)::after,
+            .flow-item:not(:last-child)::before {
+                display: none;
+            }
+
+            .flow-item:not(:last-child) {
+                position: relative;
+            }
+
+            .flow-item:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                bottom: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 2px;
+                height: 20px;
+                background: #00d4aa;
+                display: block;
+            }
+
+            .flow-item:not(:last-child)::before {
+                content: '↓';
+                position: absolute;
+                bottom: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 18px;
+                color: #00d4aa;
+                display: block;
+            }
+        }

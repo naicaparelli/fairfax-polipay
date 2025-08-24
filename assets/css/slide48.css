@@ -1,81 +1,355 @@
-/* Slide 2 - FairFax */
-body {
-    background: #1e2227;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-    position: relative;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.fairfax-content {
-  display: grid;
-  grid-template-columns: 50% 50%; /* metade pra cada lado */
-  width: 100%;
-  height: 100vh; 
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+        }
 
-.content-left {
-    padding-right: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: start;
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
 
-}
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-.fairfax-title {
-    font-size: 3.5rem;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    color: white;
-    line-height: 1.2;
-    text-align: start;
-}
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
 
-.fairfax-subtitle {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.4;
-}
+        .header::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid #4CAF50;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-right: 15px;
+        }
 
-.content-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+        .header::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 15px solid #4CAF50;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            margin-left: 5px;
+        }
 
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/slide46.jpg');
-  background-size: cover;      /* cobre todo o espaço */
-  background-position: center; /* centraliza a imagem */
-}
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 400;
+        }
 
-/* Animações específicas */
-.content-left { 
-    animation: slideInLeft 0.6s ease 0.2s both; 
-}
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.content-right { 
-    animation: slideInRight 0.6s ease 0.4s both; 
-}
+        .toggle-label {
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .fairfax-content { 
-        grid-template-columns: 1fr; 
-        gap: 30px; 
-        text-align: center;
-    }
-    .content-left { padding-right: 0; }
-    .fairfax-title { font-size: 2.5rem; }
-    .fairfax-subtitle { font-size: 1.4rem; }
-    .content-right { height: 250px; }
-    body { padding: 20px; }
-}
+        .toggle-switch {
+            position: relative;
+            width: 80px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: #2196F3;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .toggle-switch.active .toggle-slider {
+            transform: translateX(40px);
+        }
+
+        .main-content {
+            padding: 40px;
+            position: relative;
+        }
+
+        /* Seções horizontais */
+        .section {
+            position: relative;
+            height: 120px;
+            border-bottom: 1px dashed #bdc3c7;
+            display: flex;
+            align-items: center;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-label {
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 150px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .avatar.corretor {
+            background: #8B4513;
+        }
+
+        .avatar.erp {
+            background: #2196F3;
+            border-radius: 8px;
+        }
+
+        .avatar.payment {
+            background: #FF9800;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .avatar.bancos {
+            background: #8B4513;
+        }
+
+        .section-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        /* Nodes do fluxo */
+        .flow-node {
+            position: absolute;
+            background: #e8e8e8;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2c3e50;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #d0d0d0;
+            white-space: nowrap;
+        }
+
+        .flow-node:hover {
+            background: #d0d0d0;
+            transform: scale(1.02);
+        }
+
+        .flow-node.highlight {
+            background: #ffeb3b;
+            border-color: #fbc02d;
+            animation: pulse 2s infinite;
+        }
+
+        /* Setas */
+        .arrow {
+            position: absolute;
+            color: #3498db;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+
+        .arrow.right::after {
+            content: '→';
+        }
+
+        .arrow.down::after {
+            content: '↓';
+        }
+
+        .arrow.up::after {
+            content: '↑';
+        }
+
+        /* Posicionamento - Row Corretor */
+        .node-cotacao {
+            left: 200px;
+            top: 50px;
+        }
+
+        .arrow-1 {
+            left: 320px;
+            top: 55px;
+        }
+
+        .node-escolhe-meio {
+            left: 350px;
+            top: 50px;
+        }
+
+        .arrow-2 {
+            left: 470px;
+            top: 85px;
+        }
+
+        /* Row ERP */
+        .node-gera-apolice {
+            left: 200px;
+            top: 170px;
+        }
+
+        .node-emite-boleto {
+            left: 350px;
+            top: 170px;
+        }
+
+        /* Row MaxiPago/PoliPay */
+        .node-cartao {
+            left: 200px;
+            top: 290px;
+        }
+
+        .node-pix {
+            left: 350px;
+            top: 290px;
+            display: none;
+        }
+
+        /* Row Bancos */
+        .node-confirma {
+            left: 200px;
+            top: 410px;
+        }
+
+        .arrow-3 {
+            left: 320px;
+            top: 380px;
+        }
+
+        /* Row ERP (continuação) */
+        .node-concilia {
+            left: 500px;
+            top: 170px;
+        }
+
+        .arrow-4 {
+            left: 620px;
+            top: 175px;
+        }
+
+        .node-gera-comissao {
+            left: 650px;
+            top: 170px;
+        }
+
+        /* Painel de benefícios */
+        .benefits-panel {
+            position: absolute;
+            right: 20px;
+            top: 280px;
+            width: 300px;
+            background: rgba(33, 150, 243, 0.1);
+            border: 1px solid #2196F3;
+            border-radius: 8px;
+            padding: 15px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.5s ease;
+        }
+
+        .benefits-panel.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .benefits-title {
+            color: #2196F3;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .benefit-item {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @media (max-width: 1024px) {
+            .flow-node {
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+            
+            .benefits-panel {
+                position: relative;
+                right: 0;
+                top: 20px;
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+            
+            .section {
+                height: 100px;
+            }
+            
+            .flow-node {
+                font-size: 0.75rem;
+                padding: 6px 10px;
+            }
+        }

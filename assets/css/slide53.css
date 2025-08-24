@@ -1,0 +1,283 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .title {
+            font-size: 2.2rem;
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #5d6d7e;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Seção de Componentes */
+        .components-section {
+            margin-bottom: 50px;
+        }
+
+        .component-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .component-item:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateX(5px);
+        }
+
+        .component-icon {
+            width: 50px;
+            height: 50px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .component-content h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c5aa0;
+            margin-bottom: 8px;
+        }
+
+        .component-content p {
+            font-size: 0.95rem;
+            color: #5d6d7e;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            text-decoration: underline;
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+
+        /* Seção de Métodos de Pagamento */
+        .payment-methods-section {
+            background: rgba(248, 249, 250, 0.8);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .payment-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .payment-method-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .payment-method-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .payment-method-card.pix {
+            border-top: 4px solid #4CAF50;
+        }
+
+        .payment-method-card.boleto {
+            border-top: 4px solid #FF9800;
+        }
+
+        .payment-method-card.cartoes {
+            border-top: 4px solid #2196F3;
+        }
+
+        .payment-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .payment-icon.pix {
+            background: #4CAF50;
+        }
+
+        .payment-icon.boleto {
+            background: #FF9800;
+        }
+
+        .payment-icon.cartoes {
+            background: #2196F3;
+        }
+
+        .payment-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .payment-time {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        /* Fluxo do Processo */
+        .process-flow-section {
+            margin-top: 40px;
+        }
+
+        .process-flow-title {
+            font-size: 1.4rem;
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            align-items: center;
+        }
+
+        .process-step {
+            background: rgba(52, 152, 219, 0.08);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .process-step:hover {
+            background: rgba(52, 152, 219, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .process-step-icon {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .process-step-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .process-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3498db;
+            font-size: 1.5rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .payment-methods-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .process-flow {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .process-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .payment-methods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .component-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .component-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Animações */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: slideInUp 0.6s ease-out;
+        }

@@ -9,6 +9,7 @@
             background: #f8f9fa;
             min-height: 100vh;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
@@ -20,322 +21,313 @@
             overflow: hidden;
         }
 
-        .header {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 25px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .main-content {
+            padding: 40px;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .header::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-right: 15px;
-        }
-
-        .header::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-left: 5px;
-        }
-
-        .header h1 {
+        .title {
             font-size: 2rem;
-            font-weight: 400;
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 40px;
         }
 
-        .toggle-container {
+        .title .underline {
+            text-decoration: underline;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .left-column,
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* === LADO ESQUERDO === */
+
+        /* Fluxo de Passos */
+        .flow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 4px solid #ff8c00;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 35px;
+            height: 35px;
+            background: #ff8c00;
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: #5d6d7e;
+            line-height: 1.5;
+        }
+
+        .step-content .highlight {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Participantes */
+        .participants-section {
+            margin-top: 20px;
+        }
+
+        .participants-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .participants-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
-        .toggle-label {
+        .participant-card {
+            background: rgba(52, 152, 219, 0.05);
+            border: 1px solid rgba(52, 152, 219, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .participant-card:hover {
+            background: rgba(52, 152, 219, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .participant-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+
+        .participant-name {
             font-size: 1rem;
             font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
         }
 
-        .toggle-switch {
-            position: relative;
-            width: 80px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .participant-role {
+            font-size: 0.85rem;
+            color: #7f8c8d;
         }
 
-        .toggle-switch.active {
-            background: #2196F3;
-        }
-
-        .toggle-slider {
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 32px;
-            height: 32px;
-            background: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .participant-extra {
             font-size: 0.8rem;
-            font-weight: bold;
+            color: #95a5a6;
+            margin-top: 3px;
         }
 
-        .toggle-switch.active .toggle-slider {
-            transform: translateX(40px);
+        /* === LADO DIREITO === */
+
+        /* Boleto Visual */
+        .boleto-visual {
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .main-content {
-            padding: 40px;
-            position: relative;
+        .boleto-header {
+            background: #f8f9fa;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
         }
 
-        /* Seções horizontais */
-        .section {
-            position: relative;
-            height: 120px;
-            border-bottom: 1px dashed #bdc3c7;
-            display: flex;
-            align-items: center;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        .section-label {
-            position: absolute;
-            left: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            width: 150px;
-        }
-
-        .avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .avatar.corretor {
-            background: #8B4513;
-        }
-
-        .avatar.erp {
-            background: #2196F3;
-            border-radius: 8px;
-        }
-
-        .avatar.payment {
-            background: #FF9800;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        .avatar.bancos {
-            background: #8B4513;
-        }
-
-        .section-name {
-            font-weight: 600;
+        .boleto-header h4 {
             color: #2c3e50;
             font-size: 1.1rem;
+            margin-bottom: 5px;
         }
 
-        /* Nodes do fluxo */
-        .flow-node {
-            position: absolute;
-            background: #e8e8e8;
-            border-radius: 8px;
-            padding: 10px 15px;
+        .boleto-header p {
+            color: #7f8c8d;
             font-size: 0.9rem;
-            font-weight: 500;
-            color: #2c3e50;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #d0d0d0;
-            white-space: nowrap;
         }
 
-        .flow-node:hover {
-            background: #d0d0d0;
-            transform: scale(1.02);
+        .boleto-content {
+            padding: 20px;
         }
 
-        .flow-node.highlight {
-            background: #ffeb3b;
-            border-color: #fbc02d;
-            animation: pulse 2s infinite;
+        .boleto-barcode {
+            text-align: center;
+            margin: 15px 0;
         }
 
-        /* Setas */
-        .arrow {
-            position: absolute;
-            color: #3498db;
-            font-size: 1.2rem;
-            z-index: 2;
+        .barcode-lines {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 1px;
+            margin: 10px 0;
         }
 
-        .arrow.right::after {
-            content: '→';
+        .bar {
+            background: #000;
+            width: 2px;
         }
 
-        .arrow.down::after {
-            content: '↓';
+        .bar.thin { height: 30px; }
+        .bar.thick { height: 35px; width: 3px; }
+
+        .boleto-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: 0.8rem;
         }
 
-        .arrow.up::after {
-            content: '↑';
+        .info-item {
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
         }
 
-        /* Posicionamento - Row Corretor */
-        .node-cotacao {
-            left: 200px;
-            top: 50px;
-        }
-
-        .arrow-1 {
-            left: 320px;
-            top: 55px;
-        }
-
-        .node-escolhe-meio {
-            left: 350px;
-            top: 50px;
-        }
-
-        .arrow-2 {
-            left: 470px;
-            top: 85px;
-        }
-
-        /* Row ERP */
-        .node-gera-apolice {
-            left: 200px;
-            top: 170px;
-        }
-
-        .node-emite-boleto {
-            left: 350px;
-            top: 170px;
-        }
-
-        /* Row MaxiPago/PoliPay */
-        .node-cartao {
-            left: 200px;
-            top: 290px;
-        }
-
-        .node-pix {
-            left: 350px;
-            top: 290px;
-            display: none;
-        }
-
-        /* Row Bancos */
-        .node-confirma {
-            left: 200px;
-            top: 410px;
-        }
-
-        .arrow-3 {
-            left: 320px;
-            top: 380px;
-        }
-
-        /* Row ERP (continuação) */
-        .node-concilia {
-            left: 500px;
-            top: 170px;
-        }
-
-        .arrow-4 {
-            left: 620px;
-            top: 175px;
-        }
-
-        .node-gera-comissao {
-            left: 650px;
-            top: 170px;
-        }
-
-        /* Painel de benefícios */
-        .benefits-panel {
-            position: absolute;
-            right: 20px;
-            top: 280px;
-            width: 300px;
-            background: rgba(33, 150, 243, 0.1);
-            border: 1px solid #2196F3;
-            border-radius: 8px;
-            padding: 15px;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: all 0.5s ease;
-        }
-
-        .benefits-panel.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .benefits-title {
-            color: #2196F3;
-            font-size: 1rem;
+        .info-label {
             font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .benefit-item {
-            font-size: 0.85rem;
-            line-height: 1.4;
-            margin-bottom: 8px;
             color: #2c3e50;
+            display: block;
+            margin-bottom: 3px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .info-value {
+            color: #5d6d7e;
+        }
+
+        .boleto-amount {
+            text-align: center;
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .amount-label {
+            font-size: 0.9rem;
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .amount-value {
+            font-size: 1.8rem;
+            color: #28a745;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .payment-line {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #6c757d;
+            text-align: center;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+            word-break: break-all;
+        }
+
+        /* Características Fairfax */
+        .fairfax-section {
+            background: rgba(52, 152, 219, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .fairfax-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .fairfax-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .fairfax-item {
+            font-size: 0.9rem;
+            color: #2c3e50;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .fairfax-item strong {
+            color: #2c5aa0;
+            min-width: 140px;
+        }
+
+        .fairfax-item .underline {
+            text-decoration: underline;
+        }
+
+        .bullet {
+            color: #ff8c00;
+            font-weight: bold;
         }
 
         @media (max-width: 1024px) {
-            .flow-node {
-                font-size: 0.8rem;
-                padding: 8px 12px;
+            .content-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .benefits-panel {
-                position: relative;
-                right: 0;
-                top: 20px;
-                width: 100%;
-                margin-top: 20px;
+            .participants-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .boleto-info {
+                grid-template-columns: 1fr;
             }
         }
 
@@ -344,12 +336,15 @@
                 padding: 20px;
             }
             
-            .section {
-                height: 100px;
+            .title {
+                font-size: 1.6rem;
             }
             
-            .flow-node {
-                font-size: 0.75rem;
-                padding: 6px 10px;
+            .boleto-content {
+                padding: 15px;
+            }
+            
+            .amount-value {
+                font-size: 1.5rem;
             }
         }

@@ -5,160 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/common.css"/>
     <link rel="stylesheet" href="assets/css/slide50.css"/>
-    <title>Plano de Implementação</title>
+    <title>Fluxo de Pagamento PIX</title>
 
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Plano de implementação</h1>
-        </div>
-        
         <div class="main-content">
-            <div class="left-section">
-                <h2>Fases de Implementação</h2>
-                
-                <div class="timeline">
-                    <!-- Fase 1 -->
-                    <div class="phase">
-                        <div class="phase-marker"></div>
-                        <div class="phase-header">
-                            <span class="phase-icon">🔍</span>
-                            <span class="phase-title">Fase 1: Diagnóstico e Mapeamento</span>
-                            <span class="phase-duration">Finalizada</span>
+            <h1 class="title">Fluxo de Pagamento PIX</h1>
+            
+            <div class="content-layout">
+                <!-- LADO ESQUERDO -->
+                <div class="left-column">
+                    <!-- Passos do Fluxo -->
+                    <div class="flow-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Geração do QR Code</h3>
+                                <p>Polipay gera QR Code estático ou dinâmico</p>
+                            </div>
                         </div>
-                        <div class="phase-tasks">
-                            <div class="task-item completed">
-                                <span class="task-icon">✅</span>
-                                <span class="task-text">Mapear processos e arquitetura existentes</span>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Leitura pelo Cliente</h3>
+                                <p>Cliente lê o QR Code no app bancário</p>
                             </div>
-                            <div class="task-item completed">
-                                <span class="task-icon">✅</span>
-                                <span class="task-text">Identificar potenciais modelos e fornecedores estratégicos</span>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Autorização</h3>
+                                <p>Cliente confirma e autoriza o pagamento</p>
                             </div>
-                            <div class="task-item completed">
-                                <span class="task-icon">✅</span>
-                                <span class="task-text">Analisar volume transacionado no ecossistema</span>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Processamento SPI</h3>
+                                <p>Sistema de Pagamentos Instantâneos processa</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h3>Liquidação Instantânea</h3>
+                                <p>Transferência imediata entre contas</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">6</div>
+                            <div class="step-content">
+                                <h3>Confirmação</h3>
+                                <p>Polipay recebe confirmação</p>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">7</div>
+                            <div class="step-content">
+                                <h3>Repasse à Fairfax</h3>
+                                <p>Repasse conforme prazo acordado</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Fase 2 -->
-                    <div class="phase">
-                        <div class="phase-marker"></div>
-                        <div class="phase-header">
-                            <span class="phase-icon">🏗️</span>
-                            <span class="phase-title">Fase 2: Estruturação</span>
-                            <span class="phase-duration">Duração: 1 a 2 meses</span>
-                        </div>
-                        <div class="phase-tasks">
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Definir fornecedores e solução técnica</span>
+                    <!-- Participantes -->
+                    <div class="participants-section">
+                        <div class="participants-title">Principais Participantes:</div>
+                        
+                        <div class="participants-grid">
+                            <div class="participant-card">
+                                <div class="participant-icon">👤</div>
+                                <div class="participant-name">Cliente</div>
+                                <div class="participant-role">Pagador</div>
                             </div>
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Estruturar planejamento</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Fase 3 -->
-                    <div class="phase">
-                        <div class="phase-marker"></div>
-                        <div class="phase-header">
-                            <span class="phase-icon">🔧</span>
-                            <span class="phase-title">Fase 3: Construção e integrações</span>
-                            <span class="phase-duration">Duração: 2a 3 meses</span>
-                        </div>
-                        <div class="phase-tasks">
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Integração com ERP</span>
+                            <div class="participant-card">
+                                <div class="participant-icon">📋</div>
+                                <div class="participant-name">Lojista</div>
+                                <div class="participant-role">Beneficiário</div>
                             </div>
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Integração com players externos</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Fase 4 -->
-                    <div class="phase">
-                        <div class="phase-marker"></div>
-                        <div class="phase-header">
-                            <span class="phase-icon">🚀</span>
-                            <span class="phase-title">Fase 4: Piloto e Expansão</span>
-                            <span class="phase-duration">Duração: 1 - 2 meses</span>
-                        </div>
-                        <div class="phase-tasks">
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Implementar projeto piloto com Fairfax selecionado</span>
+                            <div class="participant-card">
+                                <div class="participant-icon">🏛️</div>
+                                <div class="participant-name">Agente Direto PIX</div>
+                                <div class="participant-role">Iniciador</div>
                             </div>
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Avaliar resultados e ajustar modelo</span>
-                            </div>
-                            <div class="task-item pending">
-                                <span class="task-icon">⭕</span>
-                                <span class="task-text">Expandir para toda a rede</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="right-section">
-                <h2>Fatores Críticos de Sucesso</h2>
-                
-                <div class="success-factors">
-                    <div class="factor-item">
-                        <span class="factor-icon">📢</span>
-                        <div class="factor-content">
-                            <div class="factor-title">Comunicação clara:</div>
-                            <div class="factor-description">
-                                <span class="underline">Explicar benefícios</span> do novo modelo
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="factor-item">
-                        <span class="factor-icon">📊</span>
-                        <div class="factor-content">
-                            <div class="factor-title">Monitoramento contínuo:</div>
-                            <div class="factor-description">
-                                <span class="underline">Acompanhar KPIs</span> e <span class="underline">ajustar estratégia</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="factor-item">
-                        <span class="factor-icon">👥</span>
-                        <div class="factor-content">
-                            <div class="factor-title">Engajamento dos clientes:</div>
-                            <div class="factor-description">
-                                <span class="underline">Envolver na construção</span> do modelo
+                            <div class="participant-card">
+                                <div class="participant-icon">🔄</div>
+                                <div class="participant-name">BACEN</div>
+                                <div class="participant-role">SPI</div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="key-considerations">
-                    <div class="considerations-header">
-                        <span class="considerations-icon">💡</span>
-                        Considerações-chave
+                <!-- LADO DIREITO -->
+                <div class="right-column">
+                    <!-- Diagrama PIX -->
+                    <div class="pix-diagram">
+                        <div class="diagram-header">
+                            <div class="polipay-logo">
+                                <div style="width: 40px; height: 40px; background: #2196F3; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">P</div>
+                                <span class="polipay-text">PoliPay</span>
+                            </div>
+                            <div style="font-size: 1.5rem;">📱</div>
+                        </div>
+
+                        <div class="flow-participants">
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Registro</div>
+                                <div class="flow-participant-title">PIX</div>
+                                <div class="flow-participant-subtitle">Iniciador direto PIX</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Cliente</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">IF</div>
+                                <div class="flow-participant-title">Cliente</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="spi-button">SPI</div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">IF</div>
+                                <div class="flow-participant-title">Recebedor</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Crédito no</div>
+                                <div class="flow-participant-title">Recebedor</div>
+                            </div>
+                        </div>
+
+                        <div class="erp-logo">FF</div>
                     </div>
-                    <div class="considerations-text">
-                        A transição deve ser gradual, permitindo que envolvidos se adaptem ao novo modelo. 
-                        É essencial <span class="underline">demonstrar o valor</span> adicional gerado para garantir adesão e minimizar 
-                        resistências.
+
+                    <!-- Benefícios PIX -->
+                    <div class="benefits-section">
+                        <div class="benefit-card">
+                            <div class="benefit-title">Instantaneidade</div>
+                            <div class="benefit-description">Liquidação em tempo real (menos de 10 segundos)</div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-title">Disponibilidade</div>
+                            <div class="benefit-description">24/7, incluindo feriados e finais de semana</div>
+                        </div>
+
+                        <div class="benefit-card">
+                            <div class="benefit-title">Segurança</div>
+                            <div class="benefit-description">Transações via SPI do Banco Central</div>
+                        </div>
+                    </div>
+
+                    <!-- Estatísticas PIX -->
+                    <div class="pix-stats">
+                        <div class="stats-title">
+                            <span class="stats-icon">📈</span>
+                            Crescimento do PIX
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-number">+26%</span>
+                                <span class="stat-label">Participação no mercado</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">10 seg</span>
+                                <span class="stat-label">Tempo médio de liquidação</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">0,2-1%</span>
+                                <span class="stat-label">Taxa média para lojistas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Características Fairfax -->
+                    <div class="fairfax-section">
+                        <div class="fairfax-title">Características e definições Fairfax:</div>
+                        <div class="fairfax-items">
+                            <div class="fairfax-item">• <strong>Prazo de vencimento:</strong> Definido pela Fairfax (3 dias)</div>
+                            <div class="fairfax-item">• <strong>Compensação:</strong> <span class="underline">imediata</span></div>
+                            <div class="fairfax-item">• <strong>Custo:</strong> a desenvolver</div>
+                            <div class="fairfax-item">• <strong>Chargeback:</strong> Risco <span class="underline">nulo</span></div>
+                            <div class="fairfax-item">• <strong>Liquidação:</strong> X dias</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <div class="navigation">
+
+     <div class="navigation">
             <a href="slide49.html" class="nav-btn">← Anterior</a>
             <div class="slide-counter">50 / 63</div>
             <a href="slide51.html" class="nav-btn">Próximo →</a>
@@ -166,29 +225,45 @@
     </div>
 
     <script src="assets/js/navigation.js"></script>
+
+
     <script>
-        // Adicionar interatividade aos itens clicáveis
-        document.querySelectorAll('.task-text').forEach(item => {
-            item.addEventListener('click', function() {
-                this.style.color = '#2980b9';
-                this.style.fontWeight = '600';
+        // Animação sequencial dos passos
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(-30px)';
                 setTimeout(() => {
-                    this.style.fontWeight = '';
-                }, 200);
+                    step.style.transition = 'all 0.5s ease';
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateX(0)';
+                }, index * 100);
+            });
+
+            // Animação dos elementos do lado direito
+            const rightElements = document.querySelectorAll('.right-column > *');
+            rightElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    element.style.transition = 'all 0.6s ease';
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 800 + (index * 200));
             });
         });
 
-        // Animação de entrada para as fases
-        document.addEventListener('DOMContentLoaded', function() {
-            const phases = document.querySelectorAll('.phase');
-            phases.forEach((phase, index) => {
-                phase.style.opacity = '0';
-                phase.style.transform = 'translateX(-20px)';
-                setTimeout(() => {
-                    phase.style.transition = 'all 0.5s ease';
-                    phase.style.opacity = '1';
-                    phase.style.transform = 'translateX(0)';
-                }, index * 200);
+        // Efeito hover nos passos
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.borderColor = '#28a745';
+                this.style.background = '#d4edda';
+            });
+            
+            step.addEventListener('mouseleave', function() {
+                this.style.borderColor = '#ffeaa7';
+                this.style.background = '#fff3cd';
             });
         });
     </script>

@@ -2,134 +2,221 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/common.css"/>
+        <link rel="stylesheet" href="assets/css/common.css"/>
     <link rel="stylesheet" href="assets/css/slide52.css"/>
-    <title>Hub de pagamentos Polipay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluxo de Pagamento com Cartões</title>
 
 </head>
 <body>
     <div class="container">
         <div class="main-content">
-            <h1 class="title">Hub de pagamentos <span class="underline">Polipay</span></h1>
+            <h1 class="title">Fluxo de Pagamento com Cartões</h1>
             
-            <div class="description">
-                <p><strong>Texto do Paulo...</strong></p>
-                <p>A <span class="underline">Polipay</span> será responsável por toda a orquestração das formas de cobrança, liquidação, conciliação, réguas de comunicação de cobrança, taxas de atraso...</p>
-                <p>O ERP permanece responsável pelo core de emissão de apólices etc, e receberá a informação de que o cliente pagou, seja qual for o meio de pagamento.</p>
-                <p>Fica mais ágil e eficiente plugar e desplugar fornecedores, novos meios de pagamento, produtos etc.</p>
-                <p>A <span class="underline">Polipay</span> pode servir a todo o Grupo...</p>
-            </div>
-
-            <div class="ecosystem-section">
-                <div class="ecosystem-title">No ecossistema de pagamentos, o Hub se conectará com:</div>
-                
-                <div class="ecosystem-grid">
-                    <div class="ecosystem-left">
-                        <div class="ecosystem-item">
-                            <div class="ecosystem-icon fairfax">
-                                <span>📋</span>
-                            </div>
-                            <div class="ecosystem-content">
-                                <div class="ecosystem-name">Fairfax</div>
-                                <div class="ecosystem-description">Corretores, Segurados e Fairfax</div>
+            <div class="content-layout">
+                <!-- LADO ESQUERDO -->
+                <div class="left-column">
+                    <!-- Passos do Fluxo -->
+                    <div class="flow-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Captura da Transação</h3>
+                                <p>Segurado preenche informações checkout. A <span class="highlight">Polipay</span> captura os dados e envia para processamento.</p>
+                                <div class="step-tags">
+                                    <div class="tag lojista">Lojista</div>
+                                    <div class="tag subadquirente">Subadquirente</div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="ecosystem-item">
-                            <div class="ecosystem-icon bancos">
-                                <span>🏛️</span>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Roteamento e Autorização</h3>
+                                <p>Transação enviada para adquirente → bandeira → banco emissor, que verifica saldo/limite.</p>
+                                <div class="step-tags">
+                                    <div class="tag adquirente">Adquirente</div>
+                                    <div class="tag bandeira">Bandeira</div>
+                                    <div class="tag emissor">Emissor</div>
+                                </div>
                             </div>
-                            <div class="ecosystem-content">
-                                <div class="ecosystem-name">Bancos</div>
-                                <div class="ecosystem-description">Liquidação financeira</div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Confirmação e Captura</h3>
+                                <p>Resposta de autorização retorna pelo mesmo caminho. Ocorre a captura financeira da transação.</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="ecosystem-right">
-                        <div class="ecosystem-item">
-                            <div class="ecosystem-icon adquirentes">
-                                <span>💳</span>
+                    <!-- Modalidades -->
+                    <div class="modalities-section">
+                        <div class="modalities-title">Diferenças por Modalidade</div>
+                        <div class="modalities-grid">
+                            <div class="modality-card debit">
+                                <div class="modality-name">Débito</div>
+                                <div class="modality-details">
+                                    D+1<br>
+                                    MDR: ~1-2%
+                                </div>
                             </div>
-                            <div class="ecosystem-content">
-                                <div class="ecosystem-name">Adquirentes</div>
-                                <div class="ecosystem-description">Processamento de cartões</div>
+                            <div class="modality-card credit">
+                                <div class="modality-name">Crédito à Vista</div>
+                                <div class="modality-details">
+                                    D+30<br>
+                                    MDR: ~2-3%
+                                </div>
+                            </div>
+                            <div class="modality-card installment">
+                                <div class="modality-name">Parcelado</div>
+                                <div class="modality-details">
+                                    D+30<br>
+                                    MDR: ~3-5%
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="ecosystem-item">
-                            <div class="ecosystem-icon bandeiras">
-                                <span>🔄</span>
+                    <!-- Participantes -->
+                    <div class="participants-section">
+                        <div class="participants-title">Principais Participantes:</div>
+                        
+                        <div class="participants-grid">
+                            <div class="participant-card">
+                                <div class="participant-icon">👤</div>
+                                <div class="participant-name">Cliente</div>
+                                <div class="participant-role">Pagador</div>
                             </div>
-                            <div class="ecosystem-content">
-                                <div class="ecosystem-name">Bandeiras</div>
-                                <div class="ecosystem-description">Regras e roteamento</div>
+
+                            <div class="participant-card">
+                                <div class="participant-icon">📋</div>
+                                <div class="participant-name">Fairfax</div>
+                                <div class="participant-role">Beneficiário</div>
+                            </div>
+
+                            <div class="participant-card">
+                                <div class="participant-icon">🏛️</div>
+                                <div class="participant-name">Banco Emissor</div>
+                                <div class="participant-role">Gera boleto</div>
+                            </div>
+
+                            <div class="participant-card">
+                                <div class="participant-icon">🔄</div>
+                                <div class="participant-name">Adquirente</div>
+                                <div class="participant-role">Credenciador</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="payments-section">
-                <div class="payments-title">Principais meios de pagamento oferecidos:</div>
-                
-                <div class="payments-grid">
-                    <div class="payment-method">
-                        <div class="payment-icon">
-                            <span>⚡</span>
+                <!-- LADO DIREITO -->
+                <div class="right-column">
+                    <!-- Liquidação -->
+                    <div class="liquidation-section">
+                        <div class="liquidation-title">Liquidação e Particularidades</div>
+                        
+                        <div class="liquidation-steps">
+                            <div class="liquidation-step">
+                                <div class="liquidation-step-number">4</div>
+                                <div class="liquidation-step-content">
+                                    <h4>Processamento e Compensação</h4>
+                                    <p>Transações agrupadas em lotes para compensação. Taxas calculadas e descontadas.</p>
+                                </div>
+                            </div>
+
+                            <div class="liquidation-step">
+                                <div class="liquidation-step-number">5</div>
+                                <div class="liquidation-step-content">
+                                    <h4>Liquidação Financeira</h4>
+                                    <p>Valores transferidos entre instituições e creditados na conta da <span class="highlight">Polipay</span> conforme prazo.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="payment-name">PIX</div>
-                        <div class="payment-description">Pagamento instantâneo</div>
-                        <div class="payment-time">Instantâneo</div>
                     </div>
 
-                    <div class="payment-method">
-                        <div class="payment-icon">
-                            <span>📄</span>
+                    <!-- Diagrama de Fluxo -->
+                    <div class="flow-diagram">
+                        <div class="diagram-header">
+                            <div class="polipay-logo">
+                                <div style="width: 35px; height: 35px; background: #2196F3; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9rem;">P</div>
+                                <span class="polipay-text">PoliPay</span>
+                            </div>
                         </div>
-                        <div class="payment-name">Boletos</div>
-                        <div class="payment-description">Compensação bancária</div>
-                        <div class="payment-time">1-3 dias</div>
+
+                        <div class="flow-participants">
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Adquirente</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Bandeira</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Emissor</div>
+                            </div>
+                            
+                            <div class="flow-arrow">→</div>
+                            
+                            <div class="flow-participant">
+                                <div class="flow-participant-title">Cliente</div>
+                            </div>
+                        </div>
+
+                        <div style="margin: 15px 0; font-size: 0.9rem; color: #6c757d;">
+                            Etapas: 1 → 2 → 3
+                        </div>
+
+                        <div style="margin: 15px 0; font-size: 0.9rem; color: #6c757d;">
+                            Retorno: 3 → 2 → 1
+                        </div>
+
+                        <div class="erp-logo">FF</div>
                     </div>
 
-                    <div class="payment-method">
-                        <div class="payment-icon">
-                            <span>💳</span>
+                    <!-- Características Fairfax -->
+                    <div class="fairfax-section">
+                        <div class="fairfax-title">Características e definições Fairfax:</div>
+                        <div class="fairfax-items">
+                            <div class="fairfax-item">
+                                <span class="bullet">•</span>
+                                <strong>Prazo de vencimento:</strong>
+                                <span>Definido pela Fairfax (3 dias)</span>
+                            </div>
+                            <div class="fairfax-item">
+                                <span class="bullet">•</span>
+                                <strong>Compensação:</strong>
+                                <span>~ 28 dias</span>
+                            </div>
+                            <div class="fairfax-item">
+                                <span class="bullet">•</span>
+                                <strong>Custo:</strong>
+                                <span>a <span class="underline">desenvolver</span></span>
+                            </div>
+                            <div class="fairfax-item">
+                                <span class="bullet">•</span>
+                                <strong>Chargeback:</strong>
+                                <span>Médio <span class="highlight">risco</span></span>
+                            </div>
+                            <div class="fairfax-item">
+                                <span class="bullet">•</span>
+                                <strong>Liquidação:</strong>
+                                <span><span class="highlight">X dias</span></span>
+                            </div>
                         </div>
-                        <div class="payment-name">Cartões</div>
-                        <div class="payment-description">Débito e crédito</div>
-                        <div class="payment-time">1-30 dias</div>
                     </div>
-                </div>
-            </div>
-
-            <div class="comparison-table">
-                <div class="table-header">
-                    <div>Característica</div>
-                    <div>PIX</div>
-                    <div>Boleto</div>
-                    <div>Cartões</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Tempo de Liquidação</div>
-                    <div class="table-cell">Instantâneo</div>
-                    <div class="table-cell">1-3 dias úteis</div>
-                    <div class="table-cell">1-30 dias</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="table-cell">Risco de Chargeback</div>
-                    <div class="table-cell">Não possui</div>
-                    <div class="table-cell">Baixo</div>
-                    <div class="table-cell">Alto</div>
                 </div>
             </div>
         </div>
     </div>
-
-     <div class="navigation">
+       <div class="navigation">
             <a href="slide51.html" class="nav-btn">← Anterior</a>
             <div class="slide-counter">52 / 63</div>
             <a href="slide53.html" class="nav-btn">Próximo →</a>
@@ -139,38 +226,65 @@
     <script src="assets/js/navigation.js"></script>
 
     <script>
-        // Animação de entrada para os elementos
+        // Animação sequencial dos passos
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.payment-method, .ecosystem-item');
-            elements.forEach((element, index) => {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(-30px)';
+                setTimeout(() => {
+                    step.style.transition = 'all 0.5s ease';
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateX(0)';
+                }, index * 150);
+            });
+
+            // Animação dos cards de modalidade
+            const modalityCards = document.querySelectorAll('.modality-card');
+            modalityCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 800 + (index * 200));
+            });
+
+            // Animação dos elementos do lado direito
+            const rightElements = document.querySelectorAll('.right-column > *');
+            rightElements.forEach((element, index) => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(20px)';
                 setTimeout(() => {
-                    element.style.transition = 'all 0.5s ease';
+                    element.style.transition = 'all 0.6s ease';
                     element.style.opacity = '1';
                     element.style.transform = 'translateY(0)';
-                }, index * 100);
+                }, 1200 + (index * 300));
             });
         });
 
-        // Interatividade nos métodos de pagamento
-        document.querySelectorAll('.payment-method').forEach(method => {
-            method.addEventListener('click', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
-                setTimeout(() => {
-                    this.style.transform = 'translateY(-2px)';
-                }, 200);
-            });
-        });
-
-        // Highlight nas linhas da tabela ao passar o mouse
-        document.querySelectorAll('.table-row').forEach(row => {
-            row.addEventListener('mouseenter', function() {
-                this.style.background = 'rgba(66, 133, 244, 0.05)';
+        // Efeito hover nos passos
+        document.querySelectorAll('.step').forEach(step => {
+            step.addEventListener('mouseenter', function() {
+                this.style.borderLeftColor = '#1976D2';
+                this.style.background = 'rgba(33, 150, 243, 0.15)';
             });
             
-            row.addEventListener('mouseleave', function() {
-                this.style.background = '';
+            step.addEventListener('mouseleave', function() {
+                this.style.borderLeftColor = '#2196F3';
+                this.style.background = 'rgba(33, 150, 243, 0.1)';
+            });
+        });
+
+        // Efeito hover nos cards de modalidade
+        document.querySelectorAll('.modality-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>

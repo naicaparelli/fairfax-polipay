@@ -1,80 +1,83 @@
-/* slide30.css */
-/* Reset mínimo */
-*{margin:0;padding:0;box-sizing:border-box}
-
-/* BG da página */
-body{
-  font-family:'Arial',sans-serif;
-  background:url('../images/slide30.jpg') no-repeat center center fixed; /* ajuste o caminho */
-  background-size:cover;
-  color:#333;
-  min-height:100vh;
-  overflow-x:hidden;
+:root{
+  --txt:#101418; --bg-left:#2f2f30; --brand:#35b79c;
+  --shadow:0 12px 28px rgba(0,0,0,.15);
+  --badge-size:66px; --badge-ring:#fff;
 }
 
-/* Conteúdo com largura máxima e alinhado à esquerda */
-.container{
-  max-width:1080px;   /* largura máxima do conteúdo */
-  margin-left:0;      /* mantém à esquerda */
-  margin-right:auto;  /* evita centralizar */
-  min-height:100vh;
-  display:flex;
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,Arial,sans-serif;background:#fff;color:var(--txt);min-height:100vh}
+
+.title {
+  font-size: 64px; font-weight: 300; color: #fff;
+  line-height: 1.1; margin-bottom: 32px;
+}
+.title-highlight { color: #00d4aa; }
+.description {
+  font-size: 18px; color: #ccc; line-height: 1.6; max-width: 420px;
 }
 
-/* Bloco de conteúdo */
-.left-side{
-  flex:1;
-  padding:80px 60px;
-  margin-left: 120px;
-  max-width: 600px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+/* Layout */
+.page{display:grid;grid-template-columns:42% 58%;min-height:100vh}
+.left{background:var(--bg-left);color:#fff;display:grid;align-content:center;gap:24px;padding:48px 56px}
+.left .lede{font-size:clamp(20px,2.4vw,34px);line-height:1.24;max-width:36ch}
+.right{display:grid;place-items:center;padding:24px}
 
-  /* fundo translúcido para legibilidade sobre a imagem */
-  background:rgba(248,249,250,.88);
-  backdrop-filter:blur(6px);
+/* Donut + badges */
+.donut-wrap{position:relative;max-width:880px;width:min(95%,880px);aspect-ratio:16/10;display:grid;place-items:center}
+.donut{width:min(560px,70vmin);filter:drop-shadow(var(--shadow))}
+.slice{cursor:pointer;transition:transform .2s ease, filter .2s ease}
+.slice:hover{transform:scale(1.02);filter:brightness(1.05)}
+.slice-label{font-weight:700;font-size:14px;fill:#253238}
+.center-logo .brandword{font-size:28px;font-weight:800;fill:#273036}
+
+.badges{list-style:none;position:absolute;inset:0;z-index:3;pointer-events:none}
+.badge{
+  position:absolute;transform:translate(-50%,-50%) scale(.96);
+  width:var(--badge-size);height:var(--badge-size);border-radius:50%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  border:6px solid var(--badge-ring);box-shadow:0 10px 22px rgba(0,0,0,.18);
+  background:#ffd24d;font-size:22px;opacity:0;transition:opacity .2s, transform .2s;
+}
+.badge span{background:#fff;padding:4px 8px;border-radius:12px;font-size:12px;color:#333;box-shadow:0 6px 12px rgba(0,0,0,.08)}
+.badge[data-key="corretor"]{background:#ff9b95}
+.badge[data-key="seguradora"]{background:#66d3bf}
+.badge[data-key="segurado"]{background:#f2b705}
+
+/* mostra apenas o grupo ativo */
+.donut-wrap.show-segurado   .badge[data-key="segurado"],
+.donut-wrap.show-corretor   .badge[data-key="corretor"],
+.donut-wrap.show-seguradora .badge[data-key="seguradora"]{
+  opacity:1;transform:translate(-50%,-50%) scale(1);pointer-events:auto;
 }
 
-/* Seta */
-.arrow-icon{
-  font-size:48px;
-  color:#00d4aa;
-  margin-bottom:30px;
-  animation:bounce 2s infinite;
-}
-@keyframes bounce{
-  0%,20%,50%,80%,100%{transform:translateY(0)}
-  40%{transform:translateY(-10px)}
-  60%{transform:translateY(-5px)}
-}
+/* POSIÇÕES INDIVIDUAIS (match do mock) */
+/* Segurado – amarelo (direita/superior direita) */
+.badge[data-key="segurado"][data-item="consorcio"]   { left:60%; top:8%; }
+.badge[data-key="segurado"][data-item="cashback"]    { left:76%; top:28%; }
+.badge[data-key="segurado"][data-item="fidelizacao"] { left:79%; top:58%; }
 
-/* Texto */
-.main-content{max-width:720px}
-.intro-text{font-size:18px;color:#666;margin-bottom:20px}
-.title{
-  font-size:48px;font-weight:300;color:#333;line-height:1.2;margin-bottom:30px
-}
-.polipay-highlight{
-  color:#00d4aa;font-weight:500;text-decoration:underline;text-decoration-color:#00d4aa
-}
-.description{font-size:16px;color:#555;line-height:1.6;margin-bottom:20px}
+/* Corretor – rosa (arco inferior) */
+.badge[data-key="corretor"][data-item="automacao"]   { left:30%; top:82%; }
+.badge[data-key="corretor"][data-item="beneficios"]  { left:42%; top:92%; }
+.badge[data-key="corretor"][data-item="antecipacao"] { left:56%; top:92%; }
+.badge[data-key="corretor"][data-item="gestao"]      { left:70%; top:84%; }
 
-/* Destaque */
-.highlight-box{
-  background:linear-gradient(135deg,rgba(0,212,170,.12),rgba(0,212,170,.06));
-  border-left:4px solid #00d4aa;
-  padding:15px 20px;margin:20px 0;border-radius:8px
-}
-.highlight-text{font-weight:500;color:#333;font-style:italic}
+/* Seguradora – verde (esquerda/superior esquerda) */
+.badge[data-key="seguradora"][data-item="relatorios"]     { left:38%; top:10%; }
+.badge[data-key="seguradora"][data-item="gestao"]         { left:25%; top:30%; }
+.badge[data-key="seguradora"][data-item="rentabilizacao"] { left:22%; top:60%; }
+
+/* Navegação (opcional do seu projeto) */
+.navigation{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:9;display:flex;gap:12px;align-items:center}
 
 /* Responsivo */
-@media (max-width:1200px){
-  .left-side{padding:60px 40px}
-  .title{font-size:40px}
+@media (max-width:1100px){ .page{grid-template-columns:36% 64%} :root{--badge-size:58px} }
+@media (max-width:880px){
+  .page{grid-template-columns:1fr}
+  .left{padding:32px 24px}
+  .right{padding:12px}
+  .donut{width:min(520px,88vw)}
+  .badge[data-key="segurado"][data-item="fidelizacao"]{ left:86%; top:56%; }
+  .badge[data-key="corretor"][data-item="beneficios"]{ top:92%; }
 }
-@media (max-width:768px){
-  .left-side{padding:40px 20px}
-  .title{font-size:32px}
-  .description{font-size:14px}
-}
+@media (max-width:560px){ .badge span{display:none} :root{--badge-size:52px} }
