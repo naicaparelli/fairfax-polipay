@@ -3,8 +3,8 @@
 body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;padding:20px;color:#333}
 .container{max-width:1400px;margin:0 auto;background:rgba(255,255,255,.95);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.1);backdrop-filter:blur(20px)}
 
-.header{display:flex;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:3px solid #4CAF50}
-.logo{width:50px;height:50px;background:linear-gradient(45deg,#4CAF50,#45a049);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:15px;box-shadow:0 5px 15px rgba(76,175,80,.3)}
+.header{display:flex;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:3px solid #00d4aa}
+.logo{width:50px;height:50px;background:#00d4aa;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:15px;box-shadow:0 5px 15px rgba(76,175,80,.3)}
 .logo::after{content:"⟩⟩";color:#fff;font-size:20px;font-weight:700}
 .title{font-size:32px;font-weight:700;color:#2c3e50;letter-spacing:-1px}
 .subtitle{font-size:14px;color:#7f8c8d;margin-top:5px}
@@ -18,8 +18,18 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;pa
 .scenario-card-1::before{content:"";display:block;height:4px;background:linear-gradient(45deg,#3498db,#2980b9);border-radius:4px;margin:-25px -25px 20px}
 .scenario-card-1:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
 
-.diagram-area{height:320px;position:center}
-.diagram{width:150%;height:150% }
+.diagram-area {
+  height: 380px;                /* altura fixa para todos os cards */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.diagram {
+  width: 300px;                 /* tamanho fixo do gráfico */
+  height: 300px;
+}
 
 /* linhas */
 .wire{fill:none}
@@ -32,7 +42,7 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;pa
 .node__txt{fill:#fff;font-size:12px;font-weight:700;text-anchor:middle;dominant-baseline:middle}
 
 /* paleta dos nós */
-.node--fairfax,.node--socio{fill:url(#g-dark)}
+.node--fairfax,.node--socio{fill:#344149}
 .node--vc{fill:#2d87c8}
 .node--polipay{fill:#29b765}
 .node--stake{fill:#d9534f}
