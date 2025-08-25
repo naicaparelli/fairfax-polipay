@@ -2,265 +2,11 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide48.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hub de pagamentos</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8f9fa;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 25px 40px;
-            display: flex;
-            align-items: center;
-        }
-
-        .header::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-right: 15px;
-        }
-
-        .header::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-left: 5px;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            font-weight: 400;
-        }
-
-        .main-content {
-            padding: 40px;
-            position: relative;
-            min-height: 600px;
-        }
-
-        /* Seções horizontais */
-        .section {
-            position: relative;
-            height: 120px;
-            border-bottom: 1px dashed #bdc3c7;
-            display: flex;
-            align-items: center;
-        }
-
-        .section-1 {
-            position: relative;
-            height: 120px;
-            display: flex;
-            align-items: center;
-        }
-
-        .section:last-child {
-            border-bottom: none;
-        }
-
-        /* Atores nas seções */
-        .actor {
-            position: absolute;
-            left: 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            width: 150px;
-        }
-
-        .actor-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .actor-avatar.corretor {
-            background: #8B4513;
-        }
-
-        .actor-avatar.erp {
-            background: #2196F3;
-            border-radius: 8px;
-        }
-
-        .actor-avatar.financeiro {
-            background: #2196F3;
-            border-radius: 8px;
-        }
-
-        .actor-avatar.maxipago {
-            background: #FF9800;
-            border-radius: 8px;
-            font-size: 0.7rem;
-        }
-
-        .actor-avatar.bancos {
-            background: #8B4513;
-        }
-
-        .actor-name {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 1rem;
-        }
-
-        /* Elementos do fluxo */
-        .flow-element {
-            position: absolute;
-            background: #e8e8e8;
-            border-radius: 8px;
-            padding: 10px 15px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #2c3e50;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid #d0d0d0;
-            white-space: nowrap;
-        }
-
-        .flow-element:hover {
-            background: #d0d0d0;
-            transform: scale(1.02);
-        }
-
-        /* Linhas de conexão */
-        .connection-line {
-            position: absolute;
-            background: #3498db;
-            z-index: 1;
-        }
-
-        .connection-line.horizontal {
-            height: 2px;
-        }
-
-        .connection-line.vertical {
-            width: 2px;
-        }
-
-        /* Posicionamento específico dos elementos */
-
-        /* Seção Corretor */
-        .corretor-faz-cotacao { left: 200px; top: 50px; }
-        .corretor-escolhe-meio { left: 350px; top: 50px; }
-
-        /* Seção ERP */
-        .erp-gera-apolice { left: 350px; top: 30px; }
-        .erp-gera-boleto { left: 500px; top: 10px; }
-        .erp-gera-debito { left: 500px; top: 60px; }
-        .erp-concilia { left: 750px; top: 30px; }
-        .erp-gera-comissao { left: 900px; top: 30px; }
-
-        /* Seção MaxiPago */
-        .maxipago-cartao-credito { left: 500px; top: 40px; }
-
-        /* Seção Bancos */
-        .bancos-confirma-pgto { left: 650px; top: 40px; }
-        .bancos-liquidam { left: 790px; top: 40px; }
-
-        /* Linhas de conexão específicas */
-        .line-corretor { left: 308px; top: 70px; width: 42px; }
-        .line-escolhe-down { left: 410px; top: 92px; height: 58px; }
-        .line-boleto-down { left: 705px; top: 30px; height: 370px; }
-        .line-cartao-down { left: 515px; top: 470px; height: 60px; }
-        .line-confirma-up { left: 485px; top: 30px; height: 272px; }
-        .line-concilia-horizontal { left: 462px; top: 52px; width: 24px; }
-        .line-comissao-horizontal { left: 868px; top: 50px; width: 32px; }
-
-         /* Linhas novas */
-        .line-nova1-horizontal { left: 486px; top: 80px; width: 15px; }
-        .line-nova2-horizontal { left: 486px; top: 30px; width: 15px; }
-        .line-nova3-horizontal { left: 486px; top: 60px; width: 15px; }
-
-        .line-nova4-horizontal { left: 687px; top: 80px; width: 20px; }
-        .line-nova5-horizontal { left: 609px; top: 30px; width: 98px; }
-        .line-nova6-horizontal { left: 625px; top: 60px; width: 80px; }
-
-        .line-nova7-horizontal { left: 776px; top: 60px; width: 15px; }
-
-        .line-boleto-up { left: 805px; top: 71px; height: 330px; }
-
-        /* Responsividade */
-        @media (max-width: 1200px) {
-            .main-content {
-                padding: 20px;
-                overflow-x: auto;
-            }
-            
-            .flow-element {
-                font-size: 0.8rem;
-                padding: 8px 12px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .main-content {
-                min-height: 800px;
-            }
-            
-            .section {
-                height: 160px;
-            }
-            
-            .actor {
-                width: 120px;
-            }
-            
-            .actor-name {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Animações */
-        @keyframes flowAnimation {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
-        .connection-line.animated {
-            animation: flowAnimation 2s infinite;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -308,8 +54,8 @@
 
                 <div class="connection-line horizontal line-nova1-horizontal"></div>
                 <div class="connection-line horizontal line-nova2-horizontal"></div>
-                <div class="connection-line horizontal line-nova4-horizontal"></div>
-                <div class="connection-line horizontal line-nova5-horizontal"></div>
+                <div class="connection-line-1 horizontal line-nova4-horizontal"></div>
+                <div class="connection-line-1 horizontal line-nova5-horizontal"></div>
             </div>
 
             <!-- Seção Financeiro -->
@@ -331,7 +77,7 @@
                 
                 <!-- Linhas -->
                 <div class="connection-line horizontal line-nova3-horizontal"></div>
-                <div class="connection-line horizontal line-nova6-horizontal"></div>
+                <div class="connection-line-1 horizontal line-nova6-horizontal"></div>
                 <div class="connection-line vertical line-cartao-down"></div>
             </div>
 
@@ -348,6 +94,15 @@
             </div>
         </div>
     </div>
+
+         <div class="navigation">
+            <a href="slide47.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">48 / 63</div>
+            <a href="slide49.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
 
     <script>
         // Animação de entrada dos elementos
