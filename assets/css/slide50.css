@@ -149,10 +149,10 @@
 
         /* Diagrama PIX */
         .pix-diagram {
-            background: rgba(108, 117, 125, 0.1);
-            border: 2px dashed #6c757d;
-            border-radius: 10px;
-            padding: 25px;
+            background-image: url('../images/slide50.png');
+            background-size: contain;      /* cobre todo o espaço */
+            background-position: center; /* centraliza a imagem */
+            background-repeat: no-repeat;
             min-height: 350px;
             position: relative;
         }
