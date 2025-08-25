@@ -166,6 +166,7 @@
         .erp-gera-debito { left: 500px; top: 80px; }
         .erp-concilia { left: 750px; top: 200px; }
         .erp-gera-comissao { left: 900px; top: 30px; }
+        .erp-gera-liquidacao { left: 1060px; top: 30px; }
 
         /* Seção MaxiPago */
         .maxipago-cartao-credito { left: 500px; top: 150px; }
@@ -181,6 +182,7 @@
         .line-cartao-down { left: 515px; top: 470px; height: 60px; }
         .line-confirma-up { left: 410px; top: 71px; height: 222px; }
         .line-concilia-horizontal { left: 410px; top: 220px; width: 90px; }
+        .line-concilia-horizontal-2 { left: 868px; top: 100px; width: 230px; }
         .line-comissao-horizontal { left: 805px; top: 50px; width: 95px; }
 
          /* Linhas novas */
@@ -195,6 +197,7 @@
         .line-nova7-horizontal { left: 776px; top: 60px; width: 15px; }
         
         .line-nova1-vertical { left: 805px; top: -70px; height: 150px; }
+        .line-nova2-vertical { left: 1097px; top: -49px; height: 150px; }
         .line-boleto-up { left: 805px; top: 241px; height: 160px; }
 
         /* Responsividade */
