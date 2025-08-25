@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide48.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de pagamentos</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Hub de pagamentos</h1>
+        </div>
+        
+        <div class="main-content">
+            <!-- Seção Corretor -->
+            <div class="section">
+                <div class="actor">
+                    <div class="actor-avatar corretor">C</div>
+                    <span class="actor-name">Corretor</span>
+                </div>
+                
+                <div class="flow-element corretor-faz-cotacao">Faz cotação</div>
+                <div class="flow-element corretor-escolhe-meio">Escolhe meio pgto</div>
+                
+                <!-- Linhas -->
+                <div class="connection-line horizontal line-corretor"></div>
+                <div class="connection-line vertical line-escolhe-down"></div>
+            </div>
+
+            <!-- Seção ERP -->
+            <div class="section">
+                <div class="actor">
+                    <div class="actor-avatar erp">FF</div>
+                    <span class="actor-name">ERP</span>
+                </div>
+                
+                <div class="flow-element erp-gera-apolice">Gera apólice</div>
+                <div class="flow-element erp-gera-boleto">Gera boleto</div>
+                <div class="flow-element erp-gera-debito">Gera débito automático</div>
+                <div class="flow-element erp-concilia">Concilia pgto</div>
+                <div class="flow-element erp-gera-comissao">Gera comissão</div>
+                
+                <!-- Linhas -->
+                <div class="connection-line vertical line-boleto-down"></div>
+
+                <div class="connection-line vertical line-boleto-up"></div>
+
+                <div class="connection-line vertical line-confirma-up"></div>
+                <div class="connection-line horizontal line-concilia-horizontal"></div>
+                <div class="connection-line horizontal line-comissao-horizontal"></div>
+
+                <div class="connection-line horizontal line-nova1-horizontal"></div>
+                <div class="connection-line horizontal line-nova2-horizontal"></div>
+                <div class="connection-line-1 horizontal line-nova4-horizontal"></div>
+                <div class="connection-line-1 horizontal line-nova5-horizontal"></div>
+            </div>
+
+            <!-- Seção MaxiPago -->
+            <div class="section">
+                <div class="actor">
+                    <div class="actor-avatar maxipago">PoliPay</div>
+                    <span class="actor-name">PoliPay</span>
+                </div>
+                
+                <div class="flow-element maxipago-cartao-credito">Cartão crédito</div>
+                
+                <!-- Linhas -->
+                <div class="connection-line horizontal line-nova3-horizontal"></div>
+                <div class="connection-line-1 horizontal line-nova6-horizontal"></div>
+                <div class="connection-line vertical line-cartao-down"></div>
+            </div>
+
+            <!-- Seção Bancos -->
+            <div class="section">
+                <div class="actor">
+                    <div class="actor-avatar bancos">B</div>
+                    <span class="actor-name">Bancos</span>
+                </div>
+                
+                <div class="flow-element bancos-confirma-pgto">Confirma pgto</div>
+                <div class="connection-line horizontal line-nova7-horizontal"></div>
+                <div class="flow-element bancos-liquidam">Liquidam</div>
+            </div>
+        </div>
+    </div>
+
+         <div class="navigation">
+            <a href="slide47.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">48 / 63</div>
+            <a href="slide49.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+
+    <script>
+        // Animação de entrada dos elementos
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.flow-element, .connection-line');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.4s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'scale(1)';
+                }, index * 50);
+            });
+        });
+
+        // Adicionar animação ao fluxo principal
+        setTimeout(() => {
+            document.querySelectorAll('.connection-line').forEach(line => {
+                line.classList.add('animated');
+            });
+        }, 2000);
+
+        // Interatividade nos elementos do fluxo
+        document.querySelectorAll('.flow-element').forEach(element => {
+            element.addEventListener('click', function() {
+                // Destacar elemento clicado
+                document.querySelectorAll('.flow-element').forEach(el => {
+                    el.style.background = '#e8e8e8';
+                });
+                this.style.background = '#3498db';
+                this.style.color = 'white';
+                
+                // Destacar linhas conectadas (simulação simples)
+                document.querySelectorAll('.connection-line').forEach(line => {
+                    line.style.background = '#e74c3c';
+                    setTimeout(() => {
+                        line.style.background = '#3498db';
+                    }, 1000);
+                });
+            });
+        });
+
+        // Hover effects nos atores
+        document.querySelectorAll('.actor').forEach(actor => {
+            actor.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            
+            actor.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

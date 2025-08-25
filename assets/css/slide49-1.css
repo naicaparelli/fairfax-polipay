@@ -48,13 +48,6 @@
             align-items: center;
         }
 
-        .section-1 {
-            position: relative;
-            height: 120px;
-            display: flex;
-            align-items: center;
-        }
-
         .section:last-child {
             border-bottom: none;
         }
