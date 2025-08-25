@@ -163,7 +163,11 @@
 
         /* Boleto Visual */
         .boleto-visual {
-            background: white;
+            background-image: url('../images/slide51.png');
+            background-size: contain;      /* cobre todo o espaço */
+            background-position: center; /* centraliza a imagem */
+            background-repeat: no-repeat;
+            height: 100%;
             border: 2px solid #ddd;
             border-radius: 10px;
             padding: 0;
