@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="assets/css/common.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PoliPay - Protótipo</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+      background:#f5f5f5;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px
+    }
+    .container{
+      background:#fff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.1);
+      max-width:980px;width:100%;overflow:hidden;position:relative
+    }
+    .back-button{
+      position:absolute;top:16px;left:16px;background:#f8f9fa;border:1px solid #dee2e6;border-radius:50%;
+      width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;
+      transition:.2s;font-size:18px;color:#666
+    }
+    .back-button:hover{background:#e9ecef;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .back-button.hidden{display:none}
+    .screen{display:none;padding:30px}
+    .screen.active{display:block}
+    .logo{display:flex;align-items:center;justify-content:center;margin-bottom:25px}
+    .logo-dots{display:flex;margin-right:8px}
+    .dot{width:8px;height:8px;border-radius:50%;margin-right:2px}
+    .dot.red{background:#ff4444}.dot.orange{background:#ff8800}.dot.yellow{background:#ffcc00}.dot.green{background:#44ff44}
+    .logo-text{font-size:24px;font-weight:700;color:#333}
+    .email-header{text-align:center;margin-bottom:25px}
+    .email-title{font-size:18px;color:#333;margin-bottom:8px}
+    .email-subtitle{font-size:14px;color:#666;margin-bottom:15px}
+    .email-date{font-size:12px;color:#999}
+    .payment-info{background:#f8f9fa;border-radius:8px;padding:20px;margin:20px 0}
+    .greeting{font-size:14px;color:#333;margin-bottom:15px}
+    .payment-description{font-size:14px;color:#666;margin-bottom:20px;line-height:1.4}
+    .payment-details{margin:15px 0}
+    .detail-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee}
+    .detail-row:last-child{border-bottom:none;font-weight:700;font-size:16px;padding-top:15px;border-top:2px solid #eee}
+    .btn-primary{width:100%;padding:15px;background:#28a745;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;transition:.2s}
+    .btn-primary:hover{background:#218838}
+    .payment-methods{margin:20px 0}
+    .method-title{font-size:14px;font-weight:700;color:#333;margin-bottom:15px}
+    .method-options{display:flex;gap:15px;margin-bottom:20px}
+    .method-option{flex:1;display:flex;align-items:center;gap:8px;cursor:pointer}
+    .method-option input[type="radio"]{width:18px;height:18px}
+    .card-form{display:block}
+    .form-group{margin-bottom:15px}
+    .form-label{display:block;font-size:14px;color:#333;margin-bottom:5px}
+    .form-input{width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:14px}
+    .form-row{display:flex;gap:10px}
+    .form-row .form-group{flex:1}
+    .installments-select{width:100%;padding:12px;border:1px solid #ddd;border-radius:6px;font-size:14px;background:#fff}
+    .payment-summary{background:#f8f9fa;border-radius:8px;padding:20px;margin-left:20px;min-width:300px;max-width:360px}
+    .summary-title{font-size:16px;font-weight:700;color:#333;margin-bottom:15px}
+    .qr-code{text-align:center;margin:20px 0}
+    .qr-image{width:200px;height:200px;background:#fff;border:1px solid #ddd;margin:0 auto 15px;display:flex;align-items:center;justify-content:center;font-size:12px;color:#666}
+    .pix-code{background:#f8f9fa;border:1px solid #ddd;border-radius:6px;padding:10px;font-family:monospace;font-size:10px;word-break:break-all;margin-bottom:10px}
+    .copy-btn{width:100%;padding:8px;background:#6c757d;color:#fff;border:none;border-radius:4px;font-size:12px;cursor:pointer;margin-bottom:15px}
+    .pix-instructions{font-size:12px;color:#666;line-height:1.4;text-align:left}
+    .boleto-info{background:#f8f9fa;border-radius:8px;padding:20px;margin-bottom:20px}
+    .due-date{font-size:14px;color:#333;margin-bottom:15px}
+    .barcode{background:#fff;border:1px solid #ddd;padding:15px;margin:15px 0;text-align:center}
+    .barcode-lines{height:40px;background:repeating-linear-gradient(90deg,#000 0px,#000 2px,#fff 2px,#fff 4px);margin-bottom:10px}
+    .barcode-number{font-family:monospace;font-size:12px;color:#333}
+    .boleto-buttons{display:flex;gap:10px;margin-bottom:15px}
+    .btn-secondary{flex:1;padding:10px;background:#6c757d;color:#fff;border:none;border-radius:6px;font-size:14px;cursor:pointer}
+    .boleto-instructions{font-size:12px;color:#666;line-height:1.4}
+    .otp-form{text-align:center;margin:20px 0}
+    .otp-description{font-size:14px;color:#666;margin-bottom:20px}
+    .otp-inputs{display:flex;justify-content:center;gap:10px;margin-bottom:20px}
+    .otp-input{width:50px;height:50px;border:2px solid #ddd;border-radius:8px;text-align:center;font-size:20px;font-weight:700}
+    .otp-input:focus{outline:none;border-color:#28a745}
+    .terms{font-size:11px;color:#999;text-align:center;margin-top:15px;line-height:1.3}
+    .footer{text-align:center;padding:15px;border-top:1px solid #eee;margin-top:20px}
+    .footer-text{font-size:12px;color:#999}
+    @media (max-width:980px){
+      .payment-layout{flex-direction:column}
+      .payment-summary{margin-left:0;margin-top:20px;max-width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button hidden" id="backButton" type="button" aria-label="Voltar">←</button>
+
+    <!-- Tela 1: E-mail de cobrança -->
+    <section class="screen active" id="screen1" aria-labelledby="t1">
+      <div class="logo">
+        <div class="logo-dots">
+          <div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div>
+        </div>
+        <div class="logo-text" id="t1">PoliPay</div>
+      </div>
+
+      <div class="email-header">
+        <div class="email-title">Seu link chegou!</div>
+        <div class="email-subtitle">Pague seu seguro com segurança em poucos cliques</div>
+        <div class="email-date">Segunda-feira, 19 de setembro de 2025 às 16:13</div>
+      </div>
+
+      <div class="payment-info">
+        <div class="greeting">Olá, João da Silva,</div>
+        <div class="payment-description">
+          Para manter sua cobertura ativa, conclua o pagamento com segurança pelo link abaixo:
+        </div>
+
+        <div class="payment-details">
+          <div class="detail-row"><span>Seguro</span><span>Patrimonial Rural</span></div>
+          <div class="detail-row"><span>Apólice</span><span>APL123456/891011</span></div>
+          <div class="detail-row"><span>Seguradoras</span><span>FF Seguros</span></div>
+          <div class="detail-row"><span>Corretor</span><span>Nathan Camargo</span></div>
+          <div class="detail-row"><span>Vencimento</span><span>14/10/2025</span></div>
+          <div class="detail-row"><span>Total</span><span>R$ 1.200,00</span></div>
+        </div>
+
+        <button class="btn-primary" id="toPay">Clique aqui para pagar</button>
+      </div>
+
+      <div class="footer"><div class="footer-text">FairPay - © 2025 All Rights Reserved</div></div>
+    </section>
+
+    <!-- Tela 2: Seleção de método -->
+    <section class="screen" id="screen2" aria-labelledby="t2">
+      <div class="logo">
+        <div class="logo-dots">
+          <div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div>
+        </div>
+        <div class="logo-text" id="t2">PoliPay</div>
+      </div>
+
+      <div class="payment-layout" style="display:flex;gap:20px">
+        <div style="flex:1">
+          <h3 style="margin-bottom:20px;color:#333">Pagamento</h3>
+
+          <div class="payment-methods">
+            <div class="method-title">Método de pagamento</div>
+            <div class="method-options">
+              <label class="method-option" for="cartao">
+                <input type="radio" name="payment" value="cartao" id="cartao" checked>
+                Cartão
+              </label>
+              <label class="method-option" for="pix">
+                <input type="radio" name="payment" value="pix" id="pix">
+                Pix
+              </label>
+              <label class="method-option" for="boleto">
+                <input type="radio" name="payment" value="boleto" id="boleto">
+                Boleto
+              </label>
+            </div>
+          </div>
+
+          <div id="card-form" class="card-form">
+            <div class="form-group">
+              <label class="form-label" for="cc-number">Número do Cartão</label>
+              <input id="cc-number" type="text" class="form-input" placeholder="1234 5678 9101 1121" maxlength="19" inputmode="numeric">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cc-exp">Data Expiração</label>
+                <input id="cc-exp" type="text" class="form-input" placeholder="MM/AA" maxlength="5" inputmode="numeric">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cc-cvv">CVV</label>
+                <input id="cc-cvv" type="text" class="form-input" placeholder="123" maxlength="3" inputmode="numeric">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="installments">Parcelas</label>
+              <select id="installments" class="installments-select">
+                <option>1x de R$ 1.200,00 sem juros</option>
+                <option>2x de R$ 600,00 sem juros</option>
+                <option>3x de R$ 400,00 sem juros</option>
+                <option>6x de R$ 215,50 com juros</option>
+                <option>12x de R$ 115,75 com juros</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn-primary" id="payButton">Pagar R$ 1.200,00</button>
+          <div class="terms">Seus dados pessoais serão usados para processar seu pedido e para outros fins descritos em nossa política de privacidade.</div>
+        </div>
+
+        <aside class="payment-summary" aria-label="Resumo">
+          <div class="summary-title">Dados do Seguro</div>
+          <div class="detail-row"><span>Patrimonial Rural</span><span>R$ 1.200,00</span></div>
+          <div style="font-size:12px;color:#999;margin-bottom:15px">APL123456/891011</div>
+          <div class="detail-row"><span>Seguradora</span><span>FF Seguros</span></div>
+          <div class="detail-row"><span>Corretor</span><span>Nathan Camargo</span></div>
+          <div class="detail-row"><span><strong>Total</strong></span><span><strong>R$ 1.200,00</strong></span></div>
+
+          <div class="logo" style="margin-top:20px">
+            <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+            <div class="logo-text">PoliPay</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Tela 3a: OTP Cartão -->
+    <section class="screen" id="screen3a" aria-labelledby="t3a">
+      <div class="logo">
+        <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+        <div class="logo-text" id="t3a">PoliPay</div>
+      </div>
+
+      <div class="payment-layout" style="display:flex;gap:20px">
+        <div style="flex:1">
+          <h3 style="margin-bottom:20px;color:#333">Pagamento</h3>
+
+          <div class="payment-methods">
+            <div class="method-title">Método de pagamento</div>
+            <div class="method-options">
+              <label class="method-option"><input type="radio" checked disabled> Cartão</label>
+            </div>
+          </div>
+
+          <div class="otp-form">
+            <div class="otp-description">Digite o código enviado pelo seu banco para confirmar sua transação</div>
+            <div class="otp-inputs">
+              <input type="text" class="otp-input" maxlength="1" inputmode="numeric">
+              <input type="text" class="otp-input" maxlength="1" inputmode="numeric">
+              <input type="text" class="otp-input" maxlength="1" inputmode="numeric">
+              <input type="text" class="otp-input" maxlength="1" inputmode="numeric">
+            </div>
+          </div>
+
+          <button class="btn-primary" id="confirmCard">Confirmar pagamento</button>
+          <div class="terms">Seus dados pessoais serão usados para processar seu pedido.</div>
+        </div>
+
+        <aside class="payment-summary">
+          <div class="summary-title">Dados do Seguro</div>
+          <div class="detail-row"><span>Patrimonial Rural</span><span>R$ 1.200,00</span></div>
+          <div style="font-size:12px;color:#999;margin-bottom:15px">APL123456/891011</div>
+          <div class="detail-row"><span>Seguradora</span><span>FF Seguros</span></div>
+          <div class="detail-row"><span>Corretor</span><span>Nathan Camargo</span></div>
+          <div class="detail-row"><span><strong>Total</strong></span><span><strong>R$ 1.200,00</strong></span></div>
+          <div class="logo" style="margin-top:20px">
+            <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+            <div class="logo-text">PoliPay</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Tela 3b: PIX -->
+    <section class="screen" id="screen3b" aria-labelledby="t3b">
+      <div class="logo">
+        <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+        <div class="logo-text" id="t3b">PoliPay</div>
+      </div>
+
+      <div class="payment-layout" style="display:flex;gap:20px">
+        <div style="flex:1">
+          <h3 style="margin-bottom:20px;color:#333">Pagamento</h3>
+
+          <div class="payment-methods">
+            <div class="method-title">Método de pagamento</div>
+            <div class="method-options">
+              <label class="method-option"><input type="radio" checked disabled> Pix</label>
+            </div>
+          </div>
+
+          <div class="qr-code">
+            <div class="qr-image">
+              <!-- QR fake simples -->
+              <div style="width:180px;height:180px;background:url('data:image/svg+xml;charset=utf-8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23fff%22/><g fill=%22%23000%22><rect x=%2210%22 y=%2210%22 width=%2230%22 height=%2230%22/><rect x=%2260%22 y=%2210%22 width=%2230%22 height=%2230%22/><rect x=%2210%22 y=%2260%22 width=%2230%22 height=%2230%22/><rect x=%2215%22 y=%2215%22 width=%2220%22 height=%2220%22 fill=%22%23fff%22/><rect x=%2265%22 y=%2215%22 width=%2220%22 height=%2220%22 fill=%22%23fff%22/><rect x=%2215%22 y=%2265%22 width=%2220%22 height=%2220%22 fill=%22%23fff%22/><rect x=%2220%22 y=%2220%22 width=%2210%22 height=%2210%22/><rect x=%2270%22 y=%2220%22 width=%2210%22 height=%2210%22/><rect x=%2220%22 y=%2270%22 width=%2210%22 height=%2210%22/><rect x=%2250%22 y=%2250%22 width=%2210%22 height=%2210%22/><rect x=%2245%22 y=%2255%22 width=%225%22 height=%225%22/><rect x=%2255%22 y=%2245%22 width=%225%22 height=%225%22/></g></svg>') center/contain no-repeat;"></div>
+            </div>
+
+            <div class="pix-code" id="pixPayload">
+              00020101021226890014br.gov.bcb.pix2567qrpay.example.com/v2/76f94d0c-dc20-4b5d-85bb-b7bcd04a86d052040000530398654041.2005802BR5913Example Store6009Sao Paulo61080540900062290525FF Seguros Payment6304A1B2
+            </div>
+
+            <button class="copy-btn" id="copyPix">Copiar código PIX</button>
+
+            <div class="pix-instructions">
+              Você pode pagar através do QR Code:<br>
+              1. Abra o app do seu banco e escolha PIX<br>
+              2. Selecione “Ler QR Code”<br>
+              3. Aponte para o código acima<br>
+              4. Confira e confirme o pagamento
+            </div>
+          </div>
+        </div>
+
+        <aside class="payment-summary">
+          <div class="summary-title">Dados do Seguro</div>
+          <div class="detail-row"><span>Patrimonial Rural</span><span>R$ 1.200,00</span></div>
+          <div style="font-size:12px;color:#999;margin-bottom:15px">APL123456/891011</div>
+          <div class="detail-row"><span>Seguradora</span><span>FF Seguros</span></div>
+          <div class="detail-row"><span>Corretor</span><span>Nathan Camargo</span></div>
+          <div class="detail-row"><span><strong>Total</strong></span><span><strong>R$ 1.200,00</strong></span></div>
+          <div class="logo" style="margin-top:20px">
+            <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+            <div class="logo-text">PoliPay</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Tela 3c: Boleto -->
+    <section class="screen" id="screen3c" aria-labelledby="t3c">
+      <div class="logo">
+        <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+        <div class="logo-text" id="t3c">PoliPay</div>
+      </div>
+
+      <div class="payment-layout" style="display:flex;gap:20px">
+        <div style="flex:1">
+          <h3 style="margin-bottom:20px;color:#333">Pagamento</h3>
+
+          <div class="payment-methods">
+            <div class="method-title">Método de pagamento</div>
+            <div class="method-options">
+              <label class="method-option"><input type="radio" checked disabled> Boleto</label>
+            </div>
+          </div>
+
+          <div class="boleto-info">
+            <div class="due-date"><strong>Vencimento</strong><br>Segunda-feira, 25 de Ago.</div>
+
+            <div class="barcode">
+              <div class="barcode-lines"></div>
+              <div class="barcode-number" id="boletoLine">10490.00131 80200.006000 78560.003100 1 18560000120000</div>
+            </div>
+
+            <div class="boleto-buttons">
+              <button class="btn-secondary" id="viewBoleto">Visualizar boleto</button>
+              <button class="btn-secondary" id="copyBoleto">Copiar código do boleto</button>
+            </div>
+
+            <div class="boleto-instructions">
+              <strong>Informações importantes:</strong><br><br>
+              • Você pode pagar pelo internet banking, app do banco ou lotéricas.<br>
+              • Use o código de barras acima ou gere o PDF para impressão.<br>
+              • Em caso de atraso, podem incidir acréscimos conforme regras do emissor.
+            </div>
+          </div>
+        </div>
+
+        <aside class="payment-summary">
+          <div class="summary-title">Dados do Seguro</div>
+          <div class="detail-row"><span>Patrimonial Rural</span><span>R$ 1.200,00</span></div>
+          <div style="font-size:12px;color:#999;margin-bottom:15px">APL123456/891011</div>
+          <div class="detail-row"><span>Seguradora</span><span>FF Seguros</span></div>
+          <div class="detail-row"><span>Corretor</span><span>Nathan Camargo</span></div>
+          <div class="detail-row"><span><strong>Total</strong></span><span><strong>R$ 1.200,00</strong></span></div>
+          <div class="logo" style="margin-top:20px">
+            <div class="logo-dots"><div class="dot red"></div><div class="dot orange"></div><div class="dot yellow"></div><div class="dot green"></div></div>
+            <div class="logo-text">PoliPay</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <div class="navigation">
+    <a href="slide58.html" class="nav-btn">← Anterior</a>
+    <div class="slide-counter">59 / 60</div>
+    <a href="slide60.html" class="nav-btn">Próximo →</a>
+  </div>
+
+  <script>
+    let currentScreen = '1';
+
+    function showScreen(id){
+      document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+      document.getElementById('screen'+id).classList.add('active');
+      currentScreen = String(id);
+      updateBackButton();
+      focusFirstInput(id);
+    }
+
+    function updateBackButton(){
+      const back = document.getElementById('backButton');
+      if(currentScreen==='1'){ back.classList.add('hidden'); }
+      else{ back.classList.remove('hidden'); }
+    }
+
+    function goBack(){
+      if(currentScreen==='2'){ showScreen('1'); }
+      else if(['3a','3b','3c'].includes(currentScreen)){ showScreen('2'); }
+    }
+
+    // Eventos iniciais
+    document.getElementById('backButton').addEventListener('click', goBack);
+    document.getElementById('toPay').addEventListener('click', ()=>showScreen('2'));
+
+    // Alterna método e exibe formulário de cartão
+    document.querySelectorAll('input[name="payment"]').forEach(r=>{
+      r.addEventListener('change', updatePaymentMethod);
+    });
+    function updatePaymentMethod(){
+      const sel = document.querySelector('input[name="payment"]:checked')?.value || 'cartao';
+      const cardForm = document.getElementById('card-form');
+      cardForm.style.display = sel==='cartao' ? 'block' : 'none';
+    }
+
+    // Processa pagamento e navega
+    document.getElementById('payButton').addEventListener('click', ()=>{
+      const sel = document.querySelector('input[name="payment"]:checked')?.value || 'cartao';
+      if(sel==='cartao') showScreen('3a');
+      if(sel==='pix')    showScreen('3b');
+      if(sel==='boleto') showScreen('3c');
+    });
+
+    // OTP: apenas números e auto-avança
+    function wireOtp(){
+      const inputs = document.querySelectorAll('#screen3a .otp-input');
+      inputs.forEach((inp,idx)=>{
+        inp.addEventListener('input', e=>{
+          e.target.value = e.target.value.replace(/\D/g,'').slice(0,1);
+          if(e.target.value && idx<inputs.length-1){ inputs[idx+1].focus(); }
+        });
+        inp.addEventListener('keydown', e=>{
+          if(e.key==='Backspace' && !e.target.value && idx>0){ inputs[idx-1].focus(); }
+        });
+      });
+    }
+
+    // Confirmar cartão
+    document.getElementById('confirmCard').addEventListener('click', ()=>{
+      alert('Pagamento com cartão confirmado.'); // placeholder
+      showScreen('1');
+    });
+
+    // PIX: copiar payload
+    document.getElementById('copyPix').addEventListener('click', async (ev)=>{
+      const payload = document.getElementById('pixPayload').innerText.trim();
+      try{
+        await navigator.clipboard.writeText(payload);
+        flashBtn(ev.currentTarget,'Código copiado!');
+      }catch{
+        legacyCopy(payload);
+        flashBtn(ev.currentTarget,'Código copiado!');
+      }
+    });
+
+    // Boleto: visualizar e copiar
+    document.getElementById('viewBoleto').addEventListener('click', ()=>{
+      alert('Abrir PDF do boleto (mock).');
+    });
+    document.getElementById('copyBoleto').addEventListener('click', async (ev)=>{
+      const line = document.getElementById('boletoLine').innerText.trim();
+      try{
+        await navigator.clipboard.writeText(line);
+        flashBtn(ev.currentTarget,'Linha digitável copiada!');
+      }catch{
+        legacyCopy(line);
+        flashBtn(ev.currentTarget,'Linha digitável copiada!');
+      }
+    });
+
+    function legacyCopy(text){
+      const ta=document.createElement('textarea');
+      ta.value=text; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); ta.remove();
+    }
+    function flashBtn(btn,msg){
+      const orig=btn.textContent; const origBg=btn.style.background;
+      btn.textContent=msg; btn.style.background='#28a745';
+      setTimeout(()=>{btn.textContent=orig; btn.style.background=origBg||'#6c757d';},1500);
+    }
+
+    // Auto-format CC
+    function wireCardFormatters(){
+      const cardInput = document.getElementById('cc-number');
+      const expInput  = document.getElementById('cc-exp');
+      const cvvInput  = document.getElementById('cc-cvv');
+      if(cardInput){
+        cardInput.addEventListener('input', e=>{
+          let v=e.target.value.replace(/\s/g,'').replace(/\D/g,'').slice(0,16);
+          e.target.value=v.replace(/(.{4})/g,'$1 ').trim();
+        });
+      }
+      if(expInput){
+        expInput.addEventListener('input', e=>{
+          let v=e.target.value.replace(/\D/g,'').slice(0,4);
+          if(v.length>=3) v=v.slice(0,2)+'/'+v.slice(2);
+          e.target.value=v;
+        });
+      }
+      if(cvvInput){
+        cvvInput.addEventListener('input', e=>{
+          e.target.value=e.target.value.replace(/\D/g,'').slice(0,3);
+        });
+      }
+    }
+
+    function focusFirstInput(id){
+      if(id==='2'){
+        const el=document.getElementById('cc-number');
+        if(el && getComputedStyle(document.getElementById('card-form')).display!=='none') el.focus();
+      }
+      if(id==='3a'){
+        const el=document.querySelector('#screen3a .otp-input'); if(el) el.focus();
+      }
+    }
+
+    // Hover micro-effect
+    function wireHoverButtons(){
+      document.querySelectorAll('.btn-primary,.btn-secondary,.copy-btn').forEach(b=>{
+        b.addEventListener('mouseenter',function(){this.style.transform='translateY(-2px)';this.style.transition='all .2s ease';});
+        b.addEventListener('mouseleave',function(){this.style.transform='translateY(0)';});
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      updateBackButton();
+      updatePaymentMethod();
+      wireCardFormatters();
+      wireOtp();
+      wireHoverButtons();
+
+      // Ações iniciais da tela 1
+      document.getElementById('toPay').addEventListener('click',()=>showScreen('2'));
+    });
+  
+  </script>
+</body>
+</html>
