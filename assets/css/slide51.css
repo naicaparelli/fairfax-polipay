@@ -33,9 +33,6 @@
             margin-bottom: 40px;
         }
 
-        .title .underline {
-            text-decoration: underline;
-        }
 
         .content-layout {
             display: grid;
@@ -103,7 +100,6 @@
         }
 
         .step-content .highlight {
-            text-decoration: underline;
             font-weight: 600;
         }
 
@@ -308,9 +304,6 @@
             min-width: 140px;
         }
 
-        .fairfax-item .underline {
-            text-decoration: underline;
-        }
 
         .bullet {
             color: #ff8c00;

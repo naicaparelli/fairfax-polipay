@@ -184,10 +184,12 @@
         }
 
         .process-flow {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 15px;
+            display: flex;
+            flex-direction: row;
             align-items: center;
+            justify-content: center; /* centraliza se sobrar espaço */
+            gap: 15px;
+            flex-wrap: nowrap; /* impede quebra de linha */
         }
 
         .process-step {

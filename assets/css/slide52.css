@@ -100,7 +100,6 @@
         }
 
         .step-content .highlight {
-            text-decoration: underline;
             font-weight: 600;
             color: #2196F3;
         }
@@ -402,15 +401,6 @@
         .fairfax-item strong {
             color: #2196F3;
             min-width: 140px;
-        }
-
-        .fairfax-item .underline {
-            text-decoration: underline;
-        }
-
-        .fairfax-item .highlight {
-            color: #e74c3c;
-            text-decoration: underline;
         }
 
         .bullet {
