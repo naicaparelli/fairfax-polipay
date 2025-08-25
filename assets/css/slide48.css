@@ -21,7 +21,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            background: #00d4aa;
             color: white;
             padding: 25px 40px;
             display: flex;
@@ -32,26 +32,6 @@
         .header-left {
             display: flex;
             align-items: center;
-        }
-
-        .header::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-right: 15px;
-        }
-
-        .header::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 15px solid #4CAF50;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            margin-left: 5px;
         }
 
         .header h1 {
