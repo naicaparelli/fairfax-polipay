@@ -16,6 +16,10 @@ body{font-family:Inter,system-ui,Arial,sans-serif;background:#fff;color:var(--tx
   font-size: 18px; color: #ccc; line-height: 1.6; max-width: 420px;
 }
 
+.image {
+
+}
+
 /* Layout */
 .page{display:grid;grid-template-columns:42% 58%;min-height:100vh}
 .left{background:var(--bg-left);color:#fff;display:grid;align-content:center;gap:24px;padding:48px 56px}
@@ -63,12 +67,37 @@ body{font-family:Inter,system-ui,Arial,sans-serif;background:#fff;color:var(--tx
 .badge[data-key="corretor"][data-item="gestao"]      { left:70%; top:84%; }
 
 /* Seguradora – verde (esquerda/superior esquerda) */
-.badge[data-key="seguradora"][data-item="relatorios"]     { left:38%; top:10%; }
-.badge[data-key="seguradora"][data-item="gestao"]         { left:25%; top:30%; }
-.badge[data-key="seguradora"][data-item="rentabilizacao"] { left:22%; top:60%; }
+.badge[data-key="seguradora"][data-item="relatorios"]     { left:42%; top:5%; }
+.badge[data-key="seguradora"][data-item="gestao"]         { left:28%; top:22%; }
+.badge[data-key="seguradora"][data-item="automacao-2"] { left:22%; top:60%; }
+.badge[data-key="seguradora"][data-item="rentabilizacao"] { left:22%; top:40%; }
 
-/* Navegação (opcional do seu projeto) */
-.navigation{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:9;display:flex;gap:12px;align-items:center}
+
+/* Títulos */
+.seguradora-title { 
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #35b79c;
+  position: absolute;
+  left:100px; 
+  top:12%; 
+}
+.corretor-title   { 
+  font-size: 1.3rem;
+  font-weight: 600;
+  color:  #ff9b95;
+  position: absolute;
+  left:260px; 
+  top:480px
+ }
+.segurado-title   { 
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #f2b705;
+  position: absolute;
+  left:620px; 
+  top:80px; 
+}
 
 /* Responsivo */
 @media (max-width:1100px){ .page{grid-template-columns:36% 64%} :root{--badge-size:58px} }

@@ -8,10 +8,12 @@ body{
 }
 
 /* layout */
-.container{
+.container {
   margin: 0 auto;
-  display: flex; 
+  display: flex;
   min-height: 100vh;
+  max-width: 1280px;   /* largura máxima */
+  width: 100%;         /* ocupa 100% até o limite */
 }
 
 /* esquerda */
@@ -25,7 +27,6 @@ body{
 /* direita*/
 .right-side{
   flex: 1;                  /* ocupa todo o espaço restante */
-  background: #f8f9fa;
   color: #333;
   display: flex;
   align-items: center;
@@ -49,7 +50,6 @@ body{
 .content-list li{font-size:13px;line-height:1.5;margin-bottom:8px;position:relative;padding-left:14px}
 .content-list li::before{content:"•";position:absolute;left:0;font-weight:700}
 .green-bullets li::before{color:#00b894}.blue-bullets li::before{color:#0984e3}.purple-bullets li::before{color:#6c5ce7}.teal-bullets li::before{color:#00d4aa}
-.underlined{text-decoration:underline;text-decoration-color:#ff6b6b}
 
 .image-divider {
   background: url('../images/slide18.png') center center no-repeat;

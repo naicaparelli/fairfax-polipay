@@ -59,7 +59,7 @@
         }
 
         .front { background: rgba(33, 150, 243, 0.9); transform: rotateY(0deg) translateZ(70px); }
-        .back { background: rgba(76, 175, 80, 0.9); transform: rotateY(180deg) translateZ(70px); }
+        .back { background: rgba(142, 250, 184, 0.9); transform: rotateY(180deg) translateZ(70px); }
         .right { background: rgba(255, 152, 0, 0.9); transform: rotateY(90deg) translateZ(70px); }
         .left { background: rgba(156, 39, 176, 0.9); transform: rotateY(-90deg) translateZ(70px); }
         .top { background: rgba(244, 67, 54, 0.9); transform: rotateX(90deg) translateZ(70px); }
@@ -90,7 +90,7 @@
         .arrow {
             width: 0;
             height: 0;
-            border-left: 20px solid #4CAF50;
+            border-left: 20px solid #00d4aa;
             border-top: 12px solid transparent;
             border-bottom: 12px solid transparent;
             margin-right: 15px;
@@ -99,7 +99,7 @@
         .title {
             font-size: 3rem;
             font-weight: 300;
-            color: #4CAF50;
+            color: #00d4aa;
             line-height: 1.1;
             margin-bottom: 30px;
         }
@@ -149,7 +149,7 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #4CAF50, #66BB6A);
+            background: #00d4aa;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -195,7 +195,7 @@
         .phase-number {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #4CAF50;
+            color: #00d4aa;
             margin-bottom: 10px;
         }
 
