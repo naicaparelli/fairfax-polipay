@@ -104,7 +104,7 @@
 
         .pillar-card:nth-child(1) { animation-delay: 0.1s; }
         .pillar-card:nth-child(2) { animation-delay: 0.2s; }
-        .pillar-card:nth-child(3) { animation-delay: 0.3s; }
+        .pillar-card:nth-child(3) { animation-delay: 0.3s; grid-column: 1 / -1; }
         .pillar-card:nth-child(4) { animation-delay: 0.4s; }
 
         @keyframes slideInUp {

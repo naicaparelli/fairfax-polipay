@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide55.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusão</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1 class="title">Conclusão</h1>
+            
+            <div class="content-layout">
+                <!-- Lado Esquerdo - Diagrama -->
+                <div class="left-column">
+                    <div class="polipay-diagram">
+                        <div class="polipay-center">PoliPay</div>
+                        
+                        <div class="connection-node node-1">🏢</div>
+                        <div class="connection-node node-2">✓</div>
+                        <div class="connection-node node-3">💰</div>
+                        <div class="connection-node node-4">⚙️</div>
+                        <div class="connection-node node-5">📊</div>
+                    </div>
+                </div>
+
+                <!-- Lado Direito - Pontos -->
+                <div class="right-column">
+                    <div class="main-points">
+                        <div class="point">
+                            <div class="point-number">1</div>
+                            <div class="point-content">
+                                <div class="point-title">Estamos resolvendo um problema real:</div>
+                                <div class="point-description">
+                                    A Fairfax opera com processos financeiros manuais, alta inadimplência e falta de integração entre os processos.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <div class="point-number">2</div>
+                            <div class="point-content">
+                                <div class="point-title">A oportunidade está madura:</div>
+                                <div class="point-description">
+                                    Regulações como o Open Insurance, o crescimento do Pix e a transformação digital no setor financeiro criaram um ambiente propício para uma plataforma integrada de pagamentos e gestão financeira.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <div class="point-number">3</div>
+                            <div class="point-content">
+                                <div class="point-title">PoliPay nasce para ser a ponte:</div>
+                                <div class="point-description">
+                                    Propomos a criação de uma plataforma financeira integrada, com foco em pagamentos, split, conciliação, antecipações e dashboards em tempo real.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="point">
+                            <div class="point-number">4</div>
+                            <div class="point-content">
+                                <div class="point-title">O mercado é bilionário:</div>
+                                <div class="point-description">
+                                    Com um alto TPV potencial e soluções digitais completas, a Fairfax pode ocupar esse espaço como infraestrutura moderna e escalável.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Destaque -->
+            <div class="highlight-section">
+                <div class="highlight-text">
+                    <strong>Ao oferecer gestão financeira eficiente para seguradoras, corretores e empresas, a PoliPay otimiza o fluxo de caixa, centraliza o volume de pagamentos (TPV) e gera novas fontes de receita para todo o ecossistema.</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+            <a href="slide54.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">55 / 63</div>
+            <a href="slide56.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+
+    <script>
+        // Animações adicionais ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animação das linhas de conexão
+            const lines = document.querySelectorAll('.connection-line');
+            lines.forEach((line, index) => {
+                line.style.opacity = '0';
+                line.style.transform += ' scale(0)';
+                setTimeout(() => {
+                    line.style.transition = 'all 0.8s ease';
+                    line.style.opacity = '1';
+                    line.style.transform = line.style.transform.replace('scale(0)', 'scale(1)');
+                }, 500 + (index * 200));
+            });
+
+            // Efeito de brilho no centro
+            const center = document.querySelector('.polipay-center');
+            setInterval(() => {
+                center.style.boxShadow = '0 8px 25px rgba(76, 175, 80, 0.6)';
+                setTimeout(() => {
+                    center.style.boxShadow = '0 8px 25px rgba(76, 175, 80, 0.4)';
+                }, 500);
+            }, 3000);
+        });
+
+        // Interatividade nos pontos
+        document.querySelectorAll('.point').forEach(point => {
+            point.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(10px)';
+                this.querySelector('.point-number').style.transform = 'scale(1.1)';
+            });
+            
+            point.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0)';
+                this.querySelector('.point-number').style.transform = 'scale(1)';
+            });
+        });
+
+        // Interatividade nos nós de conexão
+        document.querySelectorAll('.connection-node').forEach(node => {
+            node.addEventListener('click', function() {
+                this.style.transform = 'scale(1.3)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

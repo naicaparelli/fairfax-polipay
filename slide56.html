@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/common.css"/>
+    <link rel="stylesheet" href="assets/css/slide56.css"/>
+    <title>Players utilizados para simulação</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="header">
+                <div class="title-section">
+                    <h1 class="title">Players utilizados para simulação</h1>
+                </div>
+                <div class="description">
+                    Selecionamos cuidadosamente parceiros que aportam ativos estratégicos, táticos e operacionais para o sucesso da <span class="highlight">Polipay</span>.
+                </div>
+            </div>
+
+            <div class="players-grid">
+                <!-- VISA -->
+                <div class="player-card">
+                    <div class="player-logo visa">VISA</div>
+                    <div class="player-content">
+                        <div class="player-name">VISA</div>
+                        <div class="player-description">
+                            Além de ser uma das marcas mais reconhecidas e uma rede de aceitação global de pagamentos, a Visa tem sido um parceiro importante para o sucesso de fintechs aportando reconhecimento, alinhamento estratégico ao mercado e inovações em meios de pagamento como Tap to Phone, <span class="highlight">Click to pay</span>, Visa Direct, pagamentos por aproximação, ferramentas de segurança e risco, etc.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DOCK -->
+                <div class="player-card">
+                    <div class="player-logo dock">DOCK</div>
+                    <div class="player-content">
+                        <div class="player-name">DOCK</div>
+                        <div class="player-description">
+                            A DOCK é reconhecida como a pioneira e uma das maiores infraestruturas de serviços financeiros no Brasil e nos principais países da Latam. Conta digital, cartões, empréstimos e serviços de meios de pagamentos com o Pix e adquirência. <span class="highlight">TuboTaxi aplicativo</span> e prevenção e fraude.
+                        </div>
+                        <div class="player-stats">
+                            <div>*Regulada Banco Central (Banco 301)</div>
+                            <div>*R$ <span class="stat-highlight">1,4 trilhão</span> processado anualmente</div>
+                            <div>*<span class="stat-highlight">75 milhões</span> de contas digitais ativas</div>
+                            <div>*<span class="stat-highlight">8,6%</span> de <span class="stat-highlight">market share</span> no Brasil</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GOOGLE -->
+                <div class="player-card">
+                    <div class="player-logo google">G</div>
+                    <div class="player-content">
+                        <div class="player-name">GOOGLE</div>
+                        <div class="player-description">
+                            Plataforma e serviços Google para entregar soluções nativo definindo performance ao usuário e escalabilidade da nuvem com prudência em custos.
+                            <br><br>
+                            A tecnologia dos principais e mais reconhecidos cases de mercado aplicado no fintech <span class="highlight">Wise</span>.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BF -->
+                <div class="player-card">
+                    <div class="player-logo bf">BF</div>
+                    <div class="player-content">
+                        <div class="player-name">BF</div>
+                        <div class="player-description">
+                            O Financial Cloud <span class="highlight">BankFactory</span> proporciona robustez e flexibilidade para as operações financeiras e construção de fintechs a bancos.
+                            <br><br>
+                            A experiência dos executivos aliada à plataforma permitiu o sucesso de grandes cases de mercado como Banco <span class="highlight">Digimais</span>, Contabilizei, <span class="highlight">Leo Madeiras</span>, entre outros.
+                        </div>
+                        <div class="player-stats">
+                            <div>Homologada DOCK e Visa</div>
+                            <div>+ R$ <span class="stat-highlight">500i</span> transacionados</div>
+                            <div>+ <span class="stat-highlight">40M</span> de transações</div>
+                            <div>+ <span class="stat-highlight">8M</span> de contas abertas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="navigation">
+            <a href="slide55.html" class="nav-btn">← Anterior</a>
+            <div class="slide-counter">56 / 63</div>
+            <a href="slide57.html" class="nav-btn">Próximo →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/navigation.js"></script>
+
+    <script>
+        // Adicionar interatividade aos cards
+        document.querySelectorAll('.player-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+
+            // Efeito de clique
+            card.addEventListener('click', function() {
+                this.style.transform = 'translateY(-15px) scale(1.05)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                }, 150);
+            });
+        });
+
+        // Animação adicional no scroll (caso necessário)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.player-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

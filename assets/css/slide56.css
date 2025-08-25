@@ -1,0 +1,217 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .main-content {
+            padding: 40px;
+            margin-bottom: 80px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            gap: 40px;
+        }
+
+        .title-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: 400;
+        }
+
+        .title::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid #2c5aa0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-right: 20px;
+        }
+
+        .description {
+            flex: 1;
+            max-width: 400px;
+            font-size: 0.95rem;
+            color: #5d6d7e;
+            line-height: 1.7;
+        }
+
+        .description .highlight {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+
+        /* Cards dos Players */
+        .players-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .player-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .player-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .player-logo {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            position: relative;
+        }
+
+        .player-logo.visa {
+            background: linear-gradient(135deg, #1a1f71, #2e4bc7);
+        }
+
+        .player-logo.dock {
+            background: linear-gradient(135deg, #00d4aa, #00b894);
+        }
+
+        .player-logo.google {
+            background: linear-gradient(135deg, #4285f4, #1a73e8);
+        }
+
+        .player-logo.bf {
+            background: linear-gradient(135deg, #000000, #333333);
+        }
+
+        .player-content {
+            padding: 25px;
+        }
+
+        .player-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .player-description {
+            font-size: 0.85rem;
+            color: #5d6d7e;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .player-description .highlight {
+            font-weight: 600;
+        }
+
+        .player-stats {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e9ecef;
+            font-size: 0.8rem;
+            color: #7f8c8d;
+        }
+
+        .player-stats div {
+            margin-bottom: 3px;
+        }
+
+        .player-stats .stat-highlight {
+            color: #2c5aa0;
+            font-weight: 600;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1200px) {
+            .players-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .players-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .player-logo {
+                height: 150px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Animações */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .player-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .player-card:nth-child(1) { animation-delay: 0.1s; }
+        .player-card:nth-child(2) { animation-delay: 0.2s; }
+        .player-card:nth-child(3) { animation-delay: 0.3s; }
+        .player-card:nth-child(4) { animation-delay: 0.4s; }

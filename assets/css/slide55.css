@@ -1,0 +1,327 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .main-content {
+            padding: 40px;
+            margin-bottom: 80px;
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+
+        .title::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid #4CAF50;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-right: 20px;
+        }
+
+        .title::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid #4CAF50;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 10px;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Diagrama PoliPay */
+        .polipay-diagram {
+            position: relative;
+            width: 300px;
+            height: 400px;
+        }
+
+        .polipay-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            z-index: 10;
+        }
+
+        .connection-node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF9800, #FFB74D);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .connection-node:hover {
+            transform: scale(1.1);
+        }
+
+        .node-1 { top: 20px; left: 50%; transform: translateX(-50%); }
+        .node-2 { top: 30%; right: 20px; }
+        .node-3 { bottom: 30%; right: 20px; }
+        .node-4 { bottom: 20px; left: 50%; transform: translateX(-50%); }
+        .node-5 { bottom: 30%; left: 20px; }
+
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(45deg, #FF9800, #FFB74D);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .line-1 {
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-25deg);
+            width: 80px;
+            height: 3px;
+        }
+
+        .line-2 {
+            top: 45%;
+            right: 80px;
+            width: 60px;
+            height: 3px;
+        }
+
+        .line-3 {
+            bottom: 45%;
+            right: 80px;
+            width: 60px;
+            height: 3px;
+        }
+
+        .line-4 {
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%) rotate(25deg);
+            width: 80px;
+            height: 3px;
+        }
+
+        .line-5 {
+            bottom: 45%;
+            left: 80px;
+            width: 60px;
+            height: 3px;
+        }
+
+        /* Pontos principais */
+        .right-column {
+            padding: 20px 0;
+        }
+
+        .main-points {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .point {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            opacity: 0;
+            transform: translateX(30px);
+            animation: slideIn 0.8s ease forwards;
+        }
+
+        .point:nth-child(1) { animation-delay: 0.2s; }
+        .point:nth-child(2) { animation-delay: 0.4s; }
+        .point:nth-child(3) { animation-delay: 0.6s; }
+        .point:nth-child(4) { animation-delay: 0.8s; }
+
+        .point-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .point-content {
+            flex: 1;
+        }
+
+        .point-title {
+            font-size: 1rem;
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .point-description {
+            font-size: 0.95rem;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .point-description .highlight {
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        /* Seção de destaque */
+        .highlight-section {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 50px;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .highlight-text {
+            font-size: 1.4rem;
+            font-weight: 300;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .highlight-text strong {
+            font-weight: 600;
+        }
+
+        /* Animações */
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); }
+        }
+
+        .polipay-center {
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .connection-node {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .connection-node:nth-child(2) { animation-delay: -0.5s; }
+        .connection-node:nth-child(3) { animation-delay: -1s; }
+        .connection-node:nth-child(4) { animation-delay: -1.5s; }
+        .connection-node:nth-child(5) { animation-delay: -2s; }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .left-column {
+                order: 2;
+            }
+            
+            .right-column {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 20px;
+            }
+            
+            .title {
+                font-size: 1.8rem;
+            }
+            
+            .polipay-diagram {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .polipay-center {
+                width: 100px;
+                height: 100px;
+                font-size: 1rem;
+            }
+            
+            .connection-node {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .highlight-text {
+                font-size: 1.2rem;
+            }
+        }

@@ -26,6 +26,7 @@
             padding: 25px 40px;
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         .header h1 {
@@ -161,10 +162,10 @@
 
         /* Seção ERP */
         .erp-gera-apolice { left: 350px; top: 30px; }
-        .erp-gera-boleto { left: 500px; top: 10px; }
-        .erp-gera-debito { left: 500px; top: 60px; }
-        .erp-concilia { left: 750px; top: 30px; }
-        .erp-gera-comissao { left: 900px; top: 30px; }
+        .erp-gera-boleto { left: 500px; top: 125px; }
+        .erp-gera-debito { left: 500px; top: 170px; }
+        .erp-concilia { left: 750px; top: 170px; }
+        .erp-gera-comissao { left: 900px; top: 170px; }
 
         /* Seção MaxiPago */
         .maxipago-cartao-credito { left: 500px; top: 40px; }
@@ -176,24 +177,24 @@
         /* Linhas de conexão específicas */
         .line-corretor { left: 308px; top: 70px; width: 42px; }
         .line-escolhe-down { left: 410px; top: 92px; height: 58px; }
-        .line-boleto-down { left: 705px; top: 30px; height: 370px; }
+        .line-boleto-down { left: 705px; top: 145px; height: 255px; }
         .line-cartao-down { left: 515px; top: 470px; height: 60px; }
-        .line-confirma-up { left: 485px; top: 30px; height: 272px; }
+        .line-confirma-up { left: 485px; top: 52px; height: 250px; }
         .line-concilia-horizontal { left: 462px; top: 52px; width: 24px; }
-        .line-comissao-horizontal { left: 868px; top: 50px; width: 32px; }
+        .line-comissao-horizontal { left: 868px; top: 190px; width: 32px; }
 
          /* Linhas novas */
-        .line-nova1-horizontal { left: 486px; top: 80px; width: 15px; }
-        .line-nova2-horizontal { left: 486px; top: 30px; width: 15px; }
+        .line-nova1-horizontal { left: 486px; top: 190px; width: 15px; }
+        .line-nova2-horizontal { left: 486px; top: 145px; width: 15px; }
         .line-nova3-horizontal { left: 486px; top: 60px; width: 15px; }
 
-        .line-nova4-horizontal { left: 687px; top: 80px; width: 20px; }
-        .line-nova5-horizontal { left: 609px; top: 30px; width: 98px; }
+        .line-nova4-horizontal { left: 687px; top: 190px; width: 20px; }
+        .line-nova5-horizontal { left: 609px; top: 145px; width: 98px; }
         .line-nova6-horizontal { left: 625px; top: 60px; width: 80px; }
 
         .line-nova7-horizontal { left: 776px; top: 60px; width: 15px; }
 
-        .line-boleto-up { left: 805px; top: 71px; height: 330px; }
+        .line-boleto-up { left: 805px; top: 212px; height: 189px; }
 
         /* Responsividade */
         @media (max-width: 1200px) {

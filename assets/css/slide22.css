@@ -145,14 +145,14 @@
             background: #059e57;
             color: white;
             top: 210px;
-            right: 220px;
+            right: 250px;
         }
 
         .youiso {
             background: #9b59b6;
             color: white;
             bottom: 80px;
-            left: 400px;
+            left: 350px;
             transform: translateX(-50%);
         }
 
@@ -160,7 +160,7 @@
             background: #2c3e50;
             color: white;
             bottom: 80px;
-            right: 190px;
+            right: 250px;
         }
 
         /* Axis labels */

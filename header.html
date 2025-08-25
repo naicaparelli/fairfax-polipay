@@ -1,0 +1,182 @@
+<!-- =============================
+Header modular (include via fetch)
+Files: header.html, header.css, header.js, header-loader.js
+Max width 1280px, hambúrguer, menu lateral. Header fixo no topo.
+============================= -->
+
+<!-- header.html -->
+<!-- Somente a marcação. Sem <html>/<head>/<body>. -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <a class="brand" href="/" aria-label="Início">
+      <span class="brand-logo" aria-hidden="true"></span>
+      <span>Minha Plataforma</span>
+    </a>
+
+    <nav class="nav-inline" aria-label="Menu principal">
+      <a href="/inicio.html">Início</a>
+      <a href="/fluxos.html">Fluxos</a>
+      <a href="/visualizar-fluxos.html">Visualizar Fluxos</a>
+      <a href="/relatorios.html">Relatórios</a>
+      <a href="/configuracoes.html">Configurações</a>
+      <a href="/suporte.html">Suporte</a>
+    </nav>
+
+    <button class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="drawer" aria-label="Abrir menu">
+      <svg class="icon-burger" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+<div class="backdrop" id="backdrop" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Menu lateral">
+  <div class="drawer-header">
+    <span class="drawer-title">Navegação</span>
+    <button class="btn-menu" id="btnClose" aria-label="Fechar menu">
+      <svg class="icon-close" style="display:block" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="/inicio.html">Início</a>
+    <a href="/fluxos.html">Fluxos</a>
+    <a href="/visualizar-fluxos.html">Visualizar Fluxos</a>
+    <a href="/relatorios.html">Relatórios</a>
+    <a href="/configuracoes.html">Configurações</a>
+    <a href="/suporte.html">Suporte</a>
+  </nav>
+</aside>
+
+<!-- header.css -->
+<style>
+  :root { --brand:#0f172a; --text:#0b1220; --bg:#ffffff; --muted:#64748b; }
+  * { box-sizing:border-box; }
+  .site-header { position:fixed; top:0; left:0; right:0; z-index:100; background:#fff; border-bottom:1px solid #e5e7eb; }
+  .site-header .container { max-width:1280px; margin:0 auto; padding:10px 16px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+  .brand { display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--brand); font-weight:700; }
+  .brand-logo { width:28px; height:28px; border-radius:6px; background:linear-gradient(135deg,#6366f1,#22d3ee); display:inline-block; }
+
+  .nav-inline { display:none; gap:16px; }
+  .nav-inline a { text-decoration:none; color:var(--text); padding:8px 10px; border-radius:8px; }
+  .nav-inline a:hover { background:#f1f5f9; }
+
+  .btn-menu { appearance:none; border:0; background:#fff; width:40px; height:40px; border-radius:10px; display:grid; place-items:center; cursor:pointer; }
+  .btn-menu:focus-visible { outline:2px solid #6366f1; outline-offset:2px; }
+  .icon-burger, .icon-close { width:22px; height:22px; }
+  .icon-close { display:none; }
+
+  .backdrop { position:fixed; inset:0; background:rgba(2,6,23,.45); opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:90; }
+  .drawer { position:fixed; top:0; bottom:0; right:-320px; width:320px; max-width:86vw; background:#fff; box-shadow:-8px 0 24px rgba(0,0,0,.08); border-left:1px solid #e5e7eb; transition:right .25s ease; display:flex; flex-direction:column; z-index:110; }
+  .drawer-header { display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid #e5e7eb; }
+  .drawer-title { font-weight:700; }
+  .drawer-nav { padding:8px; display:grid; gap:6px; }
+  .drawer-nav a { display:flex; align-items:center; gap:10px; padding:12px; border-radius:10px; color:#0b1220; text-decoration:none; }
+  .drawer-nav a:hover { background:#f1f5f9; }
+
+  .is-open .backdrop { opacity:1; pointer-events:auto; }
+  .is-open .drawer { right:0; }
+  .is-open .icon-burger { display:none; }
+  .is-open .icon-close { display:block; }
+
+  @media (min-width: 900px) {
+    .nav-inline { display:flex; }
+    .btn-menu { display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .backdrop, .drawer { transition:none; }
+  }
+</style>
+
+<!-- header.js -->
+<script>
+  window.__initHeader = function initHeader(root = document) {
+    const body = document.body;
+    const btnMenu = root.getElementById('btnMenu');
+    const btnClose = root.getElementById('btnClose');
+    const drawer = root.getElementById('drawer');
+    const backdrop = root.getElementById('backdrop');
+    const header = root.querySelector('.site-header');
+
+    function setBodyOffset() {
+      const h = header?.offsetHeight || 0;
+      document.documentElement.style.setProperty('--header-h', h + 'px');
+      // aplica padding-top ao body para não "atrapalhar" o conteúdo
+      if (!document.body.classList.contains('has-header-offset')) {
+        document.body.classList.add('has-header-offset');
+      }
+      document.body.style.paddingTop = h + 'px';
+    }
+
+    function openDrawer() {
+      body.classList.add('is-open');
+      drawer?.removeAttribute('aria-hidden');
+      btnMenu?.setAttribute('aria-expanded','true');
+      if (backdrop) backdrop.hidden = false;
+      body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      body.classList.remove('is-open');
+      drawer?.setAttribute('aria-hidden','true');
+      btnMenu?.setAttribute('aria-expanded','false');
+      if (backdrop) backdrop.hidden = true;
+      body.style.overflow = '';
+    }
+
+    btnMenu?.addEventListener('click', () => {
+      body.classList.contains('is-open') ? closeDrawer() : openDrawer();
+    });
+    btnClose?.addEventListener('click', closeDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && body.classList.contains('is-open')) closeDrawer();
+    });
+    drawer?.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (a) closeDrawer();
+    });
+
+    // Observa mudanças de altura do header (responsivo)
+    const ro = new ResizeObserver(setBodyOffset);
+    if (header) ro.observe(header);
+    setBodyOffset();
+  }
+</script>
+
+<!-- header-loader.js -->
+<script>
+  // Uso: colocar um <div id="site-header"></div> na página e carregar este script.
+  (function loadHeader(){
+    const mount = document.getElementById('site-header');
+    if (!mount) return;
+    fetch('header.html', { cache: 'no-cache' })
+      .then(r => r.text())
+      .then(html => {
+        mount.innerHTML = html;
+        if (typeof window.__initHeader === 'function') {
+          window.__initHeader(document);
+        }
+      })
+      .catch(console.error);
+  })();
+</script>
+
+<!-- =============================
+Como usar em cada página/slide:
+
+1) Salve os blocos acima em arquivos separados:
+   - header.html  → somente o markup
+   - header.css   → dentro de um arquivo .css ou mantenha o <style> acima numa partial incluída com <link>
+   - header.js    → mantenha o bloco <script> com __initHeader num arquivo .js
+   - header-loader.js → script que faz o fetch e injeta o header
+
+2) Em cada página, coloque no <head>:
+   <link rel="stylesheet" href="/assets/header.css">
+
+3) No <body>, o ponto de montagem e os scripts:
+   <div id="site-header"></div>
+   <script src="/assets/header.js"></script>
+   <script src="/assets/header-loader.js" defer></script>
+
+O header ficará fixo no topo e o body receberá padding-top automático para não haver sobreposição.
+============================= -->
