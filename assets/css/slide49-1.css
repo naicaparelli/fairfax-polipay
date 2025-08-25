@@ -163,13 +163,14 @@
         /* Seção ERP */
         .erp-gera-apolice { left: 350px; top: 30px; }
         .erp-gera-boleto { left: 500px; top: 10px; }
-        .erp-gera-debito { left: 500px; top: 80px; }
+        .erp-gera-debito { left: 500px; top: 60px; }
         .erp-concilia { left: 750px; top: 200px; }
         .erp-gera-comissao { left: 900px; top: 30px; }
         .erp-gera-liquidacao { left: 1060px; top: 30px; }
 
         /* Seção MaxiPago */
-        .maxipago-cartao-credito { left: 500px; top: 150px; }
+        .maxipago-cartao-credito { left: 500px; top: 110px; }
+        .maxipago-pix { left: 500px; top: 160px; }
 
         /* Seção Bancos */
         .bancos-confirma-pgto { left: 650px; top: 40px; }
@@ -180,19 +181,21 @@
         .line-escolhe-down { left: 410px; top: 92px; height: 58px; }
         .line-boleto-down { left: 705px; top: 150px; height: 250px; }
         .line-cartao-down { left: 515px; top: 470px; height: 60px; }
-        .line-confirma-up { left: 410px; top: 71px; height: 222px; }
-        .line-concilia-horizontal { left: 410px; top: 220px; width: 90px; }
+        .line-confirma-up { left: 410px; top: 71px; height: 224px; }
+        .line-concilia-horizontal { left: 410px; top: 200px; width: 90px; }
         .line-concilia-horizontal-2 { left: 868px; top: 100px; width: 230px; }
         .line-comissao-horizontal { left: 805px; top: 50px; width: 95px; }
 
          /* Linhas novas */
         .line-nova1-horizontal { left: 486px; top: 80px; width: 15px; }
         .line-nova2-horizontal { left: 410px; top: 150px; width: 90px; }
-        .line-nova3-horizontal { left: 410px; top: 172px; width: 90px; }
+        .line-nova3-horizontal { left: 410px; top: 130px; width: 90px; }
+        .line-nova8-horizontal { left: 410px; top: 175px; width: 90px; }
 
-        .line-nova4-horizontal { left: 687px; top: 220px; width: 20px; }
+        .line-nova4-horizontal { left: 687px; top: 200px; width: 20px; }
         .line-nova5-horizontal { left: 609px; top: 150px; width: 98px; }
-        .line-nova6-horizontal { left: 625px; top: 170px; width: 80px; }
+        .line-nova6-horizontal { left: 625px; top: 130px; width: 80px; }
+        .line-nova9-horizontal { left: 550px; top: 175px; width: 152px; }
 
         .line-nova7-horizontal { left: 776px; top: 60px; width: 15px; }
         
