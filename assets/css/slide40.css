@@ -1,81 +1,84 @@
-/* Slide 2 - FairFax */
-body {
-    background: #1e2227;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px;
-    position: relative;
+/* assets/css/slide41.css */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;padding:20px;color:#333}
+
+.container{
+  max-width:1200px;margin:auto;margin-bottom:40px;background:rgba(255,255,255,.95);
+  border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.1);backdrop-filter:blur(20px)
 }
 
-.fairfax-content {
-  display: grid;
-  grid-template-columns: 50% 50%; /* metade pra cada lado */
-  width: 100%;
-  height: 100vh; 
+/* Header */
+.header{display:flex;align-items:center;margin-bottom:40px;padding-bottom:20px;border-bottom:3px solid #4CAF50}
+.logo{width:50px;height:50px;background:linear-gradient(45deg,#4CAF50,#45a049);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;margin-right:15px;box-shadow:0 5px 15px rgba(76,175,80,.3)}
+.logo::after{content:"→";color:#fff;font-size:24px;font-weight:bold;transform:rotate(-45deg)}
+.title{font-size:32px;font-weight:700;color:#2c3e50;letter-spacing:-1px}
+.subtitle{font-size:14px;color:#7f8c8d;margin-left:10px;padding:5px 12px;background:rgba(127,140,141,.1);border-radius:20px}
+
+/* Grid de gráficos */
+.charts-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin-bottom:40px}
+.chart-container{background:#fff;border-radius:15px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:.3s}
+.chart-container:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
+.chart-title{font-size:16px;font-weight:600;color:#2c3e50;margin-bottom:5px}
+.chart-subtitle{font-size:12px;color:#7f8c8d;margin-bottom:20px}
+
+/* BARRAS PADRÃO (gráficos 1 e 3) */
+.bar-chart{display:flex;align-items:end;height:200px;gap:10px;padding:0 10px;position:relative}
+.bar{
+  background:linear-gradient(180deg,#3498db,#2980b9);
+  border-radius:5px 5px 0 0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;
+  position:relative;flex:1;transition:.3s;cursor:pointer
+}
+.bar:hover{background:linear-gradient(180deg,#2980b9,#1f5f8b);transform:scale(1.05)}
+.bar-value{color:#fff;font-size:12px;font-weight:600;padding:5px;border-radius:3px;margin-bottom:5px}
+.bar-label{position:absolute;bottom:-25px;font-size:11px;color:#7f8c8d;font-weight:500}
+.negative-bar{background:linear-gradient(180deg,#e74c3c,#c0392b)}
+.negative-bar:hover{background:linear-gradient(180deg,#c0392b,#a93226)}
+
+/* === GRÁFICO COM BASELINE (EBITDA APENAS RECEITA DIRETA) === */
+.baseline-chart{
+  height:220px; padding:0 10px; position:relative;
+  display:flex; gap:12px; align-items:stretch;
+}
+.baseline-chart::before{ /* linha zero */
+  content:""; position:absolute; left:0; right:0; top:50%; height:2px; background:#8fd18f;
+}
+.bar-col{
+  flex:1; position:relative; display:grid; grid-template-rows:1fr 1fr; /* topo = positivo,baixo = negativo */
+}
+.pos, .neg{
+  width:60%; margin:0 auto; border-radius:5px; display:flex; align-items:flex-end; justify-content:center;
+  transition:.3s; cursor:pointer;
+}
+.pos{ align-self:end; background:linear-gradient(180deg,#3498db,#2980b9) }
+.neg{ align-self:start; background:linear-gradient(0deg,#e74c3c,#c0392b) }
+.pos:hover{transform:scale(1.05)}
+.neg:hover{transform:scale(1.05)}
+
+.bar-col .value{
+  color:#fff; font-size:11px; font-weight:700; padding:4px 6px; margin-bottom:4px; border-radius:4px
+}
+.bar-col .label{
+  position:absolute; left:50%; transform:translateX(-50%); bottom:-22px;
+  font-size:11px; color:#7f8c8d; font-weight:500
 }
 
-.content-left {
-    padding-right: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: start;
+/* Seções de oportunidades (inalteradas) */
+.opportunities-section{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:80px}
+.section-card{background:#fff;border-radius:15px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.1)}
+.section-title{font-size:18px;font-weight:700;color:#2c3e50;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #3498db}
+.opportunity-item{margin-bottom:15px}
+.opportunity-title{font-weight:600;color:#2c3e50;margin-bottom:5px}
+.opportunity-text{color:#7f8c8d;font-size:14px;line-height:1.5}
+.strategic-item{display:flex;align-items:center;margin-bottom:12px;padding:8px 0}
+.strategic-item::before{content:"✓";color:#4CAF50;font-weight:bold;margin-right:10px;font-size:16px}
+.strategic-text{color:#555;font-size:14px}
 
-}
-
-.fairfax-title {
-    font-size: 3.5rem;
-    font-weight: 300;
-    margin-bottom: 1.5rem;
-    color: white;
-    line-height: 1.2;
-    text-align: start;
-}
-
-.fairfax-subtitle {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: rgba(255,255,255,0.9);
-    line-height: 1.4;
-}
-
-.content-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.image-placeholder {
-  width: 100%;
-  height: 100%;
-  background-image: url('../images/slide39.jpg');
-  background-size: cover;      /* cobre todo o espaço */
-  background-position: center; /* centraliza a imagem */
-}
-
-/* Animações específicas */
-.content-left { 
-    animation: slideInLeft 0.6s ease 0.2s both; 
-}
-
-.content-right { 
-    animation: slideInRight 0.6s ease 0.4s both; 
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .fairfax-content { 
-        grid-template-columns: 1fr; 
-        gap: 30px; 
-        text-align: center;
-    }
-    .content-left { padding-right: 0; }
-    .fairfax-title { font-size: 2.5rem; }
-    .fairfax-subtitle { font-size: 1.4rem; }
-    .content-right { height: 250px; }
-    body { padding: 20px; }
+/* Responsivo */
+@media (max-width:768px){
+  .charts-grid{grid-template-columns:1fr}
+  .opportunities-section{grid-template-columns:1fr}
+  .container{padding:20px}
+  .title{font-size:24px}
+  .navigation{flex-direction:column;gap:15px}
 }

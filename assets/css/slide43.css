@@ -1,65 +1,81 @@
-/* layout base */
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;min-height:100vh;padding:20px;color:#333}
-.container{max-width:1400px;margin:0 auto;background:rgba(255,255,255,.95);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.1);backdrop-filter:blur(20px)}
+/* Slide 2 - FairFax */
+body {
+    background: #1e2227;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    position: relative;
+}
 
-.header{display:flex;align-items:center;margin-bottom:30px;padding-bottom:20px;border-bottom:3px solid #00d4aa}
-.logo{width:50px;height:50px;background:#00d4aa;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:15px;box-shadow:0 5px 15px rgba(76,175,80,.3)}
-.logo::after{content:"⟩⟩";color:#fff;font-size:20px;font-weight:700}
-.title{font-size:32px;font-weight:700;color:#2c3e50;letter-spacing:-1px}
-.subtitle{font-size:14px;color:#7f8c8d;margin-top:5px}
-.subtitle .highlight{background:linear-gradient(45deg,#e74c3c,#c0392b);color:#fff;padding:2px 6px;border-radius:3px;font-weight:600}
+.fairfax-content {
+  display: grid;
+  grid-template-columns: 50% 50%; /* metade pra cada lado */
+  width: 100%;
+  height: 100vh; 
+}
 
-.scenarios-container{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-bottom:30px}
-.scenario-card{background:#fff;border-radius:15px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:.3s}
-.scenario-card::before{content:"";display:block;height:4px;background:linear-gradient(45deg,#3498db,#2980b9);border-radius:4px;margin:-25px -25px 20px}
-.scenario-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
-.scenario-card-1{background:#b4b4b467;border-radius:15px;padding:25px;box-shadow:0 10px 30px rgba(0,0,0,.1);transition:.3s}
-.scenario-card-1::before{content:"";display:block;height:4px;background:linear-gradient(45deg,#3498db,#2980b9);border-radius:4px;margin:-25px -25px 20px}
-.scenario-card-1:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.15)}
+.content-left {
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: start;
 
-.diagram-area {
-  height: 380px;                /* altura fixa para todos os cards */
+}
+
+.fairfax-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    color: white;
+    line-height: 1.2;
+    text-align: start;
+}
+
+.fairfax-subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.4;
+}
+
+.content-right {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  height: 100vh;
 }
 
-.diagram {
-  width: 300px;                 /* tamanho fixo do gráfico */
-  height: 300px;
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-image: url('../images/slide37.jpg');
+  background-size: cover;      /* cobre todo o espaço */
+  background-position: center; /* centraliza a imagem */
 }
 
-/* linhas */
-.wire{fill:none}
-.wire--solid{stroke:#27ae60;stroke-width:3}
-.wire--dashed{stroke:#c0392b;stroke-width:2.5;stroke-dasharray:6 6;opacity:.9}
-.wire--blue{stroke:#2980b9;stroke-width:3}
+/* Animações específicas */
+.content-left { 
+    animation: slideInLeft 0.6s ease 0.2s both; 
+}
 
-/* nós (SVG) */
-.node{stroke:#ffffff;stroke-width:2}
-.node__txt{fill:#fff;font-size:12px;font-weight:700;text-anchor:middle;dominant-baseline:middle}
+.content-right { 
+    animation: slideInRight 0.6s ease 0.4s both; 
+}
 
-/* paleta dos nós */
-.node--fairfax,.node--socio{fill:#344149}
-.node--vc{fill:#2d87c8}
-.node--polipay{fill:#29b765}
-.node--stake{fill:#d9534f}
-.node--svc{fill:#e67e22}
-
-/* fallback: gradiente inline via filter já dá profundidade; não precisa do <defs> extra */
-
-/* caixa de características */
-.characteristics{background:#f8f9fa;border-radius:10px;padding:15px;margin-top:10px}
-.characteristics-title{font-weight:700;color:#2c3e50;margin-bottom:10px;font-size:14px}
-.characteristic-item{font-size:13px;color:#555;margin-bottom:8px;line-height:1.4}
-.characteristic-item:last-child{margin-bottom:0}
-.underline{color:#e74c3c}
-
-/* responsivo */
-@media (max-width:1024px){
-  .scenarios-container{grid-template-columns:1fr;gap:20px}
-  .container{padding:20px}
-  .title{font-size:24px}
+/* Responsive */
+@media (max-width: 768px) {
+    .fairfax-content { 
+        grid-template-columns: 1fr; 
+        gap: 30px; 
+        text-align: center;
+    }
+    .content-left { padding-right: 0; }
+    .fairfax-title { font-size: 2.5rem; }
+    .fairfax-subtitle { font-size: 1.4rem; }
+    .content-right { height: 250px; }
+    body { padding: 20px; }
 }
